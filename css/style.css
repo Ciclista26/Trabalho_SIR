@@ -1,7 +1,5 @@
     @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
     
-
-       
     /* navbar */
 
     #mainNav {
@@ -185,6 +183,17 @@
         padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
     }
 
+    .card {
+        border: 2px solid #43555d;
+        border-radius: 0;
+        --bs-card-spacer-y: 2rem;
+        --bs-card-spacer-x: 2rem;
+    }
+
+    .card-title.d-flex {
+        justify-content: space-between;
+    }
+
     /* Footer */
 
     .bg-footer {
@@ -215,6 +224,14 @@
         padding-right: 0;
     }
 
+    .mr-5 {
+        padding-right: 4rem!important;
+    }
+
+    .ml-5 {
+        padding-left: 4rem!important;
+    }
+
     /* css geral */
     .text-black {
         color: #212529;
@@ -223,3 +240,23 @@
     .card-title-yellow{
         color: #ffc600;
     }
+
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: #ffc600 #43555d;
+      }
+      
+      /* Works on Chrome, Edge, and Safari */
+      *::-webkit-scrollbar {
+        width: 10px;
+      }
+      
+      *::-webkit-scrollbar-track {
+        background: #43555d;
+      }
+      
+      *::-webkit-scrollbar-thumb {
+        background-color: #ffc600;
+        border-radius: 20px;
+        border: 3px solid #43555d;
+      }
