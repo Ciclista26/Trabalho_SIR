@@ -1,4 +1,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+    
+
+       
     /* navbar */
 
     #mainNav {
@@ -79,7 +82,7 @@
         font-size: 21px;
     }
 
-    #mainNav .navbar-nav{
+    #mainNav .navbar-nav {
         align-items: center;
     }
 
@@ -91,23 +94,23 @@
         --bs-btn-hover-color: #fff;
         --bs-btn-hover-bg: transparent;
         --bs-btn-hover-border-color: #ffffff;
-        --bs-btn-focus-shadow-rgb: 255,193,7;
+        --bs-btn-focus-shadow-rgb: 255, 193, 7;
         --bs-btn-active-color: #fff;
         --bs-btn-active-bg: #ffc600;
         --bs-btn-active-border-color: #ffc600;
         --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
         --bs-gradient: none;
-      }
+    }
 
-      .text-white{
+    .text-white {
         color: #fff;
-      }
+    }
 
     /* header */
     header.masthead {
         padding-top: 10rem;
         padding-bottom: calc(10rem - 4.5rem);
-        background: linear-gradient(rgba(67,85,93,0.8) 0%, rgba(67,85,93,0.8) 100%), url("../assets/image/235.jpg");
+        background: linear-gradient(rgba(67, 85, 93, 0.8) 0%, rgba(67, 85, 93, 0.8) 100%), url("../assets/image/235.jpg");
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: scroll;
@@ -147,7 +150,7 @@
 
     /* Masthead */
 
-    .masthead .h-bottons{
+    .masthead .h-bottons {
         justify-content: center;
     }
 
@@ -160,27 +163,63 @@
         --bs-btn-hover-color: #fff;
         --bs-btn-hover-bg: transparent;
         --bs-btn-hover-border-color: #fff;
-        --bs-btn-focus-shadow-rgb: 49,132,253;
+        --bs-btn-focus-shadow-rgb: 49, 132, 253;
         --bs-btn-active-color: #43555d;
         --bs-btn-active-bg: transparent;
         --bs-btn-active-border-color: #43555d;
         --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-      }
+    }
+
+    /* sobre */
+    .sobre .container .row {
+        justify-content: center;
+        background-color: #43555d;
+    }
+
+    /* team */
+    .team .row {
+        justify-content: center;
+    }
+
+    .team img.card-img-top {
+        padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+    }
 
     /* Footer */
 
-    .bg-footer{
+    .bg-footer {
         background-color: #43555d;
         color: #fff;
     }
 
     /* padings e margins */
 
-    .p_lr{
+    .p_lr {
         padding-left: 10px;
         padding-right: 10px;
     }
 
-    .mw-2{
-margin: 0px 20px;
+    .mw-2 {
+        margin: 0px 20px;
+    }
+
+    .mg {
+        margin: 80px 0px;
+    }
+
+    .p-0 {
+        padding-left: 0;
+    }
+
+    .pr-0 {
+        padding-right: 0;
+    }
+
+    /* css geral */
+    .text-black {
+        color: #212529;
+    }
+
+    .card-title-yellow{
+        color: #ffc600;
     }
