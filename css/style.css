@@ -1,5 +1,5 @@
     @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-    
+
     /* navbar */
 
     #mainNav {
@@ -174,19 +174,21 @@
         user-select: none;
     }
 
-    #infos-content .text-content{
+    #infos-content .text-content {
         background-color: #43555d;
     }
+
     .infos .nav-tabs .nav-link.active {
         color: #ffc600;
         background-color: #43555d;
         border-color: #43555d;
         width: 10rem;
-      }
-      .infos .nav-tabs .nav-link{
+    }
+
+    .infos .nav-tabs .nav-link {
         color: #43555d;
         width: 10rem;
-      }
+    }
 
 
     /* sobre */
@@ -217,13 +219,44 @@
     }
 
     /* Footer */
+    #footer .widget a {
+        text-decoration: none;
+        color: white;
+    }
+
+    #footer .widget a:hover {
+        color: #ffc600;
+    }
+
+    #footer .widget a.red_soc {
+        color: #ffc600;
+    }
+
+    #footer .widget a.red_soc:hover {
+        color: #fff;
+    }
 
     .bg-footer {
         background-color: #43555d;
         color: #fff;
     }
 
+    #textarea1 {
+        height: 8rem;
+    
+    }
+
     /* padings e margins */
+
+    @media (min-width: 992px) {
+        .mr-lg-5 {
+            padding-right: 4rem !important;
+        }
+    
+        .ml-lg-5 {
+            padding-left: 4rem !important;
+        }
+      }
 
     .p_lr {
         padding-left: 10px;
@@ -247,11 +280,23 @@
     }
 
     .mr-5 {
-        padding-right: 4rem!important;
+        padding-right: 4rem !important;
     }
 
     .ml-5 {
-        padding-left: 4rem!important;
+        padding-left: 4rem !important;
+    }
+
+    .pl-1 {
+        padding-left: 1rem;
+    }
+
+    .pr-1{
+        padding-right: 1rem;
+    }
+
+    .py-6{
+        padding: 5rem 0;
     }
 
     /* css geral */
@@ -259,35 +304,26 @@
         color: #212529;
     }
 
-    .card-title-yellow{
+    .card-title-yellow {
         color: #ffc600;
     }
 
     * {
         scrollbar-width: thin;
         scrollbar-color: #ffc600 #43555d;
-      }
-      
-      /* Works on Chrome, Edge, and Safari */
-      *::-webkit-scrollbar {
+    }
+
+    /* Works on Chrome, Edge, and Safari */
+    *::-webkit-scrollbar {
         width: 10px;
-      }
-      
-      *::-webkit-scrollbar-track {
+    }
+
+    *::-webkit-scrollbar-track {
         background: #43555d;
-      }
-      
-      *::-webkit-scrollbar-thumb {
+    }
+
+    *::-webkit-scrollbar-thumb {
         background-color: #ffc600;
         border-radius: 20px;
         border: 3px solid #43555d;
-      }
-
-    #footer {
-        display: block;
-        position: relative;
-        font-size: 14px;
-        line-height: 32px;
-        font-weight: 400;
-        font-family: "Montserrat", sans-serif;
     }
