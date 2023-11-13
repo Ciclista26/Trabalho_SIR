@@ -42,12 +42,6 @@
         color: #fff;
     }
 
-    @media (max-width: 991px) {
-    .navbar-collapse .navbar-nav{
-        height: 100vh;
-      }
-    }
-
     @media (min-width: 992px) {
         #mainNav {
             box-shadow: none;
@@ -248,7 +242,7 @@
         --bs-card-spacer-x: 2rem;
     }
 
-    .card-title.d-flex {
+    .card-link.d-flex {
         justify-content: space-between;
     }
 
