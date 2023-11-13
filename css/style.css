@@ -4,7 +4,7 @@
 
     #mainNav {
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-        background-color: #fff;
+        background-color: #43555d;
         transition: background-color 0.2s ease;
     }
 
@@ -15,11 +15,30 @@
     }
 
     #mainNav .navbar-nav .nav-item .nav-link {
-        color: #6c757d;
+        color: #ffc600;
         font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         font-weight: 700;
         font-size: 0.9rem;
         padding: 0.75rem 0;
+    }
+    #mainNav .navbar-nav .nav-item .nav-link:hover {
+        color: #fff;
+    }
+
+    #mainNav .navbar-toggler {
+        text-decoration: none;
+        border: 0;
+        color: #ffc600;
+    }
+
+    .navbar-toggler:active {
+        box-shadow: none;
+      }
+
+    #mainNav .navbar-toggler:hover {
+        text-decoration: none;
+        border: 0;
+        color: #fff;
     }
 
     @media (min-width: 992px) {
@@ -218,13 +237,19 @@
         justify-content: space-between;
     }
 
+    .card-title {
+        font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-weight: 700;
+        color: #43555d;
+      }
+
     /* Footer */
-    #footer .widget a {
+    #footer .widget a.d-flex {
         text-decoration: none;
         color: white;
     }
 
-    #footer .widget a:hover {
+    #footer .widget a.d-flex:hover {
         color: #ffc600;
     }
 
@@ -305,6 +330,10 @@
 
     .py-6{
         padding: 5rem 0;
+    }
+
+    .justify-content-flex-end{
+        justify-content: flex-end;
     }
 
     /* css geral */

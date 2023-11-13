@@ -27,24 +27,18 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
   }
 
-
-  /* const tabs = [];
-  const btntabs = [];
-
-  for (let i = 1; i <= 3; i++) {
-    const tab = document.getElementById(`tabs-${i}`);
-    const btnTab = document.getElementById(`btntab-${i}`);
-    tabs.push(tab);
-    btntabs.push(btnTab);
-
-    btnTab.addEventListener("click", () => {
-      btntabs.forEach((btn) => btn.classList.remove("active"));
-      tabs.forEach((tab) => tab.classList.remove("show", "active"));
-
-      btnTab.classList.add("active");
-      tab.classList.add("show", "active");
+  // Collapse responsive navbar when toggler is visible
+  const navbarToggler = document.body.querySelector(".navbar-toggler");
+  const responsiveNavItems = [].slice.call(
+    document.querySelectorAll("#navbarResponsive .nav-link")
+  );
+  responsiveNavItems.map(function (responsiveNavItem) {
+    responsiveNavItem.addEventListener("click", () => {
+      if (window.getComputedStyle(navbarToggler).display !== "none") {
+        navbarToggler.click();
+      }
     });
-  } */
+  });
 
   const tabs = [];
   const btntabs = [];
