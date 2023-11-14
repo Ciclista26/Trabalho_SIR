@@ -399,7 +399,7 @@
 
     /* Works on Chrome, Edge, and Safari */
     *::-webkit-scrollbar {
-        width: 10px;
+        width: 3px;
     }
 
     *::-webkit-scrollbar-track {
@@ -431,6 +431,21 @@
         * {
             scrollbar-width: thin;
             scrollbar-color: #ffc600 #43555d;
+        }
+        *::-webkit-scrollbar {
+            width: 5px;
+        }
+    
+        *::-webkit-scrollbar-track {
+            background: #43555d;
+        }
+
+        .sondagens::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        *::-webkit-scrollbar-thumb {
+            background-color: #ffc600;
+            border-radius: 20px;
         }
     }
 
