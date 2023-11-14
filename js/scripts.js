@@ -51,11 +51,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     btnTab.addEventListener("click", () => {
       btntabs.forEach((btn) => btn.classList.remove("active"));
-      tabs.forEach((tab) => tab.classList.remove("show", "active", "d-md-flex"));
+      tabs.forEach((tab) => tab.classList.remove("show", "active"));
       tabs.forEach((tab) => tab.classList.add("d-none"));
 
       btnTab.classList.add("active");
-      tab.classList.add("show", "active", "d-md-flex");
+      tab.classList.add("show", "active");
       tab.classList.remove("d-none");
     });
   }

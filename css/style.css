@@ -399,7 +399,7 @@
 
     /* Works on Chrome, Edge, and Safari */
     *::-webkit-scrollbar {
-        width: 0px;
+        width: 10px;
     }
 
     *::-webkit-scrollbar-track {
@@ -410,20 +410,6 @@
         background-color: #888370;
         border-radius: 20px;
         border: 3px solid #43555d;
-    }
-
-    .sondagens::-webkit-scrollbar {
-        width: 0px;
-    }
-
-    .sondagens::-webkit-scrollbar-track {
-        background: transparent;
-    }
-
-    .sondagens::-webkit-scrollbar-thumb {
-        background-color: transparent;
-        border-radius: 0px;
-        border: 0px;
     }
 
     body {
@@ -446,20 +432,6 @@
         * {
             scrollbar-width: thin;
             scrollbar-color: #ffc600 #43555d;
-        }
-
-        *::-webkit-scrollbar {
-            width: 10px;
-        }
-    
-        *::-webkit-scrollbar-track {
-            background: #43555d;
-        }
-    
-        *::-webkit-scrollbar-thumb {
-            background-color: #888370;
-            border-radius: 20px;
-            border: 3px solid #43555d;
         }
     }
 
