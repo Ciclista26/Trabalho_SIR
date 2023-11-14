@@ -233,12 +233,14 @@
     }
 
     /* sondagens */
-    .sondagens .card-text p {
+    .sondagens .card-text{
         display: block;
         width: 100%;
         height: 8rem;
         overflow-y: scroll;
         scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-color: #ffc600 transparent;
       }
 
 
