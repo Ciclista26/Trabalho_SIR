@@ -379,6 +379,12 @@
         padding: 5rem 0;
     }
 
+    @media (max-width: 767px) {
+        .ptb-41 {
+            padding: 4rem 1rem !important;
+        }
+      }
+
     .justify-content-flex-end {
         justify-content: flex-end;
     }
