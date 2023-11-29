@@ -43,10 +43,10 @@ require_once __DIR__ . '../../../templates/header.php';
                 <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com" value="<?= isset($_REQUEST['email']) ? $_REQUEST['email'] : null ?>">
                 <label for="floatingInput">Email</label>
               </div>
-              <!-- <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="floatingInput" name="CCnumber" placeholder="123456789" value="<?= isset($_REQUEST['CCnumber']) ? $_REQUEST['CCnumber'] : null ?>">
+              <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" name="ccNumber" placeholder="123456789" value="<?= isset($_REQUEST['ccNumber']) ? $_REQUEST['ccNumber'] : null ?>">
                 <label for="floatingInput">CC</label>
-              </div> -->
+              </div>
               <div class="form-floating mb-2">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 <label for="password">Password</label>

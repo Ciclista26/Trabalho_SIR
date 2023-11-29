@@ -160,11 +160,13 @@ function createNewUser($user)
     $user['password'] = password_hash($user['password'], PASSWORD_DEFAULT);
     $sqlCreate = "INSERT INTO 
     users (
-        name, 
+        name,
+        ccNumber, 
         email, 
         password) 
     VALUES (
-        :name, 
+        :name,
+        :ccNumber,
         :email, 
         :password
     )";

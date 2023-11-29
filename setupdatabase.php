@@ -28,6 +28,7 @@ $user = [
     'name' => 'Rui',
     'lastname' => 'Alves',
     'phoneNumber' => '987654321',
+    'ccNumber' => '123456789',
     'email' => 'rui.alves@estg.ipvc.pt',
     'foto' => null,
     'administrator' => true,

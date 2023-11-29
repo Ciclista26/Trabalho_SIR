@@ -44,6 +44,7 @@ $title = ' - Admin management';
             <tr>
               <th scope="col">Name</th>
               <th scope="col">Lastname</th>
+              <th scope="col">CC Number</th>
               <th scope="col">Phone Number</th>
               <th scope="col">Email</th>
               <th scope="col">Administrator</th>

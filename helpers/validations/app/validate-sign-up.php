@@ -9,6 +9,10 @@ function isSignUpValid($req)
     if (empty($req['name']) || strlen($req['name']) < 3 || strlen($req['name']) > 255) {
         $errors['name'] = 'The name field cannot be empty and must be between 3 and 255 characters';
     }
+    
+    if (empty($req['ccNumber']) && strlen($req['password']) < 9) {
+        $errors['ccNumber'] = 'The Password field cannot be empty and must be at least 9 characters long.';
+    }
 
     if (!filter_var($req['email'], FILTER_VALIDATE_EMAIL)) {
         $errors['email'] = 'The Email field must not be empty and must have an email format, such as: name@example.com.';
