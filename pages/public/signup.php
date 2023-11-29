@@ -45,7 +45,7 @@ include_once __DIR__ . '../../../templates/header.php'; ?>
     </div>
     <button class="w-100 btn btn-lg btn-success mb-2" type="submit" name="user" value="signUp">Sign Up</button>
   </form>
-  <a href="/Trabalho_SIR/"><button class="w-100 btn btn-lg btn-info">Back</button></a>
+  <a href="/Trabalho_SIR/index.php"><button class="w-100 btn btn-lg btn-info">Back</button></a>
 </main>
 <?php
 include_once __DIR__ . '../../../templates/footer.php'; ?>
