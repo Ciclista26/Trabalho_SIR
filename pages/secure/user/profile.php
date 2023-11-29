@@ -54,6 +54,11 @@ $user = user();
           value="<?= isset($_REQUEST['phoneNumber']) ? $_REQUEST['phoneNumber'] : $user['phoneNumber'] ?>" required>
       </div>
       <div class="input-group mb-3">
+        <span class="input-group-text">CC Number</span>
+        <input type="tel" class="form-control" name="ccNumber" maxlength="9"
+          value="<?= isset($_REQUEST['ccNumber']) ? $_REQUEST['ccNumber'] : $user['ccNumber'] ?>" required>
+      </div>
+      <div class="input-group mb-3">
         <span class="input-group-text">email</span>
         <input type="email" class="form-control" name="email" maxlength="255"
           value="<?= isset($_REQUEST['email']) ? $_REQUEST['email'] : $user['email'] ?>" required>

@@ -18,6 +18,10 @@ function validatedUser($req)
         $errors['phoneNumber'] = 'The Mobile phone field cannot be empty and must have 9 numbers.';
     }
 
+    if (!filter_var($req['ccNumber'], FILTER_VALIDATE_INT) || strlen($req['ccNumber']) != 9) {
+        $errors['ccNumber'] = 'The Citizen Card field cannot be empty and must have 9 numbers.';
+    }
+
     if (!filter_var($req['email'], FILTER_VALIDATE_EMAIL)) {
         $errors['email'] = 'The Email field cannot be empty and must have the email format, for example: nome@example.com.';
     }
