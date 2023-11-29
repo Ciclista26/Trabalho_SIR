@@ -1,3 +1,8 @@
+<?php
+require_once __DIR__ . '/infra/middlewares/middleware-not-authenticated.php';
+require_once __DIR__ . '/setupdatabase.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,9 +53,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                    <li class="nav-item pt-3 pb-3 pt-lg-0 pb-lg-0 p_lr"><a class="nav-link" href="#portfolio">Login</a>
+                    <li class="nav-item pt-3 pb-3 pt-lg-0 pb-lg-0 p_lr"><a class="nav-link" href="/Trabalho_SIR/pages/public/signin.php">Login</a>
                     </li>
-                    <li class="nav-item p_lr"><a type="button" class="btn btn-outline-warning">Sign Up</a></li>
+                    <li class="nav-item p_lr"><a type="button" href="/Trabalho_SIR/pages/public/signup.php" class="btn btn-outline-warning">Sign Up</a></li>
                 </ul>
             </div>
         </div>
