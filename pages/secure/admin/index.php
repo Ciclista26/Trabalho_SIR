@@ -65,6 +65,9 @@ $title = ' - Admin management';
                   <?= $user['phoneNumber'] ?>
                 </td>
                 <td>
+                  <?= $user['ccNumber'] ?>
+                </td>
+                <td>
                   <?= $user['email'] ?>
                 </td>
                 <td>
