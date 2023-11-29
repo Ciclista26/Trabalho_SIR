@@ -22,7 +22,7 @@ include_once __DIR__ . '../../../templates/header.php'; ?>
     }
     ?>
   </section>
-  <form action="/crud/controllers/auth/signup.php" method="post">
+  <form action="/Trabalho_SIR/controllers/auth/signup.php" method="post">
     <h1 class="h3 mb-3 fw-normal">Sign Up</h1>
     <div class="form-floating mb-2">
       <input type="text" class="form-control" name="name" placeholder="name" maxlength="100" size="100"
@@ -45,7 +45,7 @@ include_once __DIR__ . '../../../templates/header.php'; ?>
     </div>
     <button class="w-100 btn btn-lg btn-success mb-2" type="submit" name="user" value="signUp">Sign Up</button>
   </form>
-  <a href="/crud/"><button class="w-100 btn btn-lg btn-info">Back</button></a>
+  <a href="/Trabalho_SIR/"><button class="w-100 btn btn-lg btn-info">Back</button></a>
 </main>
 <?php
 include_once __DIR__ . '../../../templates/footer.php'; ?>
