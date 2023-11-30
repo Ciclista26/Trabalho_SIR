@@ -52,8 +52,8 @@ require_once __DIR__ . '../../../templates/header.php';
                 <label for="password">Password</label>
               </div>
               <div class="form-floating mb-2">
-                <input type="password" class="form-control" id="confirmar_palavra_passe" name="confirmar_palavra_passe" placeholder="Confirm password">
-                <label for="confirmar_palavra_passe">Confirm Password</label>
+                <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm password">
+                <label for="confirm_password">Confirm Password</label>
               </div>
               <button class="w-100 btn btn-lg btn-warning-yellow mb-2" type="submit" name="user" value="signUp">Sign Up</button>
             </form>

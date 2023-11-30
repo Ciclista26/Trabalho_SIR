@@ -3,91 +3,137 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.wrapper {
+.wrapper-user{
     display: flex;
 }
 
-.sidebar {
+.wrapper-user .sidebar {
     width: 300px;
     height: 100vh;
     background-color: #43555d;
-    padding: 32px;
+    padding: 2rem;
     color: white;
     transition: width 0.5s;
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
     z-index: 1;
     flex-direction: column;
     justify-content: space-between;
-}   
+}
 
-.sidebar.active {
+.wrapper-user .sidebar.active {
     width: 120px;
 }
 
-.sidebar h2 {
+.wrapper-user .sidebar h2 {
     color: #64B5F6;
 }
 
-.sidebar ul {
+.wrapper-user .sidebar ul {
     list-style-type: none;
     padding: 0;
 }
 
-.sidebar li a {
+.wrapper-user .sidebar li a {
     text-decoration: none;
     color: white;
-    padding: 8px 16px;
-    display: block;
 }
 
-.sidebar li a:hover {
+.wrapper-user .sidebar li a:hover {
     background-color: #2196F3;
     color: white;
 }
 
 
-.w_active {
+.wrapper-user .w_active {
     width: calc(100% - 120px);
 }
-.w_none {
+
+.wrapper-user .w_none {
     width: calc(100% - 300px);
 }
 
-.footer {
+.wrapper-user .footer {
     background-color: #43555d;
     color: #fff;
     text-align: center;
     padding: 10px;
     position: fixed;
     bottom: 0;
+    right: 0;
+    transition: all 0.8s ease;
 }
 
-#sidebar .logo {
+.wrapper-user #sidebar .logo {
     font-family: 'Varela Round', sans-serif;
     font-style: normal;
     color: #ffc600;
     margin-left: 10px;
     font-weight: bold;
     font-size: 21px;
-  }
-.jc-between {
-  justify-content: space-between;
 }
 
-.jc-center {
-    justify-content: center;
-  }
+.wrapper-user .jc-between {
+    justify-content: space-between;
+}
 
-.pp-3{
+.wrapper-user .jc-center {
+    justify-content: center;
+}
+
+.wrapper-user .pp-3 {
     padding: 3px 4px;
 }
 
-.linha-tracejada {
+.wrapper-user .linha-tracejada {
     border: 1px dashed #ffc600;
     width: 100%;
     opacity: 1;
-  }
+}
 
-.al-c{
+.wrapper-user .al-c {
     align-items: center;
 }
+
+.wrapper-user .navbar.navbar-expand.navbar-light.bg-white.topbar.static-top.shadow {
+    border-radius: 8px;
+  }
+
+.py-75{
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+  .h_cal{
+    height: calc(100vh - 138px);
+  }
+
+  .navbar {
+    --bs-navbar-padding-x: 1rem;
+    --bs-navbar-padding-y: 0.5rem;
+  }
+
+  .img-profile.rounded-circle {
+    width: 32px;
+  }
+
+  .logout{
+    color: #D90032;
+  }
+
+  .perfil:hover , .logout:hover{
+    color: #ffc600;
+  }
+
+  .wrapper-user .sidebar li a {
+    background-color: transparent;
+    color: #ffffff;
+  }
+
+  .wrapper-user .sidebar li a:hover {
+    background-color: transparent;
+    color: #ffc600;
+  }
+
+  .flex_start{    
+  justify-content: flex-start;
+  }

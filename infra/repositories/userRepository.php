@@ -157,24 +157,31 @@ function deleteUser($id)
 
 function createNewUser($user)
 {
+    // Hash da senha
     $user['password'] = password_hash($user['password'], PASSWORD_DEFAULT);
+
     $sqlCreate = "INSERT INTO 
     users (
         name,
         ccNumber, 
-        email, 
-        password) 
+        email,
+        password,
+        administrator) 
     VALUES (
         :name,
         :ccNumber,
         :email, 
-        :password
+        :password,
+        0
     )";
 
     $PDOStatement = $GLOBALS['pdo']->prepare($sqlCreate);
+    
+    // Execução da consulta com os valores fornecidos
     $success = $PDOStatement->execute([
         ':name' => $user['name'],
         ':email' => $user['email'],
+        ':ccNumber' => $user['ccNumber'],
         ':password' => $user['password']
     ]);
 
