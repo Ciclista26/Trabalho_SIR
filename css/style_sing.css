@@ -92,3 +92,8 @@
     border-color: #ffc600;
     color: #43555d;
 }
+
+.form-control:focus {
+    border-color: #43555d;
+    box-shadow: none;
+}

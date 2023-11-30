@@ -11,7 +11,6 @@ include_once __DIR__ . '/../../templates/header.php';
         <div class="col-5">
           <img src="/Trabalho_SIR/assets/image/logo_w.png" alt="logo" width="300px" height="auto">
         </div>
-        <!-- <img src="/Trabalho_SIR/assets/image/teamworker.jpg" alt="teamworker"> -->
       </div>
       <div class="col-12 col-md-6 h100">
         <section>

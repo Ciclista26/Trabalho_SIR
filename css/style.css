@@ -236,10 +236,10 @@
         width: 100%;
         height: 24rem;
         object-fit: cover;
-      }
+    }
 
     /* sondagens */
-    .sondagens .card-text{
+    .sondagens .card-text {
         display: block;
         width: 100%;
         height: 8rem;
@@ -247,7 +247,7 @@
         scroll-behavior: smooth;
         scrollbar-width: thin;
         scrollbar-color: #ffc600 transparent;
-      }
+    }
 
 
     /* sobre */
@@ -260,7 +260,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-      }
+    }
 
     /* team */
     .team .row {
@@ -383,7 +383,7 @@
         .ptb-41 {
             padding: 4rem 1rem !important;
         }
-      }
+    }
 
     .justify-content-flex-end {
         justify-content: flex-end;
@@ -438,10 +438,11 @@
             scrollbar-width: thin;
             scrollbar-color: #ffc600 #43555d;
         }
+
         *::-webkit-scrollbar {
             width: 5px;
         }
-    
+
         *::-webkit-scrollbar-track {
             background: #43555d;
         }
@@ -449,6 +450,7 @@
         .sondagens::-webkit-scrollbar-track {
             background: transparent;
         }
+
         *::-webkit-scrollbar-thumb {
             background-color: #ffc600;
             border-radius: 20px;
@@ -475,4 +477,8 @@
         color: #ffc600;
         border-color: #43555d;
         background-color: #43555d;
+    }
+    .form-control:focus {
+        border-color: #ffc600;
+        box-shadow: none;
     }
