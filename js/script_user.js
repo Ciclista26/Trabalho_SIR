@@ -21,14 +21,14 @@ function toggleSidebar() {
     footerClassList.toggle("w_active", isSidebarActive);
     toggle_btn.classList.toggle("d-block", !isSidebarActive);
     toggle_btn.classList.toggle("d-none", isSidebarActive);
-    side_op.classList.toggle("jc-center", isSidebarActive);
+    /* side_op.classList.toggle("jc-center", isSidebarActive);
     side_op.classList.toggle("jc-between", !isSidebarActive);
     logout.classList.toggle("jc-center", isSidebarActive);
     logout.classList.toggle("flex_start", !isSidebarActive);
     perfil.classList.toggle("jc-center", isSidebarActive);
     perfil.classList.toggle("flex_start", !isSidebarActive);
     opcoes_user.classList.toggle("jc-center", isSidebarActive);
-    opcoes_user.classList.toggle("flex_start", !isSidebarActive);
+    opcoes_user.classList.toggle("flex_start", !isSidebarActive); */
     te_logo.classList.toggle("d-block", !isSidebarActive);
     te_logo.classList.toggle("d-none", isSidebarActive);
 

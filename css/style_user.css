@@ -166,3 +166,41 @@ body {
 .pr-2 {
     padding-right: .5rem !important;
   }
+
+.icon-c{
+    padding: 0 12px;
+}
+
+.fl-r{
+    float: right;
+}    
+
+.div_table{
+    margin: 0.75rem 1.5rem;
+    border-radius: 8px;
+    height: calc(100% - 24px);
+}
+
+.table thead th{
+    padding: .5rem .5rem;
+    background-color: #43555d33;
+    box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+  }
+
+.table-info{
+    max-height: 332px; 
+    overflow-y: auto;
+    position: relative;
+}
+
+.table-container {
+    max-height: 400px;
+    overflow-y: auto;
+    position: relative; 
+}
+
+.table-info thead {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+}
