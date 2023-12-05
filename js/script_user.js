@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var content_wrapper = document.querySelector(".content-wrapper");
     var footer = document.querySelector(".footer");
     var toggle_btn = document.querySelector(".toggle_btn");
-    var te_logo = document.querySelector(".tes_logo");
+    var tes_logo = document.querySelector(".tes_logo");
 
     sidebar.classList.toggle('active');
 
@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function() {
     footerClassList.toggle("w_active", isSidebarActive);
     toggle_btn.classList.toggle("d-block", !isSidebarActive);
     toggle_btn.classList.toggle("d-none", isSidebarActive);
-    te_logo.classList.toggle("d-block", !isSidebarActive);
-    te_logo.classList.toggle("d-none", isSidebarActive);
+    tes_logo.classList.toggle("d-block", !isSidebarActive);
+    tes_logo.classList.toggle("d-none", isSidebarActive);
 
     for (var i = 1; i <= 4; i++) {
         var te = document.querySelector(".te_" + i);
