@@ -1,4 +1,4 @@
-<footer class="p-3 bg-footer text-white mt-4">
+<footer class="footer p-3 bg-footer text-white mt-0 w_active">
     <div class="container px-4 px-lg-5">
       <div class="small text-center">
           VotaCerto © All rights reserved

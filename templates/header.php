@@ -21,6 +21,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="/Trabalho_SIR/css/style.css">
     <link rel="stylesheet" type="text/css" href="/Trabalho_SIR/css/style_sing.css">
+    <link rel="stylesheet" type="text/css" href="/Trabalho_SIR/css/style_user.css">
 </head>
 
 <body>

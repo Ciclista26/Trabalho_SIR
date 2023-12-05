@@ -7,72 +7,166 @@ $title = ' - Profile';
 $user = user();
 ?>
 
-<div class="p-5 mb-2 bg-dark text-white">
-  <h1>User</h1>
-</div>
-<main>
-  <section class="py-4">
-    <div class="d-flex justify-content">
-      <a href="/Trabalho_SIR/"><button type="button" class="btn btn-secondary px-5 me-2">Back</button></a>
-      <a href="./password.php"><button class="btn btn-warning px-2 me-2">Change Password</button></a>
+
+<body>
+
+    <div class="wrapper-user">
+        <div id="sidebar" class="sidebar active d-flex">
+            <div>
+                <div class="side_op d-flex al-c jc-between" onclick="toggleSidebar()">
+                    <div>
+                        <a class="navbar-brand al-c icon-c d-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffc600" class="bi bi-check-square" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                            </svg>
+                            <div class="logo tes_logo d-none">
+                                VotaCerto
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="toggle_btn d-none">
+                        <svg id="toggleIcon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                        </svg>
+                    </div>
+                </div>
+                <hr class="linha-tracejada">
+                <div class="pb-3">
+                    <a class="opcoes_user icon-c al-c nav-link d-flex" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-clipboard-check" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z" />
+                            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z" />
+                        </svg>
+                        <div class="m-0 te_1 d-none pl-1">Votações</div>
+                    </a>
+                </div>
+                <?php
+                if (isAuthenticated() && $user['administrator']) {
+                    echo '<div class="pb-3">
+                    <a class="opcoes_user icon-c al-c nav-link d-flex" href="/Trabalho_SIR/pages/secure/admin/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                    <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4" />
+                </svg>
+                        <div class="m-0 te_4 d-none pl-1">Utilizadores</div>
+                    </a>
+                </div>
+                ';
+                }
+                ?>
+            </div>
+            <div class="mb-2">
+                <hr class="linha-tracejada">
+                <form action="/Trabalho_SIR/controllers/auth/signin.php" method="post">
+                    <div>
+                        <a class="perfil pb-3 icon-c  al-c nav-link d-flex" href="/Trabalho_SIR/pages/secure/user/profile.php">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-fill-gear" viewBox="0 0 16 16">
+                                <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4m9.886-3.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382l.045-.148ZM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
+                            </svg>
+                            <div class="m-0 te_2 d-none pl-1">Profile</div>
+                        </a>
+                    </div>
+                    <div>
+                        <form action="/Trabalho_SIR/controllers/auth/signin.php" method="post">
+                            <button class="logout icon-c al-c  nav-link d-flex" type="submit" name="user" value="logout">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+                                    <path d="M7.5 1v7h1V1z" />
+                                    <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812" />
+                                </svg>
+                                <div class="m-0 te_3 d-none pl-1">Terminar sessão</div>
+                            </button>
+                        </form>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="content-wrapper w_active h_cal .al-c">
+            <div class="px-4 py-75">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
+                    <div class="d-flex w-100 al-c jc-between">
+                        <div class="d-flex al-c">
+                            <div class="toggle_btn pr-2 d-lg-none" onclick="toggleSidebar()">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="22" fill="#43555d" viewBox="0 0 448 512">
+                                    <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+                                </svg>
+                            </div>
+                            <span class="small">Link 1</span>
+                        </div>
+                        <div class="r-0">
+                            <span class="d-inline small px-2"><?= $user['name'] ?? null ?>!</span>
+                            <img class="img-profile rounded-circle" src="./assets/image/team/team1.jpeg">
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class=" mx-4 ">
+                <div class="div_table bg-white static-top shadow">
+                    <section class="m-0 p-3">
+                        <div class="d-sm-flex justify-content">
+                            <a class="btn col-12 col-xl-2 col-md-3 col-sm-4 me-sm-3 mb-3 mb-sm-0 btn-secondary" href="/Trabalho_SIR/">Voltar</a>
+                            <a class="btn col-12 col-xl-2 col-md-3 col-sm-4 me-sm-3 mb-3 mb-sm-0 btn-warning-yellow" href="./password.php">Mudar Password</a> 
+                        </div>
+                    </section>
+                    <section>
+                        <?php
+                        if (isset($_SESSION['success'])) {
+                            echo '<div class="alert alert-success alert-dismissible fade show" role="alert">';
+                            echo $_SESSION['success'] . '<br>';
+                            echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                            unset($_SESSION['success']);
+                        }
+                        if (isset($_SESSION['errors'])) {
+                            echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+                            foreach ($_SESSION['errors'] as $error) {
+                                echo $error . '<br>';
+                            }
+                            echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+                            unset($_SESSION['errors']);
+                        }
+                        ?>
+                    </section>
+                    <section>
+                        <form enctype="multipart/form-data" action="/Trabalho_SIR/controllers/admin/user.php" method="post" class="px-3">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Name</span>
+                                <input type="text" class="form-control" name="name" placeholder="name" maxlength="100" size="100" value="<?= isset($_REQUEST['name']) ? $_REQUEST['name'] : $user['name'] ?>" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Lastname</span>
+                                <input type="text" class="form-control" name="lastname" placeholder="lastname" maxlength="100" size="100" value="<?= isset($_REQUEST['lastname']) ? $_REQUEST['lastname'] : $user['lastname'] ?>" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Phone Number</span>
+                                <input type="tel" class="form-control" name="phoneNumber" maxlength="9" value="<?= isset($_REQUEST['phoneNumber']) ? $_REQUEST['phoneNumber'] : $user['phoneNumber'] ?>" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">CC Number</span>
+                                <input type="tel" class="form-control" name="ccNumber" maxlength="9" value="<?= isset($_REQUEST['ccNumber']) ? $_REQUEST['ccNumber'] : $user['ccNumber'] ?>" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">email</span>
+                                <input type="email" class="form-control" name="email" maxlength="255" value="<?= isset($_REQUEST['email']) ? $_REQUEST['email'] : $user['email'] ?>" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupFile01">Picture</label>
+                                <input accept="image/*" type="file" class="form-control" id="inputGroupFile01" name="foto" />
+                            </div>
+                            <div class="d-grid col-4 mx-auto">
+                                <button class="w-100 btn btn-lg btn-success mb-2" type="submit" name="user" value="profile">Change</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+
+            </div>
+            <?php
+            include_once __DIR__ . '../../../../templates/empowered.php';
+            ?>
+        </div>
     </div>
-  </section>
-  <section>
     <?php
-    if (isset($_SESSION['success'])) {
-      echo '<div class="alert alert-success alert-dismissible fade show" role="alert">';
-      echo $_SESSION['success'] . '<br>';
-      echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
-      unset($_SESSION['success']);
-    }
-    if (isset($_SESSION['errors'])) {
-      echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
-      foreach ($_SESSION['errors'] as $error) {
-        echo $error . '<br>';
-      }
-      echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
-      unset($_SESSION['errors']);
-    }
+    include_once __DIR__ . '../../../../templates/footer.php';
     ?>
-  </section>
-  <section>
-    <form enctype="multipart/form-data" action="/Trabalho_SIR/controllers/admin/user.php" method="post"
-      class="form-control py-3">
-      <div class="input-group mb-3">
-        <span class="input-group-text">Name</span>
-        <input type="text" class="form-control" name="name" placeholder="name" maxlength="100" size="100"
-          value="<?= isset($_REQUEST['name']) ? $_REQUEST['name'] : $user['name'] ?>" required>
-      </div>
-      <div class="input-group mb-3">
-        <span class="input-group-text">Lastname</span>
-        <input type="text" class="form-control" name="lastname" placeholder="lastname" maxlength="100" size="100"
-          value="<?= isset($_REQUEST['lastname']) ? $_REQUEST['lastname'] : $user['lastname'] ?>" required>
-      </div>
-      <div class="input-group mb-3">
-        <span class="input-group-text">Phone Number</span>
-        <input type="tel" class="form-control" name="phoneNumber" maxlength="9"
-          value="<?= isset($_REQUEST['phoneNumber']) ? $_REQUEST['phoneNumber'] : $user['phoneNumber'] ?>" required>
-      </div>
-      <div class="input-group mb-3">
-        <span class="input-group-text">CC Number</span>
-        <input type="tel" class="form-control" name="ccNumber" maxlength="9"
-          value="<?= isset($_REQUEST['ccNumber']) ? $_REQUEST['ccNumber'] : $user['ccNumber'] ?>" required>
-      </div>
-      <div class="input-group mb-3">
-        <span class="input-group-text">email</span>
-        <input type="email" class="form-control" name="email" maxlength="255"
-          value="<?= isset($_REQUEST['email']) ? $_REQUEST['email'] : $user['email'] ?>" required>
-      </div>
-      <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupFile01">Picture</label>
-        <input accept="image/*" type="file" class="form-control" id="inputGroupFile01" name="foto" />
-      </div>
-      <div class="d-grid col-4 mx-auto">
-        <button class="w-100 btn btn-lg btn-success mb-2" type="submit" name="user" value="profile">Change</button>
-      </div>
-    </form>
-  </section>
-</main>
-<?php
-include_once __DIR__ . '../../../../templates/footer.php';
-?>
