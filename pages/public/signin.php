@@ -16,7 +16,7 @@ include_once __DIR__ . '/../../templates/header.php';
         <section>
           <?php
           if (isset($_SESSION['errors'])) {
-            echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+            echo '<div class="alert alert-danger alert-dismissible fade show position-fixed top-0 end-0" role="alert">';
             foreach ($_SESSION['errors'] as $error) {
               echo $error . '<br>';
             }

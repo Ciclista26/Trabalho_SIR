@@ -1,0 +1,160 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votação Dinâmica com Opções Adicionáveis</title>
+    <style>
+        .pergunta {
+            display: none;
+        }
+    </style>
+</head>
+
+<body onload="mostrarPergunta()">
+
+    <h2>Votação Dinâmica com Opções Adicionáveis</h2>
+
+    <form id="formVotacao" method="post" action="processar.php">
+        <label for="tipoPergunta">Escolha o tipo de pergunta:</label>
+        <select id="tipoPergunta" name="tipoPergunta" onchange="mostrarPergunta()">
+            <option selected disabled>Escolha um tipo de pergunta</option>
+            <option value="radio">Escolha Única (Radio)</option>
+            <option value="checkbox">Escolha Múltipla (Checkbox)</option>
+        </select>
+
+        <div id="perguntaRadio" class="pergunta">
+            <p>Pergunta para escolha única:</p>
+            <input type="text" name="perguntaRadio" placeholder="Digite a pergunta">
+            <br>
+            <p>Opções para escolha única:</p>
+            <div id="opcoesRadio">
+                <!-- Atributos "name" e "value" são dinâmicos -->
+                <input type="radio" name="opcaoRadio" value="opcao1">
+                <input type="text" name="opcao1_text" placeholder="Texto da opção 1">
+                <br>
+            </div>
+            <button type="button" onclick="adicionarOpcao('opcoesRadio', 'radio')">Adicionar mais uma opção</button>
+        </div>
+
+        <div id="perguntaCheckbox" class="pergunta">
+            <p>Pergunta para escolha múltipla:</p>
+            <input type="text" name="perguntaCheckbox" placeholder="Digite a pergunta">
+            <br>
+            <p>Opções para escolha múltipla:</p>
+            <div id="opcoesCheckbox">
+                <!-- Atributos "name" e "value" são dinâmicos -->
+                <input type="checkbox" name="opcaoCheckbox[]" value="opcao3">
+                <input type="text" name="opcao3_text" placeholder="Texto da opção 3">
+                <br>
+            </div>
+            <button type="button" onclick="adicionarOpcao('opcoesCheckbox', 'checkbox')">Adicionar mais uma
+                opção</button>
+        </div>
+
+        <button type="button" onclick="proximo()">Próxima Pergunta</button>
+        <button type="submit">Finalizar Votação</button>
+    </form>
+    <!-- processar.php -->
+    <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Conectar ao banco de dados
+    require 'caminho/para/seu/arquivo/de/conexao.php';
+
+    // Recuperar dados do formulário
+    $tipoPergunta = $_POST['tipoPergunta'];
+    $perguntaTexto = $_POST['perguntaTexto'];
+
+    // Inserir pergunta no banco de dados
+    $sql = "INSERT INTO perguntas (tipo_pergunta, texto_pergunta) VALUES (:tipoPergunta, :perguntaTexto)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':tipoPergunta', $tipoPergunta);
+    $stmt->bindParam(':perguntaTexto', $perguntaTexto);
+    $stmt->execute();
+
+    // Recuperar o ID da pergunta recém-inserida
+    $idPergunta = $pdo->lastInsertId();
+
+    // Inserir opções no banco de dados
+    if ($tipoPergunta == 'radio' || $tipoPergunta == 'checkbox') {
+        for ($i = 1; isset($_POST["opcao{$i}_text"]); $i++) {
+            $opcaoTexto = $_POST["opcao{$i}_text"];
+            
+            // Inserir opção no banco de dados
+            $sql = "INSERT INTO opcoes (id_pergunta, texto_opcao) VALUES (:idPergunta, :opcaoTexto)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':idPergunta', $idPergunta);
+            $stmt->bindParam(':opcaoTexto', $opcaoTexto);
+            $stmt->execute();
+        }
+    }
+
+    // Fechar a conexão com o banco de dados
+    $pdo = null;
+}
+?>
+
+
+    <script>
+        function mostrarPergunta() {
+            var tipoSelecionado = document.getElementById("tipoPergunta").value;
+            var perguntas = document.getElementsByClassName("pergunta");
+
+            for (var i = 0; i < perguntas.length; i++) {
+                perguntas[i].style.display = "none";
+            }
+
+            document.getElementById("pergunta" + tipoSelecionado.charAt(0).toUpperCase() + tipoSelecionado.slice(1)).style.display = "block";
+        }
+
+        function adicionarOpcao(containerId, tipo) {
+            var container = document.getElementById(containerId);
+
+            // Verificar se a opção padrão já foi adicionada
+            var opcaoPadraoAdicionada = container.querySelector('input[value=""]') !== null;
+
+            // Se a opção padrão não foi adicionada, adicioná-la
+            if (!opcaoPadraoAdicionada) {
+                var opcaoPadrao = document.createElement("input");
+                opcaoPadrao.type = tipo;
+                opcaoPadrao.name = "opcao" + tipo.charAt(0).toUpperCase() + tipo.slice(1);
+                opcaoPadrao.value = "";
+                opcaoPadrao.checked = true;
+                var spanPadrao = document.createElement("span");
+                spanPadrao.textContent = "Escolha uma opção";
+                container.appendChild(opcaoPadrao);
+                container.appendChild(spanPadrao);
+                container.appendChild(document.createElement("br"));
+            }
+
+            // Adicionar uma nova opção
+            var novaOpcao = document.createElement("input");
+            var novoTexto = document.createElement("input");
+            novaOpcao.type = tipo;
+            novaOpcao.name = "opcao" + tipo.charAt(0).toUpperCase() + tipo.slice(1);
+            novaOpcao.value = "novaOpcao" + (container.children.length + 1);
+            novoTexto.type = "text";
+            novoTexto.name = "opcao" + (container.children.length + 1) + "_text";
+            container.appendChild(novaOpcao);
+            container.appendChild(novoTexto);
+            container.appendChild(document.createElement("br"));
+        }
+
+        function proximo() {
+            // Aqui você pode adicionar lógica para salvar/responder a pergunta atual antes de passar para a próxima
+            alert("Lógica para salvar/responder a pergunta atual");
+
+            // Limpar resposta anterior
+            document.getElementById("formVotacao").reset();
+
+            // Mudar para a próxima pergunta
+            mostrarPergunta();
+        }
+    </script>
+
+</body>
+
+</html>

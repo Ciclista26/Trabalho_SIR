@@ -1,29 +1,68 @@
 <?php
-#EASY DATABASE SETUP
+# EASY DATABASE SETUP
 require __DIR__ . '/infra/db/connection.php';
 
-#DROP TABLE
+# DROP TABLES (if needed)
 $pdo->exec('DROP TABLE IF EXISTS users;');
+$pdo->exec('DROP TABLE IF EXISTS questionarios;');
+$pdo->exec('DROP TABLE IF EXISTS perguntas;');
+$pdo->exec('DROP TABLE IF EXISTS opcoes;');
 
-echo 'table users deleted!' . PHP_EOL;
+echo 'Tables deleted!' . PHP_EOL;
 
-#CREATE TABLE
+# CREATE USERS TABLE
 $pdo->exec(
     'CREATE TABLE users (
-    id INTEGER PRIMARY KEY AUTO_INCREMENT, 
-    name varchar(50)	, 
-    lastname varchar(50)	, 
-    phoneNumber varchar(50)	, 
-    ccNumber varchar(50)	,
-    email varchar(50)	 NOT NULL, 
-    foto varchar(50)	 NULL, 
-    administrator bit, 
-    password varchar(200)	);'
+        id INTEGER PRIMARY KEY AUTO_INCREMENT, 
+        name varchar(50), 
+        lastname varchar(50), 
+        phoneNumber varchar(50), 
+        ccNumber varchar(50),
+        email varchar(50) NOT NULL, 
+        foto varchar(50) NULL, 
+        administrator bit, 
+        password varchar(200)
+    );'
 );
 
-echo 'Tabela users created!' . PHP_EOL;
+echo 'Table "users" created!' . PHP_EOL;
 
-#DEFAULT USER TO ADD
+# CREATE QUESTIONARIOS TABLE
+$pdo->exec(
+    'CREATE TABLE questionarios (
+        id_questionario INTEGER PRIMARY KEY AUTO_INCREMENT,
+        nome_questionario varchar(255)
+    );'
+);
+
+echo 'Table "questionarios" created!' . PHP_EOL;
+
+# CREATE PERGUNTAS TABLE
+$pdo->exec(
+    'CREATE TABLE perguntas (
+        id_pergunta INT PRIMARY KEY AUTO_INCREMENT,
+        id_questionario INT,
+        tipo_pergunta VARCHAR(255),
+        texto_pergunta TEXT,
+        FOREIGN KEY (id_questionario) REFERENCES questionarios(id_questionario)
+    );'
+);
+
+echo 'Table "perguntas" created!' . PHP_EOL;
+
+# CREATE OPCOES TABLE
+$pdo->exec(
+    'CREATE TABLE opcoes (
+        id_opcao INT PRIMARY KEY AUTO_INCREMENT,
+        id_pergunta INT,
+        texto_opcao TEXT,
+        FOREIGN KEY (id_pergunta) REFERENCES perguntas(id_pergunta)
+    );'
+);
+
+echo 'Table "opcoes" created!' . PHP_EOL;
+
+# DEFAULT USER TO ADD
 $user = [
     'name' => 'Rui',
     'lastname' => 'Alves',
@@ -35,11 +74,11 @@ $user = [
     'password' => '123456'
 ];
 
-#HASH PWD
+# HASH PWD
 $user['password'] = password_hash($user['password'], PASSWORD_DEFAULT);
 
-#INSERT USER
-$sqlCreate = "INSERT INTO 
+# INSERT USER
+$sqlCreateUser = "INSERT INTO 
     users (
         name, 
         lastname, 
@@ -48,7 +87,8 @@ $sqlCreate = "INSERT INTO
         email, 
         foto, 
         administrator, 
-        password) 
+        password
+    ) 
     VALUES (
         :name, 
         :lastname, 
@@ -60,11 +100,11 @@ $sqlCreate = "INSERT INTO
         :password
     )";
 
-#PREPARE QUERY
-$PDOStatement = $GLOBALS['pdo']->prepare($sqlCreate);
+# PREPARE USER QUERY
+$PDOStatementUser = $pdo->prepare($sqlCreateUser);
 
-#EXECUTE
-$success = $PDOStatement->execute([
+# EXECUTE USER QUERY
+$successUser = $PDOStatementUser->execute([
     ':name' => $user['name'],
     ':lastname' => $user['lastname'],
     ':phoneNumber' => $user['phoneNumber'],
@@ -75,4 +115,33 @@ $success = $PDOStatement->execute([
     ':password' => $user['password']
 ]);
 
-echo 'Default user created!';
+echo 'Default user created!' . PHP_EOL;
+
+# DEFAULT QUESTIONARIO TO ADD
+$questionario = [
+    'nome_questionario' => 'Questionario Padrão'
+];
+
+# INSERT QUESTIONARIO
+$sqlCreateQuestionario = "INSERT INTO 
+    questionarios (
+        nome_questionario
+    ) 
+    VALUES (
+        :nome_questionario
+    )";
+
+# PREPARE QUESTIONARIO QUERY
+$PDOStatementQuestionario = $pdo->prepare($sqlCreateQuestionario);
+
+# EXECUTE QUESTIONARIO QUERY
+$successQuestionario = $PDOStatementQuestionario->execute([
+    ':nome_questionario' => $questionario['nome_questionario']
+]);
+
+echo 'Default questionario created!' . PHP_EOL;
+
+# CLOSE THE CONNECTION
+$pdo = null;
+
+?>
