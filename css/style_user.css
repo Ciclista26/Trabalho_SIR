@@ -120,8 +120,7 @@ body {
     color: #D90032;
 }
 
-.perfil:hover,
-.logout:hover {
+.perfil:hover, .logout:hover, .opcoes_user:hover {
     color: #ffc600;
 }
 
@@ -144,6 +143,9 @@ body {
         width: 0px;
         padding: 0px;
         display: none;
+    }
+    .wrapper-user .sidebar.active .linha-tracejada{
+        opacity: 0;
     }
 
     .wrapper-user .w_active {

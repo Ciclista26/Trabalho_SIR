@@ -37,7 +37,7 @@
                                 <path
                                     d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
                             </svg>
-                            <div class="logo tes_logo d-none">
+                            <div class="logo te_logo d-none">
                                 VotaCerto
                             </div>
                         </a>
@@ -52,26 +52,28 @@
                     </div>
                 </div>
                 <hr class="linha-tracejada">
-                <div class="pb-2">
-                    <a class="opcoes_user icon-c al-c nav-link d-flex" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-                            class="bi bi-clipboard-check" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                            <path
-                                d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z" />
-                            <path
-                                d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z" />
-                        </svg>
-                        <div class="m-0 te_1 d-none pl-1">Votações</div>
-                    </a>
+                <div class="opcoes_user d-flex pb-2 al-c jc-between">
+                    <div>
+                        <a class="navbar-brand al-c icon-c d-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                                class="bi bi-clipboard-check" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                <path
+                                    d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z" />
+                                <path
+                                    d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z" />
+                            </svg>
+                            <div class="m-0 te_1 d-none pl-1">Votações</div>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="mb-2">
+            <div>
                 <hr class="linha-tracejada">
                 <form action="/Trabalho_SIR/controllers/auth/signin.php" method="post">
-                    <div>
-                        <a class="perfil pb-3 icon-c  al-c nav-link d-flex" href="">
+                    <div class="perfil d-flex pb-3 al-c jc-between">
+                        <a class="navbar-brand al-c icon-c d-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
                                 class="bi bi-person-fill-gear" viewBox="0 0 16 16">
                                 <path
@@ -80,8 +82,8 @@
                             <div class="m-0 te_2 d-none pl-1">Profile</div>
                         </a>
                     </div>
-                    <div>
-                        <a class="logout icon-c al-c  nav-link d-flex" href="">
+                    <div class="logout d-flex al-c jc-between">
+                        <a class="navbar-brand al-c icon-c d-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
                                 class="bi bi-power" viewBox="0 0 16 16">
                                 <path d="M7.5 1v7h1V1z" />
@@ -91,8 +93,6 @@
                             <div class="m-0 te_3 d-none pl-1">Terminar sessão</div>
                         </a>
                     </div>
-
-
                 </form>
 
             </div>
