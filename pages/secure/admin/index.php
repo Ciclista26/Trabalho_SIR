@@ -65,9 +65,9 @@ $title = 'Utilizadores';
                             foreach ($users as $user) {
                             ?>
                                 <tr>
-                                    <th scope="row">
+                                    <td>
                                         <?= $user['name'] ?>
-                                    </th>
+                                    </td>
                                     <td>
                                         <?= $user['lastname'] ?>
                                     </td>

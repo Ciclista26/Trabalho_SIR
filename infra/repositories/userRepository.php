@@ -176,7 +176,7 @@ function createNewUser($user)
     )";
 
     $PDOStatement = $GLOBALS['pdo']->prepare($sqlCreate);
-    
+
     // Execução da consulta com os valores fornecidos
     $success = $PDOStatement->execute([
         ':name' => $user['name'],
@@ -191,4 +191,58 @@ function createNewUser($user)
     }
 
     return false;
+}
+//function para a parte da votacao
+function createQuestionario($questionario)
+{
+    $sqlCreate = "INSERT INTO 
+    questionarios (nome_questionario) 
+    VALUES (:nome_questionario)";
+
+    $PDOStatement = $GLOBALS['pdo']->prepare($sqlCreate);
+
+    $success = $PDOStatement->execute([
+        ':nome_questionario' => $questionario['nome_questionario']
+    ]);
+
+    if ($success) {
+        $questionario['id_questionario'] = $GLOBALS['pdo']->lastInsertId();
+    }
+    return $success;
+}
+
+function createPergunta($pergunta)
+{
+    $sqlCreate = "INSERT INTO 
+    perguntas (id_questionario, tipo_pergunta, texto_pergunta) 
+    VALUES (:id_questionario, :tipo_pergunta, :texto_pergunta)";
+
+    $PDOStatement = $GLOBALS['pdo']->prepare($sqlCreate);
+
+    $success = $PDOStatement->execute([
+        ':id_questionario' => $pergunta['id_questionario'],
+        ':tipo_pergunta' => $pergunta['tipo_pergunta'],
+        ':texto_pergunta' => $pergunta['texto_pergunta']
+    ]);
+
+    if ($success) {
+        $pergunta['id_pergunta'] = $GLOBALS['pdo']->lastInsertId();
+    }
+    return $success;
+}
+
+function createOpcao($opcao)
+{
+    $sqlCreate = "INSERT INTO 
+    opcoes (id_pergunta, texto_opcao) 
+    VALUES (:id_pergunta, :texto_opcao)";
+
+    $PDOStatement = $GLOBALS['pdo']->prepare($sqlCreate);
+
+    $success = $PDOStatement->execute([
+        ':id_pergunta' => $opcao['id_pergunta'],
+        ':texto_opcao' => $opcao['texto_opcao']
+    ]);
+
+    return $success;
 }

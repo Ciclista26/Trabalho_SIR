@@ -39,7 +39,6 @@ $title = 'Utilizadores';
                         unset($_SESSION['errors']);
                     }
                     ?>
-
                 </section>
                 <section class="pb-4">
                     <form enctype="multipart/form-data" action="/Trabalho_SIR/controllers/admin/user.php" method="post" class="px-3">
@@ -80,7 +79,7 @@ $title = 'Utilizadores';
                         <div class="d-grid col-4 mx-auto">
                             <input type="hidden" name="id" value="<?= isset($_REQUEST['id']) ? $_REQUEST['id'] : null ?>">
                             <input type="hidden" name="foto" value="<?= isset($_REQUEST['foto']) ? $_REQUEST['foto'] : null ?>">
-                            <button type="submit" class="btn btn-success" name="user" <?= isset($_REQUEST['action']) && $_REQUEST['action'] == 'update' ? 'value="update"' : 'value="create"' ?>>Create</button>
+                            <button type="submit" class="btn btn-success" name="user" <?= isset($_REQUEST['action']) && $_REQUEST['action'] == 'update' ? 'value="update"' : 'value="create"' ?>><?php echo isset($_REQUEST['action']) && $_REQUEST['action'] == 'update' ? 'Alterar' : 'Criar'; ?></button>
                         </div>
                     </form>
                 </section>
