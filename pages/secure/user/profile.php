@@ -62,7 +62,7 @@ $user = user();
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">email</span>
-                            <input type="email" class="form-control" name="email" maxlength="255" value="<?= isset($_REQUEST['email']) ? $_REQUEST['email'] : $user['email'] ?>" required>
+                            <input type="email" class="form-control" name="email" maxlength="255" value="<?= isset($_REQUEST['email']) ? $_REQUEST['email'] : $user['email'] ?>" disabled>
                         </div>
                         <div class="input-group mb-3">
                             <label class="input-group-text" for="inputGroupFile01">Picture</label>
