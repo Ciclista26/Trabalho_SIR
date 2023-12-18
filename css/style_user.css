@@ -44,12 +44,8 @@ body {
 }
 
 
-.wrapper-user .w_active {
-    width: calc(100% - 120px);
-}
-
-.wrapper-user .w_none {
-    width: calc(100% - 300px);
+.wrapper-user{
+    width: 100%;
 }
 
 .wrapper-user .footer {
@@ -57,7 +53,7 @@ body {
     color: #fff;
     text-align: center;
     padding: 10px;
-    position: fixed;
+    position: relative;
     bottom: 0;
     right: 0;
     transition: all 0.8s ease;
