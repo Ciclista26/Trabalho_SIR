@@ -42,9 +42,13 @@ $user = user();
                 </section>
                 <section>
                     <form action="/Trabalho_SIR/controllers/admin/user.php" method="post" class="px-3">
-                        <div class="input-group mb-3">
+                        <!-- <div class="input-group mb-3">
                             <span class="input-group-text">Name</span>
                             <input type="text" readonly class="form-control" name="name" placeholder="<?= $user['name'] ?>" value="<?= $user['name'] ?>">
+                        </div> -->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Password Atual</span>
+                            <input type="password" class="form-control" name="old_password" placeholder="<?= $user['password'] ?>" value="<?= $user['password'] ?>">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">Nova Password</span>

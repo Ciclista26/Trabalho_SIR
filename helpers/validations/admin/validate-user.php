@@ -26,18 +26,10 @@ function validatedUser($req)
         $errors['email'] = 'O campo Email não pode estar vazio e deve ter o formato de e-mail, por exemplo: nome@example.com.';
     }
 
-    if (getByEmail($req['email'])) {
-        $errors['email'] = 'Email já registado no nosso sistema.';
-        return ['invalido' => $errors];
-    }
-
-    if (empty($req['password']) || strlen($req['password']) < 8 || !preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,}$/', $req['password'])) {
-        $errors['password'] = 'O campo Password deve ter pelo menos 8 caracteres, incluindo letras maiúsculas, minúsculas, números e caracteres especiais.';
-    }
-
-    if (!empty($req['confirm_password']) && $req['confirm_password'] !== $req['password']) {
-        $errors['confirm_password'] = 'O campo Confirmar Password não pode estar vazio e deve ser igual ao campo Password.';
-    }
+    // if (getByEmail($req['email'])) {
+    //     $errors['email'] = 'Email já registado no nosso sistema.';
+    //     return ['invalido' => $errors];
+    // }
 
     $req['administrator'] = !empty($req['administrator']) == 'on' ? true : false;
 
