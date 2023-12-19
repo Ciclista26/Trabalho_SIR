@@ -17,7 +17,7 @@ $user = user();
             <?php
             include_once __DIR__ . '../../../templates/bar_user.php';
             ?>
-            <div class="div_table mx-4 bg-white static-top shadow">
+            <div class="div_table mx-xs-3 mx-sm-4 bg-white static-top shadow">
                 <div class="m-0 p-3 ">
                     <div class="w-100 d-sm-flex col-12 ">
                         <div class="col-12 col-lg-4 col-sm-5 pb-3 pb-sm-0  p-0">

@@ -19,7 +19,7 @@ function isSignUpValid($req)
     }
 
     if (getByEmail($req['email'])) {
-        $errors['email'] = 'E-mail já registrado em nosso sistema. Se você não consegue lembrar sua senha, por favor, entre em contato conosco.';
+        $errors['email'] = 'E-mail já registado no sistema. Se você não consegue lembrar sua senha, por favor, entre em contacto connosco.';
         return ['invalid' => $errors];
     }
 

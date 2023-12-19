@@ -9,15 +9,15 @@ $user = user();
 <body>
 
     <div class="wrapper-user">
-    <?php
+        <?php
         include_once __DIR__ . '../../../../templates/sidebar.php';
         ?>
 
         <div class="content-wrapper w_active h_cal .al-c">
-        <?php
+            <?php
             include_once __DIR__ . '../../../../templates/bar_user.php';
             ?>
-            <div class="div_table mx-4 bg-white static-top shadow">
+            <div class="div_table mx-xs-3 mx-sm-4 bg-white static-top shadow">
                 <section class="m-0 p-3">
                     <div class="d-sm-flex justify-content">
                         <a class="btn col-12 col-xl-2 col-md-3 col-sm-4 me-sm-3 mb-3 mb-sm-0 btn-secondary" href="/Trabalho_SIR/">Voltar</a>
@@ -44,32 +44,38 @@ $user = user();
                 </section>
                 <section>
                     <form enctype="multipart/form-data" action="/Trabalho_SIR/controllers/admin/user.php" method="post" class="px-3">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Name</span>
-                            <input type="text" class="form-control" name="name" placeholder="name" maxlength="100" size="100" value="<?= isset($_REQUEST['name']) ? $_REQUEST['name'] : $user['name'] ?>" required>
+                        <div class="row">
+                            <div class="input col-12 col-sm-6 mb-3">
+                                <span class="small">Nome:</span>
+                                <input type="text" class="form-control" name="name" placeholder="name" maxlength="100" size="100" value="<?= isset($_REQUEST['name']) ? $_REQUEST['name'] : $user['name'] ?>" required>
+                            </div>
+                            <div class="input col-12 col-sm-6 mb-3">
+                                <span class="small">Apelido:</span>
+                                <input type="text" class="form-control" name="lastname" placeholder="lastname" maxlength="100" size="100" value="<?= isset($_REQUEST['lastname']) ? $_REQUEST['lastname'] : $user['lastname'] ?>" required>
+                            </div>
                         </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Lastname</span>
-                            <input type="text" class="form-control" name="lastname" placeholder="lastname" maxlength="100" size="100" value="<?= isset($_REQUEST['lastname']) ? $_REQUEST['lastname'] : $user['lastname'] ?>" required>
+                        <div class="row">
+                            <div class="input col-12 col-sm-6 mb-3">
+                                <span class="small">Telemóvel:</span>
+                                <input type="tel" class="form-control" name="phoneNumber" maxlength="9" value="<?= isset($_REQUEST['phoneNumber']) ? $_REQUEST['phoneNumber'] : $user['phoneNumber'] ?>" required>
+                            </div>
+                            <div class="input col-12 col-sm-6 mb-3">
+                                <span class="small">CC:</span>
+                                <input type="tel" class="form-control" name="ccNumber" maxlength="9" value="<?= isset($_REQUEST['ccNumber']) ? $_REQUEST['ccNumber'] : $user['ccNumber'] ?>" required>
+                            </div>
                         </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Phone Number</span>
-                            <input type="tel" class="form-control" name="phoneNumber" maxlength="9" value="<?= isset($_REQUEST['phoneNumber']) ? $_REQUEST['phoneNumber'] : $user['phoneNumber'] ?>" required>
+                        <div class="row">
+                            <div class="input col-12 col-sm-6 mb-3">
+                                <span class="small">Email:</span>
+                                <input type="email" class="form-control" name="email" maxlength="255" value="<?= isset($_REQUEST['email']) ? $_REQUEST['email'] : $user['email'] ?>" readonly>
+                            </div>
+                            <div class="input col-12 col-sm-6 mb-3">
+                                <label class="small" for="inputGroupFile01">Fotografia:</label>
+                                <input accept="image/*" type="file" class="form-control" id="inputGroupFile01" name="foto" />
+                            </div>
                         </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">CC Number</span>
-                            <input type="tel" class="form-control" name="ccNumber" maxlength="9" value="<?= isset($_REQUEST['ccNumber']) ? $_REQUEST['ccNumber'] : $user['ccNumber'] ?>" required>
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">email</span>
-                            <input type="email" class="form-control" name="email" maxlength="255" value="<?= isset($_REQUEST['email']) ? $_REQUEST['email'] : $user['email'] ?>" readonly>
-                        </div>
-                        <div class="input-group mb-3">
-                            <label class="input-group-text" for="inputGroupFile01">Picture</label>
-                            <input accept="image/*" type="file" class="form-control" id="inputGroupFile01" name="foto" />
-                        </div>
-                        <div class="d-grid col-4 mx-auto">
-                            <button class="w-100 btn btn-lg btn-success mb-2" type="submit" name="user" value="profile">Alterar</button>
+                        <div class="d-grid col-12 col-xl-2 col-md-3 col-sm-4 mx-auto">
+                            <button class="w-100 btn btn-warning-yellow mb-3" type="submit" name="user" value="profile">Alterar</button>
                         </div>
                     </form>
                 </section>

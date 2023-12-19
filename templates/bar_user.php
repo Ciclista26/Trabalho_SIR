@@ -1,4 +1,4 @@
-<div class="px-4 py-75">
+<div class="px-xs-3 px-sm-4 py-75">
     <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
         <div class="d-flex w-100 al-c jc-between">
             <div class="d-flex al-c">

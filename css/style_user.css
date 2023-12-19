@@ -18,6 +18,7 @@ body {
     z-index: 1;
     flex-direction: column;
     justify-content: space-between;
+    position: fixed;
 }
 
 .wrapper-user .sidebar.active {
@@ -57,6 +58,21 @@ body {
     bottom: 0;
     right: 0;
     transition: all 0.8s ease;
+}
+
+.wrapper-user .w_active {
+    width: calc(100% - 120px);
+    margin-left: 120px;
+}
+
+.wrapper-user .w_none {
+    width: calc(100% - 300px);
+    margin-left: 300px;
+}
+
+.wrapper-user .footer{
+    width: 100%;
+    margin-left: 0px;
 }
 
 .wrapper-user #sidebar .logo {
@@ -146,10 +162,12 @@ body {
 
     .wrapper-user .w_active {
         width: 100%;
+        margin-left: 0px;
     }
 
     .wrapper-user .w_none {
         width: 100%;
+        margin-left: 0px;
     }
 
     #sidebar {
@@ -273,4 +291,34 @@ body {
     appearance: none;
     border-radius: 8px;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+
+@media (min-width: 0px) {
+    .mx-xs-3 {
+      margin-right: 1rem !important;
+      margin-left: 1rem !important;
+    }
+    .px-xs-3 {
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
+      }
+  }
+@media (min-width: 576px) {
+    .px-sm-4 {
+        padding-right: 1.5rem !important;
+        padding-left: 1.5rem !important;
+      }
+      .mx-sm-4 {
+        margin-right: 1.5rem !important;
+        margin-left: 1.5rem !important;
+      }
+  }
+  .form-check-input {
+    background-color: #43555d33;
+    border: var(--bs-border-width) solid #43555d;
+  }
+  .form-check-input:checked {
+    background-color: #ffc600;
+    border-color: #ffc600;
 }

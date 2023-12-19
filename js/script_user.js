@@ -1,4 +1,5 @@
 function toggleSidebar() {
+
     var sidebar = document.getElementById("sidebar");
     var content_wrapper = document.querySelector(".content-wrapper");
     var toggle_btn = document.querySelector(".toggle_btn");
