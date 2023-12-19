@@ -98,7 +98,7 @@ $title = 'Utilizadores';
                                     <th scope="col">Telemóvel</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Administrator</th>
-                                    <th scope="col">Opções</th>
+                                    <th scope="col" class="tx-c">Opções</th>
                                 </tr>
                             </thead>
                             <tbody>

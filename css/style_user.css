@@ -322,3 +322,14 @@ body {
     background-color: #ffc600;
     border-color: #ffc600;
 }
+.tx-c{
+text-align: center;
+}
+
+.password-toggle {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
