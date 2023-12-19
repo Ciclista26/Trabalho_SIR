@@ -6,8 +6,8 @@ function passwordIsValid($req)
         $req[$key] = trim($req[$key]);
     }
 
-    if (empty($req['name']) || strlen($req['name']) < 3 || strlen($req['name']) > 255) {
-        $errors['name'] = 'O campo Nome não pode estar vazio e deve ter entre 3 e 255 caracteres.';
+    if (empty($req['old_password']) || !password_verify($req['old_password'], user()['password'])) {
+        $errors['old_password'] = 'A password atual não pode estar vazia ou esta incorreta.';
     }
 
     if (empty($req['password']) || strlen($req['password']) < 8 || !preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,}$/', $req['password'])) {

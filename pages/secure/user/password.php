@@ -46,7 +46,7 @@ $user = user();
                     <form action="/Trabalho_SIR/controllers/admin/user.php" method="post" class="px-3">
                         <div class="input mb-3">
                             <span class="small">Password Atual:</span>
-                            <input type="password" class="form-control" name="old_password" value="<?= $user['password'] ?>">
+                            <input type="password" class="form-control" name="old_password">
                         </div>
                         <div class="input mb-3">
                             <span class="small">Nova Password:</span>

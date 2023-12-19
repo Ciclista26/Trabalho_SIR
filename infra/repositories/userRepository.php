@@ -134,7 +134,6 @@ function updatePassword($user)
 
         $sqlUpdate = "UPDATE  
         users SET
-            name = :name, 
             password = :password
         WHERE id = :id;";
 
@@ -142,7 +141,6 @@ function updatePassword($user)
 
         return $PDOStatement->execute([
             ':id' => $user['id'],
-            ':name' => $user['name'],
             ':password' => $user['password']
         ]);
     }
