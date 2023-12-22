@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/infra/middlewares/middleware-not-authenticated.php';
-//require_once __DIR__ . '/setupdatabase.php';
+require_once __DIR__ . '/setupdatabase.php';
 include_once __DIR__ . '/templates/header.php';
 ?>
 
@@ -95,7 +95,7 @@ include_once __DIR__ . '/templates/header.php';
                             </p>
                         </div>
                         <div class="col-lg-6">
-                            <img src="./assets/image/voto.jpg" alt="teamworker">
+                            <img src="./assets/image/voto.jpg" alt="teamworker1">
                         </div>
                     </div>
                     <div class="tab-pane fade d-md-flex d-md-none text-content align-items-center justify-content-center text-center" id="tabs-2" role="tabpanel" aria-labelledby="tab-2">
@@ -104,7 +104,7 @@ include_once __DIR__ . '/templates/header.php';
                             <p class="text-white">Crie votações personalizadas de acordo com as suas necessidades. Seja para decidir sobre o destino do próximo encontro ou escolher o melhor design para um projeto, o VotaCerto está aqui para tornar o processo simples e eficiente.</p>
                         </div>
                         <div class="col-md-6">
-                            <img src="./assets/image/personalizada.jpg" alt="teamworker">
+                            <img src="./assets/image/personalizada.jpg" alt="teamworker2">
                         </div>
                     </div>
                     <div class="tab-pane fade d-md-flex d-md-none text-content align-items-center justify-content-center text-center" id="tabs-3" role="tabpanel" aria-labelledby="tab-3">
@@ -113,7 +113,7 @@ include_once __DIR__ . '/templates/header.php';
                             <p class="text-white">Acompanha os resultados instantaneamente. Com a nossa tecnologia avançada, os resultados das votações são exibidos em tempo real, proporcionando transparência e insights imediatos.</p>
                         </div>
                         <div class="col-md-6">
-                            <img src="./assets/image/resultado.png" alt="teamworker">
+                            <img src="./assets/image/resultado.png" alt="teamworker3">
                         </div>
                     </div>
                     <div class="tab-pane fade d-md-flex d-md-none text-content align-items-center justify-content-center text-center" id="tabs-4" role="tabpanel" aria-labelledby="tab-4">
@@ -122,7 +122,7 @@ include_once __DIR__ . '/templates/header.php';
                             <p class="text-white">Respeitamos a tua privacidade. Oferecemos opções para votação anónima, garantindo que as opiniões sejam expressas sem qualquer receio.</p>
                         </div>
                         <div class="col-md-6">
-                            <img src="./assets/image/anonimo.jpg" alt="teamworker">
+                            <img src="./assets/image/anonimo.jpg" alt="teamworker4">
                         </div>
                     </div>
                     <div class="tab-pane fade d-md-flex d-md-none text-content align-items-center justify-content-center text-center" id="tabs-5" role="tabpanel" aria-labelledby="tab-5">
@@ -131,7 +131,7 @@ include_once __DIR__ . '/templates/header.php';
                             <p class="text-white">Fornece relatórios detalhados pós-votação, incluindo análises estatísticas e gráficos que facilitam a compreensão dos resultados e auxiliam na tomada de decisões informadas.</p>
                         </div>
                         <div class="col-md-6">
-                            <img src="./assets/image/relatorio.jpg" alt="teamworker">
+                            <img src="./assets/image/relatorio.jpg" alt="teamworker5">
                         </div>
                     </div>
                 </div>

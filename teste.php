@@ -4,17 +4,8 @@ require __DIR__ . '/infra/db/connection.php';
 
 # DROP TABLES (if needed)
 $pdo->exec('DROP TABLE IF EXISTS users;');
+
 echo 'Tables users deleted!' . PHP_EOL;
-
-$pdo->exec('DROP TABLE IF EXISTS opcoes;');
-echo 'Tables opcoes deleted!' . PHP_EOL;
-
-$pdo->exec('DROP TABLE IF EXISTS perguntas;');
-echo 'Tables perguntas deleted!' . PHP_EOL;
-
-$pdo->exec('DROP TABLE IF EXISTS votacoes;');
-echo 'Tables votacoes deleted!' . PHP_EOL;
-
 # CREATE USERS TABLE
 $pdo->exec(
     'CREATE TABLE users (
@@ -106,12 +97,13 @@ try {
     }
 }
 
+# CREATE PERGUNTAS TABLE
 try {
     $pdo->exec(
         'CREATE TABLE perguntas (
             id_pergunta INT PRIMARY KEY AUTO_INCREMENT,
             id_votacao INT,
-            texto_pergunta varchar(100),
+            texto_pergunta TEXT,
             FOREIGN KEY (id_votacao) REFERENCES votacoes(id_votacao)
         );'
     );
@@ -125,14 +117,13 @@ try {
     }
 }
 
-
 # CREATE OPCOES TABLE
 try {
     $pdo->exec(
         'CREATE TABLE opcoes (
             id_opcao INT PRIMARY KEY AUTO_INCREMENT,
             id_pergunta INT,
-            texto_opcao varchar(100),
+            texto_opcao TEXT,
             FOREIGN KEY (id_pergunta) REFERENCES perguntas(id_pergunta)
         );'
     );

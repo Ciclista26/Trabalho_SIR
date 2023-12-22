@@ -40,3 +40,11 @@ function togglePasswordVisibility() {
   }
 
   document.getElementById('toggleIcon').addEventListener('click', togglePasswordVisibility);
+
+  function votar() {
+    var divVotacao = document.querySelector('.resp_votacao');
+    var divAparecer = document.querySelector('.resp_aparecer');
+
+    divVotacao.classList.add('d-none');
+    divAparecer.classList.remove('d-none');
+}
