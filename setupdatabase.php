@@ -9,9 +9,6 @@ echo 'Tables users deleted!' . PHP_EOL;
 $pdo->exec('DROP TABLE IF EXISTS opcoes;');
 echo 'Tables opcoes deleted!' . PHP_EOL;
 
-$pdo->exec('DROP TABLE IF EXISTS perguntas;');
-echo 'Tables perguntas deleted!' . PHP_EOL;
-
 $pdo->exec('DROP TABLE IF EXISTS votacoes;');
 echo 'Tables votacoes deleted!' . PHP_EOL;
 
@@ -38,10 +35,10 @@ $user = [
     'lastname' => 'Alves',
     'phoneNumber' => '987654321',
     'ccNumber' => '123456789',
-    'email' => 'rui.alves@estg.ipvc.pt',
+    'email' => 'rui.alves@ipvc.pt',
     'foto' => null,
     'administrator' => true,
-    'password' => '123456'
+    'password' => 'RuiAlves.123'
 ];
 
 # HASH PWD
@@ -93,6 +90,7 @@ try {
         'CREATE TABLE votacoes (
             id_votacao INTEGER PRIMARY KEY AUTO_INCREMENT,
             nome_votacao varchar(255),
+            objetivo_votacao varchar(50),
             descricao_votacao varchar(255)
         );'
     );
@@ -106,34 +104,14 @@ try {
     }
 }
 
-try {
-    $pdo->exec(
-        'CREATE TABLE perguntas (
-            id_pergunta INT PRIMARY KEY AUTO_INCREMENT,
-            id_votacao INT,
-            texto_pergunta varchar(100),
-            FOREIGN KEY (id_votacao) REFERENCES votacoes(id_votacao)
-        );'
-    );
-
-    echo 'Table "perguntas" created!' . PHP_EOL;
-} catch (PDOException $e) {
-    if ($e->getCode() == '42S01' && strpos($e->getMessage(), 'already exists') !== false) {
-        echo 'Table "perguntas" already exists!' . PHP_EOL;
-    } else {
-        echo 'Error creating table "perguntas": ' . $e->getMessage() . PHP_EOL;
-    }
-}
-
-
 # CREATE OPCOES TABLE
 try {
     $pdo->exec(
         'CREATE TABLE opcoes (
             id_opcao INT PRIMARY KEY AUTO_INCREMENT,
-            id_pergunta INT,
+            id_votacao INT,
             texto_opcao varchar(100),
-            FOREIGN KEY (id_pergunta) REFERENCES perguntas(id_pergunta)
+            FOREIGN KEY (id_votacao) REFERENCES votacoes(id_votacao)
         );'
     );
 
@@ -145,3 +123,24 @@ try {
         echo 'Error creating table "opcoes": ' . $e->getMessage() . PHP_EOL;
     }
 }
+
+# CREATE OPCOES TABLE
+try {
+    $pdo->exec(
+        'CREATE TABLE opcoes (
+            id_opcao INT PRIMARY KEY AUTO_INCREMENT,
+            id_votacao INT,
+            texto_opcao varchar(100),
+            FOREIGN KEY (id_votacao) REFERENCES votacoes(id_votacao)
+        );'
+    );
+
+    echo 'Table "opcoes" created!' . PHP_EOL;
+} catch (PDOException $e) {
+    if ($e->getCode() == '42S01' && strpos($e->getMessage(), 'already exists') !== false) {
+        echo 'Table "opcoes" already exists!' . PHP_EOL;
+    } else {
+        echo 'Error creating table "opcoes": ' . $e->getMessage() . PHP_EOL;
+    }
+}
+

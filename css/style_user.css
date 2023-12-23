@@ -3,6 +3,10 @@ body {
     font-family: Arial, sans-serif;
 }
 
+body {
+    background-color: #43555d33;
+}
+
 .wrapper-user {
     display: flex;
 }
@@ -362,14 +366,42 @@ body {
     position: absolute;
 }
 
-.form-check.shadow{
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) !important;
-  border-radius: 8px;
-  padding: 1rem;
+.form-check.shadow {
+    box-shadow: 0 0 5px #43555d !important;
+    border-radius: 8px;
+    padding: 1rem;
 }
 
-.form-check .form-check-input
+.form-check .form-check-input {
+    float: left;
+    margin-left: 0em;
+}
+
+.wrapper-user .card {
+    box-shadow: 0 0 5px #43555d !important;
+    box-shadow: 0 0.2rem 0.5rem #43555d;
+    border: 1px solid #43555d;
+    border-radius: 0;
+    --bs-card-spacer-y: 2rem;
+    --bs-card-spacer-x: 2rem;
+}
+
+textarea.form-control {
+    min-height: 200px;
+}
+
+.btn-danger {
+    border: 2px solid #dc3545;
+    font-weight: bold;
+    --bs-btn-color: #dc3545;
+    --bs-btn-hover-color: #dc3545;
+    --bs-btn-active-color: #dc3545;
+    --bs-btn-disabled-color: ##dc3545;
+    background-color: #fff;
+    --bs-gradient: none;
+}
+
+.btn-danger:hover
 {
-  float: left;
-  margin-left: 0em;
+  color: #fff;
 }

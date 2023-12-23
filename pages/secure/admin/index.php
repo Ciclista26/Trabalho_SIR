@@ -86,8 +86,6 @@ $title = 'Utilizadores';
                         ?>
                     </div>
 
-
-
                     <div class="table-info d-none d-lg-block">
                         <table class="table">
                             <thead>

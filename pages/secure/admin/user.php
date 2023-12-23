@@ -92,9 +92,6 @@ $title = 'Utilizadores';
                         </div>
                     </form>
                 </section>
-
-
-
             </div>
             <?php
             include_once __DIR__ . '/../../../templates/empowered.php';
