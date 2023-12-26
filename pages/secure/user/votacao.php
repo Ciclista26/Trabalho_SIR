@@ -24,6 +24,25 @@ $user = user();
                         <a class="btn col-12 col-xl-2 col-md-3 col-sm-4 me-sm-3 mb-3 mb-sm-0 btn-secondary" href="/Trabalho_SIR/pages/secure/">Voltar</a>
                     </div>
                 </section>
+                <section>
+                    <?php
+                    if (isset($_SESSION['success'])) {
+                        echo '<div id="successAlert" class="alert alert-success alert-dismissible fade show position-fixed top-0 end-0" role="alert">';
+                        echo $_SESSION['success'] . '<br>';
+                        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                        unset($_SESSION['success']);
+                    }
+
+                    if (isset($_SESSION['errors'])) {
+                        echo '<div id="errorAlert" class="alert alert-danger alert-dismissible fade show position-fixed top-0 end-0" role="alert">';
+                        foreach ($_SESSION['errors'] as $error) {
+                            echo $error . '<br>';
+                        }
+                        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                        unset($_SESSION['errors']);
+                    }
+                    ?>
+                </section>
                 <section class="pb-4">
                     <form enctype="multipart/form-data" action="/Trabalho_SIR/controllers/user/votacao.php" method="post" class="px-3">
                         <div class="row">

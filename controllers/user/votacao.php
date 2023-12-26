@@ -30,7 +30,7 @@ if (isset($_GET['votacao'])) {
 
         if ($success) {
             $_SESSION['success'] = 'Votacao deleted successfully!';
-            header('location: /Trabalho_SIR/pages/secure/user/');
+            header('location: /Trabalho_SIR/pages/secure/');
         }
     }
 }
@@ -51,7 +51,7 @@ function votacaoCreate($req)
 
     if ($successVotacao && $successOpcao) {
         $_SESSION['success'] = 'Votacao created successfully!';
-        header('location: /Trabalho_SIR/pages/secure/user/');
+        header('location: /Trabalho_SIR/pages/secure/');
     }
 }
 
