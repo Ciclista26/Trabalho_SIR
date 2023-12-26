@@ -12,6 +12,14 @@ function getAllVotacoes()
     return $votacoes;
 }
 
+function getByIdVotacao($id_votacao)
+{
+    $PDOStatement = $GLOBALS['pdo']->prepare('SELECT * FROM votacoes WHERE id_votacao = ?;');
+    $PDOStatement->bindValue(1, $id_votacao, PDO::PARAM_INT);
+    $PDOStatement->execute();
+    return $PDOStatement->fetch();
+}
+
 function createVotacao($votacao)
 {
     $sqlCreate = "INSERT INTO 

@@ -20,15 +20,15 @@ if (isset($_POST['votacao'])) {
 
 if (isset($_GET['votacao'])) {
     if ($_GET['votacao'] == 'update') {
-        $votacao = getById($_GET['id_votacao']);
+        $votacao = getByIdVotacao($_GET['id_votacao']);
         $votacao['action'] = 'update';
         $params = '?' . http_build_query($votacao);
         header('location: /Trabalho_SIR/pages/secure/user/votacao.php' . $params);
     }
 
     if ($_GET['votacao'] == 'delete') {
-        $votacao = getById($_GET['id_votacao']);
-        
+        $votacao = getByIdVotacao($_GET['id_votacao']);
+
         $success = delete_user($votacao);
 
         if ($success) {
@@ -52,10 +52,10 @@ function create($req)
         return false;
     }
 
-    $success = createVotacao($data);
-    $success = createOpcao($data);
+    $successVotacao = createVotacao($data);
+    $successOpcao = createOpcao($data);
 
-    if ($success) {
+    if ($successVotacao && $successOpcao) {
         $_SESSION['success'] = 'Votacao created successfully!';
         header('location: /Trabalho_SIR/pages/secure/user/');
     }
