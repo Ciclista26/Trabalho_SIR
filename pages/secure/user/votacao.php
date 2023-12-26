@@ -59,8 +59,8 @@ $user = user();
 
                         </div>
                         <div class="d-grid col-12 col-xl-2 col-md-3 col-sm-4 mx-auto">
-                            <input type="hidden" name="id_votacao" value="<?= isset($_REQUEST['id_votacao']) ? $_REQUEST['id_votacao'] : null ?>">
-                            <button type="submit" class="w-100 btn btn-warning-yellow mb-3" name="votacao" <?= isset($_REQUEST['action']) && $_REQUEST['action'] == 'update' ? 'value="update"' : 'value="create"' ?>><?php echo isset($_REQUEST['action']) && $_REQUEST['action'] == 'update' ? 'Alterar' : 'Criar'; ?></button>
+                            <!--<input type="hidden" name="id_votacao" value="<?= isset($_REQUEST['id_votacao']) ? $_REQUEST['id_votacao'] : null ?>"> -->
+                            <button type="submit" class="w-100 btn btn-warning-yellow mb-3" name="votacao" <?= isset($_REQUEST['action']) && $_REQUEST['action'] == 'votacaoupdate' ? 'value="votacaoupdate"' : 'value="votacaocreate"' ?>><?php echo isset($_REQUEST['action']) && $_REQUEST['action'] == 'votacaoupdate' ? 'Alterar' : 'Criar'; ?></button>
                         </div>
                     </form>
                 </section>
