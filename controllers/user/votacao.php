@@ -37,15 +37,23 @@ if (isset($_GET['votacao'])) {
 
 function votacaoCreate($req)
 {
-    $data = validatedVotacao($req);
+    $validatedData = validatedVotacao($req);
 
-    if (isset($data['invalid'])) {
-        $_SESSION['errors'] = $data['invalid'];
+    if (isset($validatedData['invalid'])) {
+        $_SESSION['errors'] = $validatedData['invalid'];
+        $_SESSION['form_data'] = $req; // Store form data in session
         $params = '?' . http_build_query($req);
         header('location: /Trabalho_SIR/pages/secure/user/votacao.php' . $params);
         return false;
     }
 
+    $data = [
+        'nome_votacao' => $validatedData['titulo'],
+        'objetivo_votacao' => $validatedData['objetivo'],
+        'descricao_votacao' => $validatedData['descricao'],
+        // Add other keys as needed
+    ];
+    
     $successVotacao = createVotacao($data);
     $successOpcao = createOpcao($data);
 

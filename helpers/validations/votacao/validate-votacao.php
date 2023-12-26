@@ -2,6 +2,8 @@
 
 function validatedVotacao($req)
 {
+    $errors = [];
+
     foreach ($req as $key => $value) {
         $req[$key] =  trim($req[$key]);
     }
@@ -18,7 +20,6 @@ function validatedVotacao($req)
         $errors['descricao'] = 'O campo descricao não pode estar vazio e deve ter entre 3 e 50 caracteres.';
     }
 
-    $errors = [];
     foreach ($req as $nome_campo => $valor) {
         if (preg_match('/^opcao\d+_text$/', $nome_campo)) {
             if (empty($valor) || strlen($valor) < 3 || strlen($valor) > 50) {
@@ -27,7 +28,7 @@ function validatedVotacao($req)
         }
     }
 
-    if (isset($errors)) {
+    if (!empty($errors)) {
         return ['invalid' => $errors];
     }
     return $req;

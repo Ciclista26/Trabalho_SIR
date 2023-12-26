@@ -22,6 +22,9 @@ function getByIdVotacao($id_votacao)
 
 function createVotacao($votacao)
 {
+    // Write the $votacao array to the error log
+    error_log(print_r($votacao, true));
+
     $sqlCreate = "INSERT INTO 
     votacoes (
         nome_votacao, 
