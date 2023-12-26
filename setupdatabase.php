@@ -35,10 +35,10 @@ $user = [
     'lastname' => 'Alves',
     'phoneNumber' => '987654321',
     'ccNumber' => '123456789',
-    'email' => 'rui.alves@ipvc.pt',
+    'email' => 'teste@ipvc.pt',
     'foto' => null,
     'administrator' => true,
-    'password' => 'RuiAlves.123'
+    'password' => 'Teste2023.123'
 ];
 
 # HASH PWD
