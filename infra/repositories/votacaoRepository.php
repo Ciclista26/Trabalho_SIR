@@ -65,7 +65,7 @@ function createOpcao($opcoes)
 
     $success = $PDOStatement->execute([
         ':id_votacao' => $opcoes['id_votacao'],
-        ':texto_opcao' => $opcoes['texto_opcao'],
+        ':texto_opcao' => $opcoes['opcao1_text'],
     ]);
 
     if ($success) {

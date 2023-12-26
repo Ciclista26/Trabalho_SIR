@@ -123,24 +123,3 @@ try {
         echo 'Error creating table "opcoes": ' . $e->getMessage() . PHP_EOL;
     }
 }
-
-# CREATE OPCOES TABLE
-try {
-    $pdo->exec(
-        'CREATE TABLE opcoes (
-            id_opcao INT PRIMARY KEY AUTO_INCREMENT,
-            id_votacao INT,
-            texto_opcao varchar(100),
-            FOREIGN KEY (id_votacao) REFERENCES votacoes(id_votacao)
-        );'
-    );
-
-    echo 'Table "opcoes" created!' . PHP_EOL;
-} catch (PDOException $e) {
-    if ($e->getCode() == '42S01' && strpos($e->getMessage(), 'already exists') !== false) {
-        echo 'Table "opcoes" already exists!' . PHP_EOL;
-    } else {
-        echo 'Error creating table "opcoes": ' . $e->getMessage() . PHP_EOL;
-    }
-}
-

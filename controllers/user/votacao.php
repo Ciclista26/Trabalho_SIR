@@ -51,7 +51,6 @@ function votacaoCreate($req)
         'nome_votacao' => $validatedData['titulo'],
         'objetivo_votacao' => $validatedData['objetivo'],
         'descricao_votacao' => $validatedData['descricao'],
-        // Add other keys as needed
     ];
     
     $successVotacao = createVotacao($data);
