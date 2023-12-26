@@ -3,7 +3,7 @@ require_once __DIR__ . '../../../../infra/middlewares/middleware-user.php';
 include_once __DIR__ . '../../../../templates/header.php';
 @require_once __DIR__ . '/../../../helpers/session.php';
 
-$title = 'Mudar Password';
+$title = 'Responder votação';
 $user = user();
 ?>
 
@@ -70,7 +70,7 @@ $user = user();
                                 </div>
                             </div>
                         </div>
-                        <div class="d-grid my-4 col-12 col-xl-2 col-md-3 col-sm-4 mx-auto">
+                        <div class="d-grid my-4 col-12 col-xl-2 col-md-3 col-sm-4 px-3 mx-auto">
                             <button class="w-100 btn mb-3 mx-md-3 btn-warning-yellow" type="submit" value="votacao">Finalizar Voto</button>
                         </div>
                     </div>

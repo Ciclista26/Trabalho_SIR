@@ -405,3 +405,15 @@ textarea.form-control {
 {
   color: #fff;
 }
+
+/* Estilização da legenda */
+.legend-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Adicione outros estilos conforme necessário */
+  

@@ -13,7 +13,7 @@ $title = 'Utilizadores';
         include_once __DIR__ . '/../../../templates/sidebar.php';
         ?>
 
-        <div class="content-wrapper w_active h_cal .al-c">
+        <div class="content-wrapper w_active h_cal al-c">
             <?php
             include_once __DIR__ . '/../../../templates/bar_user.php';
             ?>

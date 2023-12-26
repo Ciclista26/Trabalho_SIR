@@ -126,7 +126,7 @@ function changePassword($req)
         $success = updatePassword($data);
         if ($success) {
             $_SESSION['success'] = 'Password successfully changed!';
-            header('location: /Trabalho_SIR/pages/secure//user/password.php');
+            header('location: /Trabalho_SIR/pages/secure/user/password.php');
         }
     }
 }

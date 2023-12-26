@@ -54,29 +54,92 @@ function votar() {
 function adicionarInput() {
   var container = document.getElementById("opcoes-lista");
 
-  // Clonar a última div interna
-  var novaDivInterna = container.querySelector('.opcao-div:last-of-type').cloneNode(true);
+  var novaDivInterna = container
+    .querySelector(".opcao-div:last-of-type")
+    .cloneNode(true);
 
-  // Atualizar o nome do input dentro da nova div interna
   var inputDentroNovaDiv = novaDivInterna.querySelector('input[name^="opcao"]');
   inputDentroNovaDiv.name = "opcao" + (container.children.length + 1) + "_text";
   inputDentroNovaDiv.placeholder = "Opção " + (container.children.length + 1);
 
-  // Definir a propriedade required do novo campo
   inputDentroNovaDiv.required = true;
 
-  inputDentroNovaDiv.value = "<?= isset($_REQUEST['ccNumber']) ? $_REQUEST['ccNumber'] : null ?>";
+  inputDentroNovaDiv.value =
+    "<?= isset($_REQUEST['ccNumber']) ? $_REQUEST['ccNumber'] : null ?>";
 
-  // Adicionar a nova div interna à row
   container.appendChild(novaDivInterna);
 }
 
 function removerUltimaInput() {
   var container = document.getElementById("opcoes-lista");
-  var divsInternas = container.getElementsByClassName('opcao-div');
+  var divsInternas = container.getElementsByClassName("opcao-div");
 
-  // Verificar se há pelo menos duas opções antes de remover
   if (divsInternas.length >= 2) {
-      container.removeChild(divsInternas[divsInternas.length - 1]);
+    container.removeChild(divsInternas[divsInternas.length - 1]);
   }
 }
+
+/* //grafico
+/* var colors = ["#007bff", "#28a745", "#333333", "#c3e6cb", "#dc3545", "#6c757d"];
+
+var donutOptions = {
+  maintainAspectRatio: false,
+  responsive: true,
+  cutoutPercentage: 80,
+  legend: {
+    position: 'right',
+  },
+  tooltips: {
+    backgroundColor: "rgba(0, 0, 0, 0.8)",
+    bodyFontColor: "#fff",
+    borderColor: "rgba(0, 0, 0, 0.8)",
+    borderWidth: 1,
+  },
+};
+
+var chDonutData2 = {
+  labels: ["Casaco impermeável + Camisola", "Camisola", "Casaco impermeável"],
+  datasets: [
+    {
+      backgroundColor: colors.slice(0, 3),
+      borderWidth: 0,
+      data: [40, 45, 30],
+    },
+  ],
+};
+
+var chDonut2 = document.getElementById("chDonut2");
+
+if (chDonut2) {
+  new Chart(chDonut2, {
+    type: "pie",
+    data: chDonutData2,
+    options: donutOptions,
+  });
+} */
+
+/* google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+        
+        var options = {
+          width: "auto",
+          height: "100%",
+          title: 'My Daily Activities',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+
+ */
+
