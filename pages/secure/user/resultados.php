@@ -25,14 +25,109 @@ $user = user();
                     </div>
                 </section>
                 <section>
-                    <div class="resp_votacao tx-c p-3">
-                        <h1 class="mb-5 card-title">Núcleo engenharia Informática</h1>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body p-3">
-                                    <div id="donutchart" style="width: auto; height: 100%"></div>
+                    <div class="resp_votacao tx-c">
+                        <h1 class="mb-5 card-title px-3">Núcleo engenharia Informática</h1>
+                        <div class="mx-0 row">
+                            <div class="card-body-table p-3 col-12 col-sm-6">
+                                <div class="row h-100">
+                                    <div class="col-12 col-sm-6 mb-3">
+                                        <div class="card h-100">
+                                            <div class="row m-3">
+                                                <div class="col-12 p-0 mb-md-0">
+                                                    <div class="card-body-table">
 
+                                                        <div class="col-12 mt-3 p-0 d-flex space-around al-c">
 
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 mb-3 ">
+                                        <div class="card h-100">
+                                            <div class="row m-3">
+                                                <div class="col-12 p-0 mb-md-0">
+                                                    <div class="card-body-table">
+
+                                                        <div class="col-12 mt-3 p-0 d-flex space-around al-c">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 mb-3 ">
+                                        <div class="card h-100">
+                                            <div class="row m-3">
+                                                <div class="col-12 p-0 mb-md-0">
+                                                    <div class="card-body-table">
+
+                                                        <div class="col-12 mt-3 p-0 d-flex space-around al-c">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 mb-3 ">
+                                        <div class="card h-100">
+                                            <div class="row m-3">
+                                                <div class="col-12 p-0 mb-md-0">
+                                                    <div class="card-body-table">
+
+                                                        <div class="col-12 mt-3 p-0 d-flex space-around al-c">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="card-body-table p-3 col-12 col-sm-6">
+                                <div class="card mb-3">
+                                    <div class="row m-3">
+                                        <div class="col-12 p-0 mb-md-0">
+                                            <div class="card-body-table row">
+                                                <div class="chart-pie col-10 ">
+                                                    <canvas id="myPieChart" height="400px"></canvas>
+                                                </div>
+                                                <div class="col-2">
+                                                    <div class="small">
+                                                    <div class="d-flex mb-1 al-c">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                                            <circle cx="8" cy="8" r="8" />
+                                                        </svg>
+                                                        <span class="ml-2">Direct</span>
+                                                    </div>
+                                                    <div class="d-flex mb-1 al-c">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                                            <circle cx="8" cy="8" r="8" />
+                                                        </svg>
+                                                        <span class="ml-2">Direct</span>
+                                                    </div>
+                                                    <div class="d-flex mb-1 al-c">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                                            <circle cx="8" cy="8" r="8" />
+                                                        </svg>
+                                                        <span class="ml-2">Direct</span>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>

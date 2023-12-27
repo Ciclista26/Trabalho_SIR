@@ -1,3 +1,26 @@
+function votar() {
+  var divVotacao = document.querySelector(".resp_votacao");
+  var divAparecer = document.querySelector(".resp_aparecer");
+
+  divVotacao.classList.add("d-none");
+  divAparecer.classList.remove("d-none");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    var successAlert = document.getElementById("successAlert");
+    var errorAlert = document.getElementById("errorAlert");
+
+    if (successAlert) {
+      successAlert.style.display = "none";
+    }
+
+    if (errorAlert) {
+      errorAlert.style.display = "none";
+    }
+  }, 1500);
+});
+
 function toggleSidebar() {
   var sidebar = document.getElementById("sidebar");
   var content_wrapper = document.querySelector(".content-wrapper");
@@ -43,14 +66,6 @@ document
   .getElementById("toggleIcon")
   .addEventListener("click", togglePasswordVisibility);
 
-function votar() {
-  var divVotacao = document.querySelector(".resp_votacao");
-  var divAparecer = document.querySelector(".resp_aparecer");
-
-  divVotacao.classList.add("d-none");
-  divAparecer.classList.remove("d-none");
-}
-
 function adicionarInput() {
   var container = document.getElementById("opcoes-lista");
 
@@ -64,7 +79,7 @@ function adicionarInput() {
 
   inputDentroNovaDiv.required = true;
 
-/*   inputDentroNovaDiv.value =
+  /*   inputDentroNovaDiv.value =
     "<?= isset($_REQUEST['texto_opcao']) ? $_REQUEST['texto_opcao'] : null ?>"; */
 
   container.appendChild(novaDivInterna);
@@ -79,66 +94,35 @@ function removerUltimaInput() {
   }
 }
 
-/* //grafico
-/* var colors = ["#007bff", "#28a745", "#333333", "#c3e6cb", "#dc3545", "#6c757d"];
-
-var donutOptions = {
-  maintainAspectRatio: false,
-  responsive: true,
-  cutoutPercentage: 80,
-  legend: {
-    position: 'right',
+//grafico
+var ctx = document.getElementById("myPieChart");
+var myPieChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ["Direct", "Referral", "Social"],
+    datasets: [{
+      data: [55, 30, 15],
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }],
   },
-  tooltips: {
-    backgroundColor: "rgba(0, 0, 0, 0.8)",
-    bodyFontColor: "#fff",
-    borderColor: "rgba(0, 0, 0, 0.8)",
-    borderWidth: 1,
-  },
-};
-
-var chDonutData2 = {
-  labels: ["Casaco impermeável + Camisola", "Camisola", "Casaco impermeável"],
-  datasets: [
-    {
-      backgroundColor: colors.slice(0, 3),
-      borderWidth: 0,
-      data: [40, 45, 30],
+  options: {
+    maintainAspectRatio: false,
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 0,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
     },
-  ],
-};
+    legend: {
+      display: false
+    },
+    cutoutPercentage: 80,
+  },
+});
 
-var chDonut2 = document.getElementById("chDonut2");
-
-if (chDonut2) {
-  new Chart(chDonut2, {
-    type: "pie",
-    data: chDonutData2,
-    options: donutOptions,
-  });
-} */
-
-/* google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
-        
-        var options = {
-          width: "auto",
-          height: "100%",
-          title: 'My Daily Activities',
-          pieHole: 0.4,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-        chart.draw(data, options);
-      }
-
- */

@@ -250,15 +250,12 @@ body {
     color: #D90032;
 }
 
-.bi-pencil-square {
-    color: #43555d;
-}
-.bi-check2-square {
+.bi-pencil-square, .bi-graph-up, .bi-check2-square{
     color: #43555d;
 }
 
 .bi-pencil-square:hover,
-.bi-x-square:hover,.bi-check2-square:hover {
+.bi-x-square:hover,.bi-check2-square:hover, .bi-graph-up:hover {
     color: #ffc600;
 }
 
@@ -381,8 +378,7 @@ body {
 }
 
 .wrapper-user .card {
-    box-shadow: 0 0 5px #43555d !important;
-    box-shadow: 0 0.2rem 0.5rem #43555d;
+    box-shadow: 0 0 5px #43555d;
     border: 1px solid #43555d;
     border-radius: 0;
     --bs-card-spacer-y: 2rem;
@@ -409,14 +405,6 @@ textarea.form-control {
   color: #fff;
 }
 
-/* Estilização da legenda */
-.legend-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Adicione outros estilos conforme necessário */
-  
+.ml-2 {
+    margin-left: .5rem !important;
+}

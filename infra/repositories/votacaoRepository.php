@@ -150,6 +150,14 @@ function responderVotacao($resposta)
     return $success;
 }
 
+function getByIdRespostas($id_votacao)
+{
+    $PDOStatement = $GLOBALS['pdo']->prepare('SELECT * FROM respostas WHERE id_votacao = ?;');
+    $PDOStatement->bindValue(1, $id_votacao, PDO::PARAM_INT);
+    $PDOStatement->execute();
+    return $PDOStatement->fetch();
+}
+
 function deleteVotacao($id_votacao)
 {
     $queryOpcoes = 'DELETE FROM opcoes WHERE id_votacao = ?;';

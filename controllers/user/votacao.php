@@ -16,6 +16,9 @@ if (isset($_POST['votacao'])) {
     if ($_POST['votacao'] == 'respvotacao') {
         respVotacao($_POST);
     }
+    if ($_POST['votacao'] == 'resulvotacao') {
+        resulVotacao($_POST);
+    }
 }
 
 if (isset($_GET['votacao'])) {
@@ -24,6 +27,20 @@ if (isset($_GET['votacao'])) {
         $votacao['action'] = 'votacaoupdate';
         $params = '?' . http_build_query($votacao);
         header('location: /Trabalho_SIR/pages/secure/user/votacao.php' . $params);
+    }
+
+    if ($_GET['votacao'] == 'respvotacao') {
+        $votacao = getByIdVotacao($_GET['id_votacao']);
+        $votacao['action'] = 'respvotacao';
+        $params = '?' . http_build_query($votacao);
+        header('location: /Trabalho_SIR/pages/secure/user/resp_votacao.php' . $params);
+    }
+
+    if ($_GET['votacao'] == 'resulvotacao') {
+        $votacao = getByIdVotacao($_GET['id_votacao']);
+        $votacao['action'] = 'resulvotacao';
+        $params = '?' . http_build_query($votacao);
+        header('location: /Trabalho_SIR/pages/secure/user/resultados.php' . $params);
     }
 
     if ($_GET['votacao'] == 'votacaodelete') {
@@ -59,27 +76,6 @@ function votacaoCreate($req)
     $idVotacao = createVotacao($dataVotacao);
 
     if ($idVotacao === false) {
-        // Tratar falha na criação da votação
-        return false;
-    }
-    
-    for ($i = 1; isset($validatedData["opcao{$i}_text"]); $i++) {
-        $dataOpcao = [
-            'id_votacao' => $idVotacao,
-            'texto_opcao' => $validatedData["opcao{$i}_text"],
-        ];
-    
-        $successOpcao = createOpcao($dataOpcao);
-    
-        if (!$successOpcao) {
-            // Tratar falha na criação da opção
-            return false;
-        }
-    }
-
-    /* $idVotacao = createVotacao($dataVotacao);
-
-    if ($idVotacao === false) {
         return false;
     }
 
@@ -94,22 +90,11 @@ function votacaoCreate($req)
             // Tratar falha na criação da opção
             return false;
         }
-    } */
+    }
 
     $_SESSION['success'] = 'Votacao created successfully!';
     header('location: /Trabalho_SIR/pages/secure/');
 }
-
-
-
-
-
-
-
-
-
-
-
 function votacaoUpdate($req)
 {
     $data = validatedVotacao($req);
@@ -154,6 +139,12 @@ function respVotacao($req)
         $params = '?' . http_build_query($data);
         header('location: /Trabalho_SIR/pages/secure/user/resp_votacao.php' . $params);
     }
+}
+
+function resulVotacao($req)
+{
+
+
 }
 
 function delete_votacao($votacao)
