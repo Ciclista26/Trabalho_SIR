@@ -123,3 +123,23 @@ try {
         echo 'Error creating table "opcoes": ' . $e->getMessage() . PHP_EOL;
     }
 }
+
+# CREATE RESPOSTAS TABLE
+try {
+    $pdo->exec(
+        'CREATE TABLE respostas (
+            id_resposta INT PRIMARY KEY AUTO_INCREMENT,
+            id_votacao INT,
+            texto_resposta varchar(100),
+            FOREIGN KEY (id_votacao) REFERENCES votacoes(id_votacao)
+        );'
+    );
+
+    echo 'Table "respostas" created!' . PHP_EOL;
+} catch (PDOException $e) {
+    if ($e->getCode() == '42S01' && strpos($e->getMessage(), 'already exists') !== false) {
+        echo 'Table "respostas" already exists!' . PHP_EOL;
+    } else {
+        echo 'Error creating table "respostas": ' . $e->getMessage() . PHP_EOL;
+    }
+}

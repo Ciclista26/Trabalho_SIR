@@ -3,6 +3,8 @@ require_once __DIR__ . '../../../../infra/middlewares/middleware-user.php';
 include_once __DIR__ . '../../../../templates/header.php';
 @require_once __DIR__ . '/../../../helpers/session.php';
 
+$votacoes = getAllVotacoes();
+$opcoes = getByIdVotacao($_GET['id_votacao']);
 $title = 'Responder votação';
 $user = user();
 ?>
@@ -25,56 +27,43 @@ $user = user();
                     </div>
                 </section>
                 <section>
+
                     <div class="resp_votacao tx-c p-3">
-                        <h1 class="mb-5 card-title">Núcleo engenharia Informática</h1>
+                        <h1 class="mb-5 card-title"><?= $votacoes['nome_votacao'] ?></h1>
                         <div class="mb-5">
-                            <p class="mb-1">O Núcleo de Engenharia Informática pretende criar os novos kits de curso para o ano letivo de 2023/2024.</p>
-                            <p class="mb-1">Para isso pedimos a opinião dos alunos de Engenharia Informática o que devia ser feito para este kit.</p>
+                            <p class="mb-1"><?= $votacoes['descricao_votacao'] ?></p>
                         </div>
 
                         <div class="d-grid my-4 col-12 col-xl-2 col-md-3 col-sm-4 mx-auto">
                             <button class="w-100 btn btn-warning-yellow" type="submit" name="user" value="password" onclick="votar()">Votar</button>
                         </div>
                     </div>
-                    <div class="resp_aparecer tx-c d-none">
-                        <h1 class="mb-5 card-title p-3">Núcleo engenharia Informática</h1>
-                        <div class="row col-12 col-xl-8 offset-xl-2 m-auto">
-                            <div class="col-md-4 mb-3 px-3">
-                                <div class="form-check d-flex al-c tx-l shadow">
-                                    <div>
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <form method="post" action="processar_voto.php">
+                        <div class="resp_aparecer tx-c d-none">
+                            <h1 class="mb-5 card-title p-3"><?= $votacoes['nome_votacao'] ?></h1>
+                            <div class="row col-12 col-xl-8 offset-xl-2 m-auto">
+                                <?php
+                                foreach ($opcoes as $opcao) {
+                                ?>
+                                    <div class="col-md-4 mb-3 px-3">
+                                        <div class="form-check d-flex al-c tx-l shadow">
+                                            <div>
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                            </div>
+                                            <label class="form-check-label pl-1" for="flexRadioDefault1">
+                                                <?= $votacao['texto_opcao'] ?>
+                                            </label>
+                                        </div>
                                     </div>
-                                    <label class="form-check-label pl-1" for="flexRadioDefault1">
-                                        Casaco impermeável
-                                    </label>
-                                </div>
+                                <?php
+                                }
+                                ?>
                             </div>
-                            <div class="col-md-4 mb-3 px-3">
-                                <div class="form-check d-flex al-c tx-l shadow">
-                                    <div>
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                    </div>
-                                    <label class="form-check-label pl-1" for="flexRadioDefault2">
-                                        Camisola
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-3 px-3">
-                                <div class="form-check d-flex al-c tx-l shadow">
-                                    <div>
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-                                    </div>
-                                    <label class="form-check-label pl-1" for="flexRadioDefault3">
-                                        Casaco impermeável + Camisola
-                                    </label>
-                                </div>
+                            <div class="d-grid my-4 col-12 col-xl-2 col-md-3 col-sm-4 px-3 mx-auto">
+                                <button class="w-100 btn mb-3 mx-md-3 btn-warning-yellow" type="submit" name="submit" value="votacao">Finalizar Voto</button>
                             </div>
                         </div>
-                        <div class="d-grid my-4 col-12 col-xl-2 col-md-3 col-sm-4 px-3 mx-auto">
-                            <button class="w-100 btn mb-3 mx-md-3 btn-warning-yellow" type="submit" value="votacao">Finalizar Voto</button>
-                        </div>
-                    </div>
-
+                    </form>
                 </section>
             </div>
             <?php

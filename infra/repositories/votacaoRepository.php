@@ -12,6 +12,16 @@ function getAllVotacoes()
     return $votacoes;
 }
 
+function getByIdOpcoes($id_votacao)
+{
+    $PDOStatement = $GLOBALS['pdo']->prepare('SELECT * FROM opcoes WHERE id_votacao = ?;');
+    $PDOStatement->bindValue(1, $id_votacao, PDO::PARAM_INT);
+    $PDOStatement->execute();
+    return $PDOStatement->fetch();
+}
+
+
+
 function getByIdVotacao($id_votacao)
 {
     $PDOStatement = $GLOBALS['pdo']->prepare('SELECT * FROM votacoes WHERE id_votacao = ?;');
@@ -22,7 +32,6 @@ function getByIdVotacao($id_votacao)
 
 function createVotacao($votacao)
 {
-    // Write the $votacao array to the error log
     error_log(print_r($votacao, true));
 
     $sqlCreate = "INSERT INTO 
@@ -65,7 +74,7 @@ function createOpcao($opcoes)
 
     $success = $PDOStatement->execute([
         ':id_votacao' => $opcoes['id_votacao'],
-        ':texto_opcao' => $opcoes['opcao1_text'],
+        ':texto_opcao' => $opcoes['texto_opcao'],
     ]);
 
     if ($success) {
@@ -117,17 +126,41 @@ function updateVotacao($votacao)
     return $successVotacoes;
 }
 
+function responderVotacao($resposta)
+{
+    $sqlCreate = "INSERT INTO 
+    opcoes (
+        id_votacao, 
+        texto_opcao) 
+    VALUES (
+        :id_votacao, 
+        :texto_opcao
+    )";
+
+    $PDOStatement = $GLOBALS['pdo']->prepare($sqlCreate);
+
+    $success = $PDOStatement->execute([
+        ':id_votacao' => $resposta['id_votacao'],
+        ':texto_resposta' => $resposta['opcao_text'],
+    ]);
+
+    if ($success) {
+        $resposta['id_opcao'] = $GLOBALS['pdo']->lastInsertId();
+    }
+    return $success;
+}
+
 function deleteVotacao($id_votacao)
 {
-    $queryVotacoes = 'DELETE FROM votacoes WHERE id_votacao = ?;';
-    $statementVotacoes = $GLOBALS['pdo']->prepare($queryVotacoes);
-    $statementVotacoes->bindValue(1, $id_votacao, PDO::PARAM_INT);
-    $successVotacoes = $statementVotacoes->execute();
-
     $queryOpcoes = 'DELETE FROM opcoes WHERE id_votacao = ?;';
     $statementOpcoes = $GLOBALS['pdo']->prepare($queryOpcoes);
     $statementOpcoes->bindValue(1, $id_votacao, PDO::PARAM_INT);
     $successOpcoes = $statementOpcoes->execute();
+
+    $queryVotacoes = 'DELETE FROM votacoes WHERE id_votacao = ?;';
+    $statementVotacoes = $GLOBALS['pdo']->prepare($queryVotacoes);
+    $statementVotacoes->bindValue(1, $id_votacao, PDO::PARAM_INT);
+    $successVotacoes = $statementVotacoes->execute();
 
     return $successVotacoes && $successOpcoes;
 }

@@ -64,8 +64,8 @@ function adicionarInput() {
 
   inputDentroNovaDiv.required = true;
 
-  inputDentroNovaDiv.value =
-    "<?= isset($_REQUEST['ccNumber']) ? $_REQUEST['ccNumber'] : null ?>";
+/*   inputDentroNovaDiv.value =
+    "<?= isset($_REQUEST['texto_opcao']) ? $_REQUEST['texto_opcao'] : null ?>"; */
 
   container.appendChild(novaDivInterna);
 }
@@ -142,4 +142,3 @@ if (chDonut2) {
       }
 
  */
-

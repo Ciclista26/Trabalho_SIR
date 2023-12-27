@@ -253,9 +253,12 @@ body {
 .bi-pencil-square {
     color: #43555d;
 }
+.bi-check2-square {
+    color: #43555d;
+}
 
 .bi-pencil-square:hover,
-.bi-x-square:hover {
+.bi-x-square:hover,.bi-check2-square:hover {
     color: #ffc600;
 }
 
