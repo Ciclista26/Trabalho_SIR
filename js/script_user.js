@@ -115,7 +115,7 @@ var myPieChart = new Chart(ctx, {
       borderColor: '#dddfeb',
       borderWidth: 1,
       xPadding: 0,
-      yPadding: 15,
+      yPadding: 0,
       displayColors: false,
       caretPadding: 10,
     },

@@ -250,12 +250,16 @@ body {
     color: #D90032;
 }
 
-.bi-pencil-square, .bi-graph-up, .bi-check2-square{
+.bi-pencil-square,
+.bi-graph-up,
+.bi-check2-square {
     color: #43555d;
 }
 
 .bi-pencil-square:hover,
-.bi-x-square:hover,.bi-check2-square:hover, .bi-graph-up:hover {
+.bi-x-square:hover,
+.bi-check2-square:hover,
+.bi-graph-up:hover {
     color: #ffc600;
 }
 
@@ -400,11 +404,24 @@ textarea.form-control {
     --bs-gradient: none;
 }
 
-.btn-danger:hover
-{
-  color: #fff;
+.btn-danger:hover {
+    color: #fff;
 }
 
 .ml-2 {
     margin-left: .5rem !important;
+}
+
+.al-self {
+    align-self: center;
+}
+
+@media (max-width: 576px) {
+    .mt-sm-0 {
+        margin-top: 0rem;
+    }
+}
+
+.mt-3{
+    margin-top: 1rem !important;
 }

@@ -30,7 +30,9 @@ $user = user();
                                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                                     </svg>
                                 </span>
-                                <input type="text" class="form-control" placeholder="Pesquisar...">
+                                <input type="text" class="form-control" placeholder="Pesquisar..." id="searchInput">
+
+
                             </div>
 
                         </div>
@@ -63,7 +65,7 @@ $user = user();
                     <?php
                     foreach ($votacoes as $votacao) {
                     ?>
-                        <div class="card-body-table p-3 col-12 col-sm-6 col-md-4">
+                        <div class="card-body-table p-3 col-12 col-sm-6 col-md-4 searchable">
                             <div class="card">
                                 <div class="row m-3">
                                     <div class="col-12 p-0 mb-md-0">
@@ -119,7 +121,7 @@ $user = user();
                             <?php
                             foreach ($votacoes as $votacao) {
                             ?>
-                                <tr>
+                                <tr class="searchable">
                                     <td>
                                         <?= $votacao['nome_votacao'] ?>
                                     </td>
