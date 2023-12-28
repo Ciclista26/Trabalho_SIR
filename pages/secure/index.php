@@ -21,9 +21,9 @@ $user = user();
             include_once __DIR__ . '../../../templates/bar_user.php';
             ?>
             <div class="div_table mx-xs-3 mx-sm-4 bg-white static-top shadow">
-                <div class="m-0 p-3 ">
-                    <div class="w-100 d-sm-flex col-12 ">
-                        <div class="col-12 col-lg-4 col-sm-5 pb-3 pb-sm-0  p-0">
+                <section class="m-0 p-3">
+                    <div class="row">
+                        <div class="col-12 col-sm-5 col-md-5 pb-3 pb-sm-0">
                             <div class="input-group">
                                 <span class="input-group-text">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -31,17 +31,20 @@ $user = user();
                                     </svg>
                                 </span>
                                 <input type="text" class="form-control" placeholder="Pesquisar..." id="searchInput">
-
-
                             </div>
-
                         </div>
-                        <div class="col-0 col-lg-6 col-sm-3"></div>
-                        <div class="col-12 col-lg-2 col-sm-4 p-0">
-                            <a class="btn w-100 btn-secondary" href="/Trabalho_SIR/pages/secure/user/votacao.php" role="button">Criar Votacao</a>
+                        <div class="col-0 col-md-2 d-none d-md-block"></div>
+                        <div class="col-12 col-sm-7 col-md-5">
+                            <div class="row">
+                                <div class="col-12 col-sm-6d-none d-sm-block">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                <a class="btn w-100 btn-secondary" href="/Trabalho_SIR/pages/secure/user/votacao.php" role="button">Criar Votacao</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
                 <section>
                     <?php
                     if (isset($_SESSION['success'])) {

@@ -21,23 +21,24 @@ $user = user();
                 <section class="m-0 p-3">
                     <div class="d-sm-flex justify-content">
                         <a class="btn col-12 col-xl-2 col-md-3 col-sm-4 me-sm-3 mb-3 mb-sm-0 btn-secondary" href="/Trabalho_SIR/">Voltar</a>
-                        <a class="btn col-12 col-xl-2 col-md-3 col-sm-4 me-sm-3 mb-3 mb-sm-0 btn-warning-yellow" href="./password.php">Mudar Password</a>
+                        <a class="btn col-12 col-xl-2 col-md-3 col-sm-4 mx-0 mx-sm-3  mb-3 mb-sm-0 btn-warning-yellow" href="./password.php">Mudar Password</a>
                     </div>
                 </section>
                 <section>
                     <?php
                     if (isset($_SESSION['success'])) {
-                        echo '<div class="alert alert-success alert-dismissible fade show position-fixed top-0 end-0" role="alert">';
+                        echo '<div id="successAlert" class="alert alert-success alert-dismissible fade show position-fixed top-0 end-0" role="alert">';
                         echo $_SESSION['success'] . '<br>';
                         echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
                         unset($_SESSION['success']);
                     }
+
                     if (isset($_SESSION['errors'])) {
-                        echo '<div class="alert alert-danger alert-dismissible fade show position-fixed top-0 end-0" role="alert">';
+                        echo '<div id="errorAlert" class="alert alert-danger alert-dismissible fade show position-fixed top-0 end-0" role="alert">';
                         foreach ($_SESSION['errors'] as $error) {
                             echo $error . '<br>';
                         }
-                        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+                        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
                         unset($_SESSION['errors']);
                     }
                     ?>
