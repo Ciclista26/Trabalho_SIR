@@ -36,7 +36,7 @@ $user = user();
                         <div class="col-0 col-md-2 d-none d-md-block"></div>
                         <div class="col-12 col-sm-7 col-md-5">
                             <div class="row">
-                                <div class="col-12 col-sm-6d-none d-sm-block">
+                                <div class="col-12 col-sm-6 d-none d-sm-block">
                                 </div>
                                 <div class="col-12 col-sm-6">
                                 <a class="btn w-100 btn-secondary" href="/Trabalho_SIR/pages/secure/user/votacao.php" role="button">Criar Votacao</a>
