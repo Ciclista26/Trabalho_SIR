@@ -339,10 +339,6 @@ body {
     border-color: #ffc600;
 }
 
-.tx-c {
-    text-align: center;
-}
-
 .password-toggle {
     cursor: pointer;
     position: absolute;
@@ -424,4 +420,14 @@ textarea.form-control {
 
 .mt-3{
     margin-top: 1rem !important;
+}
+
+.noacount{
+    text-decoration: none;
+    color: #43555d;
+}
+
+.noacount:hover
+{
+  color: #ffc600;
 }

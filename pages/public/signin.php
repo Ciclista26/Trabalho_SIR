@@ -41,9 +41,12 @@ include_once __DIR__ . '/../../templates/header.php';
                   <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
                 </svg>
               </div>
-              <div class="checkbox mb-5 custom-checkbox">
+              <div class="checkbox mb-4 custom-checkbox">
                 <input type="checkbox" id="remember-me" value="remember-me">
                 <label for="remember-me">Lembrar-me</label>
+              </div>
+              <div class="w-100 tx-c mb-3">
+                <a class="small noacount" href="/Trabalho_SIR/pages/public/signup.php">Não tenho conta!</a>
               </div>
               <button class="w-100 btn btn-lg btn-warning-yellow mb-2" type="submit" name="user" value="login">Login</button>
 

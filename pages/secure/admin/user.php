@@ -69,12 +69,12 @@ $title = 'Utilizadores';
                                 <label class="small" for="inputGroupFile01">Foto:</label>
                                 <input accept="image/*" type="file" class="form-control" id="inputGroupFile01" name="foto" />
                             </div>
-                            
+
                         </div>
                         <div class="input col-12 mb-3">
-                                <span class="small">E-mail:</span>
-                                <input type="email" class="form-control" name="email" maxlength="255" value="<?= isset($_REQUEST['email']) ? $_REQUEST['email'] : null ?>" required>
-                            </div>
+                            <span class="small">E-mail:</span>
+                            <input type="email" class="form-control" name="email" maxlength="255" value="<?= isset($_REQUEST['email']) ? $_REQUEST['email'] : null ?>" required>
+                        </div>
                         <div class="input col-12 mb-3">
                             <span class="small">Password:</span>
                             <input type="password" class="form-control" name="password" maxlength="255" required>
