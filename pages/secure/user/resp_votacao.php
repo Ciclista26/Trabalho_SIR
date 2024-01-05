@@ -58,6 +58,15 @@ $user = user();
                             <p class="mb-1"><?= $votacao['descricao_votacao'] ?></p>
                         </div>
 
+                        <script>
+                            function votar() {
+                            var divVotacao = document.querySelector(".resp_votacao");
+                            var divAparecer = document.querySelector(".resp_aparecer");
+
+                            divVotacao.classList.add("d-none");
+                            divAparecer.classList.remove("d-none");
+                            }
+                        </script>
                         <div class="d-grid my-4 col-12 col-xl-2 col-md-3 col-sm-4 mx-auto">
                             <button class="w-100 btn btn-warning-yellow" type="submit" name="votar" value="password" onclick="votar()">Votar</button>
                         </div>
