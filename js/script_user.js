@@ -1,3 +1,5 @@
+// TODO - Botao votar não chama a função votar
+
 function votar() {
   var divVotacao = document.querySelector(".resp_votacao");
   var divAparecer = document.querySelector(".resp_aparecer");

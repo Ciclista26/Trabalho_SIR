@@ -95,6 +95,7 @@ function votacaoCreate($req)
     $_SESSION['success'] = 'Votacao created successfully!';
     header('location: /Trabalho_SIR/pages/secure/');
 }
+
 function votacaoUpdate($req)
 {
     $data = validatedVotacao($req);
