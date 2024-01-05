@@ -56,11 +56,17 @@ $user = user();
                             </div>
                             <div class="input col-12 col-sm-6 mb-3">
                                 <span class="small">Descrição:</span>
-                                <textarea class="form-control" aria-label="With textarea" name="descricao" value="<?= isset($_REQUEST['descricao_votacao']) ? $_REQUEST['descricao_votacao'] : null ?>" required></textarea>
+                                <textarea class="form-control" aria-label="With textarea" name="descricao" value="<?= isset($_REQUEST['descricao_votacao']) ? $_REQUEST['descricao_votacao'] : null ?>" required><?= isset($_REQUEST['descricao_votacao']) ? $_REQUEST['descricao_votacao'] : null ?></textarea>
                             </div>
                             <div class="input col-12 col-sm-6 mb-3" id="opcoes-container">
                                 <span class="small">Opções:</span>
+
+
+
                                 <div class="row" id="opcoes-lista">
+
+                                    <!-- TODO - CICLO FOR -->
+
                                     <div class="col-12 col-md-6 opcao-div">
                                         <input type="text" name="opcao1_text" value="<?= isset($_REQUEST['texto_opcao']) ? $_REQUEST['texto_opcao'] : null ?>" placeholder="Opção 1" class="form-control col-6 mb-3" required>
                                     </div>

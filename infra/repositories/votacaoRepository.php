@@ -32,8 +32,6 @@ function getByIdVotacao($id_votacao)
 
 function createVotacao($votacao)
 {
-    error_log(print_r($votacao, true));
-
     $sqlCreate = "INSERT INTO 
     votacoes (
         nome_votacao, 
@@ -55,7 +53,9 @@ function createVotacao($votacao)
 
     if ($success) {
         $votacao['id_votacao'] = $GLOBALS['pdo']->lastInsertId();
+        return $votacao;
     }
+
     return $success;
 }
 

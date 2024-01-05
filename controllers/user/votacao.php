@@ -73,15 +73,15 @@ function votacaoCreate($req)
         'descricao_votacao' => $validatedData['descricao'],
     ];
 
-    $idVotacao = createVotacao($dataVotacao);
+    $votacao = createVotacao($dataVotacao);
 
-    if ($idVotacao === false) {
+    if ($votacao === false) {
         return false;
     }
 
     for ($i = 1; isset($validatedData["opcao{$i}_text"]); $i++) {
         $dataOpcao = [
-            'id_votacao' => $idVotacao,
+            'id_votacao' => $votacao['id_votacao'],
             'texto_opcao' => $validatedData["opcao{$i}_text"],
         ];
         $successOpcao = createOpcao($dataOpcao);
@@ -143,8 +143,6 @@ function respVotacao($req)
 
 function resulVotacao($req)
 {
-
-
 }
 
 function delete_votacao($votacao)

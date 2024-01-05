@@ -73,16 +73,17 @@ function adicionarInput() {
     .querySelector(".opcao-div:last-of-type")
     .cloneNode(true);
 
+  var newDivName = "opcao" + (container.children.length + 1) + "_text";
+
   var inputDentroNovaDiv = novaDivInterna.querySelector('input[name^="opcao"]');
-  inputDentroNovaDiv.name = "opcao" + (container.children.length + 1) + "_text";
+  inputDentroNovaDiv.name = newDivName;
+  inputDentroNovaDiv.id = newDivName;
+  inputDentroNovaDiv.required = true;
   inputDentroNovaDiv.placeholder = "Opção " + (container.children.length + 1);
 
-  inputDentroNovaDiv.required = true;
-
-  /*   inputDentroNovaDiv.value =
-    "<?= isset($_REQUEST['texto_opcao']) ? $_REQUEST['texto_opcao'] : null ?>"; */
-
   container.appendChild(novaDivInterna);
+
+  $(`#${inputDentroNovaDiv.id}`).val("");
 }
 
 function removerUltimaInput() {
@@ -97,22 +98,24 @@ function removerUltimaInput() {
 //grafico
 var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
-  type: 'doughnut',
+  type: "doughnut",
   data: {
     labels: ["Direct", "Referral", "Social"],
-    datasets: [{
-      data: [55, 30, 15],
-      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
-      hoverBorderColor: "rgba(234, 236, 244, 1)",
-    }],
+    datasets: [
+      {
+        data: [55, 30, 15],
+        backgroundColor: ["#4e73df", "#1cc88a", "#36b9cc"],
+        hoverBackgroundColor: ["#2e59d9", "#17a673", "#2c9faf"],
+        hoverBorderColor: "rgba(234, 236, 244, 1)",
+      },
+    ],
   },
   options: {
     maintainAspectRatio: false,
     tooltips: {
       backgroundColor: "rgb(255,255,255)",
       bodyFontColor: "#858796",
-      borderColor: '#dddfeb',
+      borderColor: "#dddfeb",
       borderWidth: 1,
       xPadding: 0,
       yPadding: 0,
@@ -120,9 +123,8 @@ var myPieChart = new Chart(ctx, {
       caretPadding: 10,
     },
     legend: {
-      display: false
+      display: false,
     },
     cutoutPercentage: 80,
   },
 });
-

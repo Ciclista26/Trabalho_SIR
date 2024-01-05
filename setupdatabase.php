@@ -130,8 +130,10 @@ try {
         'CREATE TABLE respostas (
             id_resposta INT PRIMARY KEY AUTO_INCREMENT,
             id_votacao INT,
+            id_user INT,
             texto_resposta varchar(100),
-            FOREIGN KEY (id_votacao) REFERENCES votacoes(id_votacao)
+            FOREIGN KEY (id_votacao) REFERENCES votacoes(id_votacao),
+            FOREIGN KEY (id_user) REFERENCES users(id)
         );'
     );
 
