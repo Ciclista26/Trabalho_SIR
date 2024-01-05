@@ -13,4 +13,4 @@
           By Rui e Alexandre
       </div>
   </div>
-  </footer>
+</footer>

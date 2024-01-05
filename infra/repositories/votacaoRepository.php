@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '../../db/connection.php';
-//function para a parte da votacao
 
 function getAllVotacoes()
 {
@@ -17,10 +16,14 @@ function getByIdOpcoes($id_votacao)
     $PDOStatement = $GLOBALS['pdo']->prepare('SELECT * FROM opcoes WHERE id_votacao = ?;');
     $PDOStatement->bindValue(1, $id_votacao, PDO::PARAM_INT);
     $PDOStatement->execute();
-    return $PDOStatement->fetch();
+    
+    $opcoes = [];
+    while ($listaDevotacoes = $PDOStatement->fetch()) {
+        $opcoes[] = $listaDevotacoes;
+    }
+    
+    return $opcoes;
 }
-
-
 
 function getByIdVotacao($id_votacao)
 {

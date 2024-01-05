@@ -61,7 +61,7 @@ function votacaoCreate($req)
 
     if (isset($validatedData['invalid'])) {
         $_SESSION['errors'] = $validatedData['invalid'];
-        $_SESSION['form_data'] = $req; // Store form data in session
+        $_SESSION['form_data'] = $req;
         $params = '?' . http_build_query($req);
         header('location: /Trabalho_SIR/pages/secure/user/votacao.php' . $params);
         return false;
@@ -87,7 +87,6 @@ function votacaoCreate($req)
         $successOpcao = createOpcao($dataOpcao);
 
         if (!$successOpcao) {
-            // Tratar falha na criação da opção
             return false;
         }
     }

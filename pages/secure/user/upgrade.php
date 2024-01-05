@@ -2,10 +2,8 @@
 require_once __DIR__ . '../../../../infra/middlewares/middleware-user.php';
 include_once __DIR__ . '../../../../templates/header.php';
 @require_once __DIR__ . '/../../../helpers/session.php';
-require_once __DIR__ . '/../../../infra/repositories/votacaoRepository.php';
 
-$title = 'Criar votação';
-$opcoes = getByIdOpcoes($_REQUEST['id_votacao']);
+$title = 'Upgrade votação';
 $user = user();
 ?>
 
@@ -67,14 +65,11 @@ $user = user();
                                     foreach ($opcoes as $opcao) {
                                     ?>
                                         <div class="col-12 col-md-6 opcao-div">
-                                            <input type="text" name="opcao1_text" value="<?= isset($opcao['texto_opcao']) ? $opcao['texto_opcao'] : null ?>" placeholder="Opção" class="form-control col-6 mb-3" required>
+                                            <input type="text" name="opcao1_text" value="<?= isset($_REQUEST['texto_opcao']) ? $_REQUEST['texto_opcao'] : null ?>" placeholder="Opção 1" class="form-control col-6 mb-3" required>
                                         </div>
                                     <?php
                                     }
                                     ?>
-                                    <!-- <div class="col-12 col-md-6 opcao-div">
-                                        <input type="text" name="opcao1_text" value="<?= isset($opcao['texto_opcao']) ? $opcao['texto_opcao'] : null ?>" placeholder="Opção 1" class="form-control col-6 mb-3" required>
-                                    </div> -->
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-md-6">

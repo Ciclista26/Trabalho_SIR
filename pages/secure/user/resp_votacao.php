@@ -10,7 +10,7 @@ if ($idVotacao === null) {
 }
 
 $votacao = getByIdVotacao($idVotacao);
-$opcoes = getByIdVotacao($idVotacao); // Supondo que esta função retorne as opções da votação
+$opcoes = getByIdOpcoes($_REQUEST['id_votacao']);
 $title = 'Responder votação';
 $user = user();
 ?>
@@ -66,8 +66,8 @@ $user = user();
                         <h1 class="mb-5 card-title p-3"><?= $votacao['nome_votacao'] ?></h1>
                         <div class="row col-12 col-xl-8 offset-xl-2 m-auto">
                             <?php
-                            foreach ($opcoes as $opcao) {
-                            ?>
+                                    foreach ($opcoes as $opcao) {
+                                    ?>
                                 <div class="col-md-4 mb-3 px-3">
                                     <div class="form-check d-flex al-c tx-l shadow">
                                         <div>
@@ -79,7 +79,7 @@ $user = user();
                                     </div>
                                 </div>
                             <?php
-                            }
+                                    }
                             ?>
                         </div>
                         <div class="d-grid my-4 col-12 col-xl-2 col-md-3 col-sm-4 px-3 mx-auto">
