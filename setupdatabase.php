@@ -87,14 +87,15 @@ $successUser = $PDOStatementUser->execute([
 
 echo 'Default user created!' . PHP_EOL;
 
-# CREATE votacoes TABLE
 try {
     $pdo->exec(
         'CREATE TABLE votacoes (
             id_votacao INTEGER PRIMARY KEY AUTO_INCREMENT,
+            id_user INT,
             nome_votacao varchar(255),
             objetivo_votacao varchar(50),
-            descricao_votacao varchar(1000)
+            descricao_votacao varchar(1000),
+            FOREIGN KEY (id_user) REFERENCES users(id)
         );'
     );
 

@@ -5,7 +5,8 @@ $title = 'Inicio';
 @require_once __DIR__ . '/../../helpers/session.php';
 include_once __DIR__ . '../../../templates/header.php';
 
-$votacoes = getAllVotacoes();
+$id_user = $_SESSION['id'];
+$votacoes = getAllVotacoesByUserId($id_user);
 $user = user();
 ?>
 

@@ -36,9 +36,11 @@ function respResposta($req)
         return false;
     }
 
+    $id_user = $_SESSION['id'];
+
     $dataResposta = [
         'id_votacao' => $req['id_votacao'],
-        'id_user' => $req['id_user'],
+        'id_user' => $id_user,
         'texto_resposta' => $req['texto_resposta'],
     ];
 
@@ -51,22 +53,3 @@ function respResposta($req)
     $_SESSION['success'] = 'Resposta created successfully!';
     header('location: /Trabalho_SIR/pages/secure/');
 } 
-
-
-/* function respVotacao($req)
-{
-    if (isset($req['invalid'])) {
-        $_SESSION['errors'] = $req['invalid'];
-        $params = '?' . http_build_query($req);
-        header('location: /Trabalho_SIR/pages/secure/user/responder.php' . $params);
-        return false;
-    }
-
-    $success = responderVotacao($req);
-
-    if ($success) {
-        $_SESSION['success'] = 'Voting processed successfully!';
-        header('location: /Trabalho_SIR/pages/secure/');
-    }
-} */
-

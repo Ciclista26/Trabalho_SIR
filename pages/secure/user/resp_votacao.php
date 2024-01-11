@@ -9,6 +9,13 @@ if ($idVotacao === null) {
     exit('ID de votação não definido.');
 }
 
+$id_user = $_SESSION['id'];
+if (usuarioJaRespondeu($id_user, $idVotacao)) {
+    $_SESSION['errors'] = ['Você já respondeu a esta votação.'];
+    header('location: /Trabalho_SIR/pages/secure/');
+    exit();
+}
+
 $votacao = getByIdVotacao($idVotacao);
 $opcoes = getByIdOpcoes($_REQUEST['id_votacao']);
 $title = 'Responder votação';
@@ -80,9 +87,9 @@ $user = user();
                                 <div class="col-md-4 mb-3 px-3">
                                     <div class="form-check d-flex al-c tx-l shadow">
                                         <div>
-                                            <input class="form-check-input" type="radio" name="texto_resposta" id="flexRadioDefault<?= $opcao['id_opcao'] ?>" value="<?= $opcao['id_opcao'] ?>">
+                                            <input class="form-check-input" type="radio" name="texto_resposta" id="flexRadioDefault<?= $opcao['id_opcao'] ?>" value="<?= $opcao['texto_opcao'] ?>">
                                         </div>
-                                        <label class="form-check-label pl-1" for="flexRadioDefault<?= $opcao['id_opcao'] ?>">
+                                        <label class="form-check-label pl-1" name="texto_resposta" for="flexRadioDefault<?= $opcao['id_opcao'] ?>">
                                             <?= $opcao['texto_opcao'] ?>
                                         </label>
                                     </div>
@@ -93,7 +100,7 @@ $user = user();
                         </div>
                         <div class="d-grid my-4 col-12 col-xl-2 col-md-3 col-sm-4 px-3 mx-auto">
                             <input type="hidden" name="id_votacao" value="<?= isset($_REQUEST['id_votacao']) ? $_REQUEST['id_votacao'] : null ?>">
-                            <input type="hidden" name="id_user" value="<?= isset($_REQUEST['id_user']) ? $_REQUEST['id_user'] : null ?>">
+                            <input type="hidden" name="id_user" value="<?= isset($_REQUEST['id']) ? $_REQUEST['id'] : null ?>">
                             <button class="w-100 btn mb-3 mx-md-3 btn-warning-yellow" type="submit" name="resposta" value="createresposta">Finalizar Voto</button>
                         </div>
                     </form>

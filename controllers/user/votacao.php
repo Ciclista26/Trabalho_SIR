@@ -5,6 +5,7 @@ require_once __DIR__ . '/../../helpers/validations/votacao/validate-votacao.php'
 require_once __DIR__ . '/../../helpers/validations/votacao/validate-resposta.php';
 require_once __DIR__ . '/../../helpers/session.php';
 
+
 if (isset($_POST['votacao'])) {
     if ($_POST['votacao'] == 'votacaocreate') {
         votacaoCreate($_POST);
@@ -47,8 +48,11 @@ function votacaoCreate($req)
         return false;
     }
 
+    $id_user = $_SESSION['id'];
+
     $dataVotacao = [
         'nome_votacao' => $validatedData['titulo'],
+        'id_user' => $id_user,
         'objetivo_votacao' => $validatedData['objetivo'],
         'descricao_votacao' => $validatedData['descricao'],
     ];
@@ -87,8 +91,11 @@ function votacaoUpdate($req)
         return false;
     }
 
+    $id_user = $_SESSION['id'];
+
     $dataVotacao = [
         'id_votacao' => $validatedData['id_votacao'],
+        'id_user' => $id_user,
         'nome_votacao' => $validatedData['titulo'],
         'objetivo_votacao' => $validatedData['objetivo'],
         'descricao_votacao' => $validatedData['descricao'],
