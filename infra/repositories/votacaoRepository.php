@@ -16,12 +16,12 @@ function getByIdOpcoes($id_votacao)
     $PDOStatement = $GLOBALS['pdo']->prepare('SELECT * FROM opcoes WHERE id_votacao = ?;');
     $PDOStatement->bindValue(1, $id_votacao, PDO::PARAM_INT);
     $PDOStatement->execute();
-    
+
     $opcoes = [];
     while ($listaDevotacoes = $PDOStatement->fetch()) {
         $opcoes[] = $listaDevotacoes;
     }
-    
+
     return $opcoes;
 }
 
@@ -88,77 +88,29 @@ function createOpcao($opcoes)
 
 function updateVotacao($votacao)
 {
-    $sqlUpdateVotacoes = "
-        UPDATE votacoes
-        SET
+    $sqlUpdate = "UPDATE  
+    votacoes SET
             nome_votacao = :nome_votacao,
             objetivo_votacao = :objetivo_votacao,
             descricao_votacao = :descricao_votacao
         WHERE id_votacao = :id_votacao
     ";
 
-    $statementVotacoes = $GLOBALS['pdo']->prepare($sqlUpdateVotacoes);
+    $PDOStatement = $GLOBALS['pdo']->prepare($sqlUpdate);
 
-    $successVotacoes = $statementVotacoes->execute([
+    return $PDOStatement->execute([
+        ':id_votacao' => $votacao['id_votacao'],
         ':nome_votacao' => $votacao['nome_votacao'],
         ':objetivo_votacao' => $votacao['objetivo_votacao'],
-        ':descricao_votacao' => $votacao['descricao_votacao'],
-        ':id_votacao' => $votacao['id_votacao']
+        ':descricao_votacao' => $votacao['descricao_votacao']
     ]);
-
-    $sqlUpdateOpcoes = "
-        UPDATE opcoes
-        SET
-            texto_opcao = :texto_opcao
-        WHERE id_opcao = :id_opcao
-    ";
-
-    foreach ($votacao['opcoes'] as $opcao) {
-        $statementOpcoes = $GLOBALS['pdo']->prepare($sqlUpdateOpcoes);
-
-        $successOpcoes = $statementOpcoes->execute([
-            ':texto_opcao' => $opcao['texto_opcao'],
-            ':id_opcao' => $opcao['id_opcao']
-        ]);
-
-        if (!$successOpcoes) {
-            return false;
-        }
-    }
-
-    return $successVotacoes;
 }
-
-function responderVotacao($resposta)
+function removeOpcoesById($id_votacao)
 {
-    $sqlCreate = "INSERT INTO 
-    opcoes (
-        id_votacao, 
-        texto_opcao) 
-    VALUES (
-        :id_votacao, 
-        :texto_opcao
-    )";
-
-    $PDOStatement = $GLOBALS['pdo']->prepare($sqlCreate);
-
-    $success = $PDOStatement->execute([
-        ':id_votacao' => $resposta['id_votacao'],
-        ':texto_resposta' => $resposta['opcao_text'],
-    ]);
-
-    if ($success) {
-        $resposta['id_opcao'] = $GLOBALS['pdo']->lastInsertId();
-    }
-    return $success;
-}
-
-function getByIdRespostas($id_votacao)
-{
-    $PDOStatement = $GLOBALS['pdo']->prepare('SELECT * FROM respostas WHERE id_votacao = ?;');
-    $PDOStatement->bindValue(1, $id_votacao, PDO::PARAM_INT);
-    $PDOStatement->execute();
-    return $PDOStatement->fetch();
+    $query = 'DELETE FROM opcoes WHERE id_votacao = ?;';
+    $statement = $GLOBALS['pdo']->prepare($query);
+    $statement->bindValue(1, $id_votacao, PDO::PARAM_INT);
+    return $statement->execute();
 }
 
 function deleteVotacao($id_votacao)
@@ -174,4 +126,41 @@ function deleteVotacao($id_votacao)
     $successVotacoes = $statementVotacoes->execute();
 
     return $successVotacoes && $successOpcoes;
+}
+
+
+function responderVotacao($resposta)
+{
+    $sqlCreate = "INSERT INTO 
+    respostas (
+        id_votacao,
+        id_user,
+        texto_resposta	
+) 
+    VALUES (
+        :id_votacao,
+        :id_user,
+        :texto_resposta	
+    )";
+
+    $PDOStatement = $GLOBALS['pdo']->prepare($sqlCreate);
+
+    $success = $PDOStatement->execute([
+        ':id_votacao' => $resposta['id_votacao'],
+        ':id_user' => $resposta['id_user'],
+        ':texto_resposta' => $resposta['texto_resposta']
+    ]);
+
+    if ($success) {
+        $resposta['id_resposta'] = $GLOBALS['pdo']->lastInsertId();
+    }
+    return $success;
+}
+
+function getByIdRespostas($id_votacao)
+{
+    $PDOStatement = $GLOBALS['pdo']->prepare('SELECT * FROM respostas WHERE id_votacao = ?;');
+    $PDOStatement->bindValue(1, $id_votacao, PDO::PARAM_INT);
+    $PDOStatement->execute();
+    return $PDOStatement->fetch();
 }

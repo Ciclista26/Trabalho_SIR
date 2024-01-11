@@ -5,7 +5,7 @@ include_once __DIR__ . '../../../../templates/header.php';
 require_once __DIR__ . '/../../../infra/repositories/votacaoRepository.php';
 
 $title = 'Criar votação';
-$opcoes = getByIdOpcoes($_REQUEST['id_votacao']);
+/* $opcoes = getByIdOpcoes($_REQUEST['id_votacao']); */
 $user = user();
 ?>
 
@@ -62,7 +62,33 @@ $user = user();
                             </div>
                             <div class="input col-12 col-sm-6 mb-3" id="opcoes-container">
                                 <span class="small">Opções:</span>
+
                                 <div class="row" id="opcoes-lista">
+                                    <?php
+                                    if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'votacaoupdate') {
+                                        $opcoes = getByIdOpcoes($_REQUEST['id_votacao']);
+                                        $counter = 1;
+
+                                        foreach ($opcoes as $opcao) {
+                                    ?>
+                                            <div class="col-12 col-md-6 opcao-div">
+                                                <input type="text" name="opcao<?= $counter ?>_text" value="<?= isset($opcao['texto_opcao']) ? $opcao['texto_opcao'] : null ?>" placeholder="Opção" class="form-control col-6 mb-3" required>
+                                            </div>
+                                        <?php
+                                            $counter++;
+                                        }
+                                    } else {
+                                        ?>
+                                        <div class="col-12 col-md-6 opcao-div">
+                                            <input type="text" name="opcao1_text" value="<?= isset($opcao['texto_opcao']) ? $opcao['texto_opcao'] : null ?>" placeholder="Opção 1" class="form-control col-6 mb-3" required>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+
+
+                                <!-- <div class="row" id="opcoes-lista">
                                     <?php
                                     foreach ($opcoes as $opcao) {
                                     ?>
@@ -72,10 +98,10 @@ $user = user();
                                     <?php
                                     }
                                     ?>
-                                    <!-- <div class="col-12 col-md-6 opcao-div">
+                                    <div class="col-12 col-md-6 opcao-div">
                                         <input type="text" name="opcao1_text" value="<?= isset($opcao['texto_opcao']) ? $opcao['texto_opcao'] : null ?>" placeholder="Opção 1" class="form-control col-6 mb-3" required>
-                                    </div> -->
-                                </div>
+                                    </div>
+                                </div> -->
                                 <div class="row">
                                     <div class="col-12 col-md-6">
                                         <button class="w-100 btn btn-warning-yellow mb-3" type="button" onclick="adicionarInput()">Adicionar opção</button>

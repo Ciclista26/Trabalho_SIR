@@ -16,8 +16,8 @@ function validatedVotacao($req)
         $errors['objetivo'] = 'O campo objetivo não pode estar vazio e deve ter entre 0 e 50 caracteres.';
     }
 
-    if (empty($req['descricao']) || strlen($req['descricao']) < 0 || strlen($req['descricao']) > 50) {
-        $errors['descricao'] = 'O campo descricao não pode estar vazio e deve ter entre 0 e 50 caracteres.';
+    if (empty($req['descricao']) || strlen($req['descricao']) < 0 || strlen($req['descricao']) > 1000) {
+        $errors['descricao'] = 'O campo descricao não pode estar vazio e deve ter entre 0 e 250 caracteres.';
     }
 
     foreach ($req as $nome_campo => $valor) {

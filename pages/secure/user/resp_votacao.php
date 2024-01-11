@@ -54,45 +54,47 @@ $user = user();
                 <section>
                     <div class="resp_votacao tx-c p-3">
                         <h1 class="mb-5 card-title"><?= $votacao['nome_votacao'] ?></h1>
-                        <div class="mb-5">
-                            <p class="mb-1"><?= $votacao['descricao_votacao'] ?></p>
+                        <div class="mb-5 mx-md-5 mx-0">
+                            <p><?= $votacao['descricao_votacao'] ?></p>
                         </div>
 
                         <script>
                             function votar() {
-                            var divVotacao = document.querySelector(".resp_votacao");
-                            var divAparecer = document.querySelector(".resp_aparecer");
+                                var divVotacao = document.querySelector(".resp_votacao");
+                                var divAparecer = document.querySelector(".resp_aparecer");
 
-                            divVotacao.classList.add("d-none");
-                            divAparecer.classList.remove("d-none");
+                                divVotacao.classList.add("d-none");
+                                divAparecer.classList.remove("d-none");
                             }
                         </script>
                         <div class="d-grid my-4 col-12 col-xl-2 col-md-3 col-sm-4 mx-auto">
                             <button class="w-100 btn btn-warning-yellow" type="submit" name="votar" value="password" onclick="votar()">Votar</button>
                         </div>
                     </div>
-                    <form class="resp_aparecer tx-c d-none" method="post" action="processar_voto.php">
+                    <form name="responderForm" class="resp_aparecer tx-c d-none" enctype="multipart/form-data" action="/Trabalho_SIR/controllers/user/responder.php" method="post">
                         <h1 class="mb-5 card-title p-3"><?= $votacao['nome_votacao'] ?></h1>
                         <div class="row col-12 col-xl-8 offset-xl-2 m-auto">
                             <?php
-                                    foreach ($opcoes as $opcao) {
-                                    ?>
+                            foreach ($opcoes as $opcao) {
+                            ?>
                                 <div class="col-md-4 mb-3 px-3">
                                     <div class="form-check d-flex al-c tx-l shadow">
                                         <div>
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                            <input class="form-check-input" type="radio" name="texto_resposta" id="flexRadioDefault<?= $opcao['id_opcao'] ?>" value="<?= $opcao['id_opcao'] ?>">
                                         </div>
-                                        <label class="form-check-label pl-1" for="flexRadioDefault1">
+                                        <label class="form-check-label pl-1" for="flexRadioDefault<?= $opcao['id_opcao'] ?>">
                                             <?= $opcao['texto_opcao'] ?>
                                         </label>
                                     </div>
                                 </div>
                             <?php
-                                    }
+                            }
                             ?>
                         </div>
                         <div class="d-grid my-4 col-12 col-xl-2 col-md-3 col-sm-4 px-3 mx-auto">
-                            <button class="w-100 btn mb-3 mx-md-3 btn-warning-yellow" type="submit" name="submit" value="votacao">Finalizar Voto</button>
+                            <input type="hidden" name="id_votacao" value="<?= isset($_REQUEST['id_votacao']) ? $_REQUEST['id_votacao'] : null ?>">
+                            <input type="hidden" name="id_user" value="<?= isset($_REQUEST['id_user']) ? $_REQUEST['id_user'] : null ?>">
+                            <button class="w-100 btn mb-3 mx-md-3 btn-warning-yellow" type="submit" name="resposta" value="createresposta">Finalizar Voto</button>
                         </div>
                     </form>
                 </section>

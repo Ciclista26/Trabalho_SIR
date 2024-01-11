@@ -13,12 +13,6 @@ if (isset($_POST['votacao'])) {
     if ($_POST['votacao'] == 'votacaoupdate') {
         votacaoUpdate($_POST);
     }
-    if ($_POST['votacao'] == 'respvotacao') {
-        respVotacao($_POST);
-    }
-    if ($_POST['votacao'] == 'resulvotacao') {
-        resulVotacao($_POST);
-    }
 }
 
 if (isset($_GET['votacao'])) {
@@ -27,20 +21,6 @@ if (isset($_GET['votacao'])) {
         $votacao['action'] = 'votacaoupdate';
         $params = '?' . http_build_query($votacao);
         header('location: /Trabalho_SIR/pages/secure/user/votacao.php' . $params);
-    }
-
-    if ($_GET['votacao'] == 'respvotacao') {
-        $votacao = getByIdVotacao($_GET['id_votacao']);
-        $votacao['action'] = 'respvotacao';
-        $params = '?' . http_build_query($votacao);
-        header('location: /Trabalho_SIR/pages/secure/user/resp_votacao.php' . $params);
-    }
-
-    if ($_GET['votacao'] == 'resulvotacao') {
-        $votacao = getByIdVotacao($_GET['id_votacao']);
-        $votacao['action'] = 'resulvotacao';
-        $params = '?' . http_build_query($votacao);
-        header('location: /Trabalho_SIR/pages/secure/user/resultados.php' . $params);
     }
 
     if ($_GET['votacao'] == 'votacaodelete') {
@@ -97,52 +77,49 @@ function votacaoCreate($req)
 
 function votacaoUpdate($req)
 {
-    $data = validatedVotacao($req);
+    $validatedData = validatedVotacao($req);
 
-    if (isset($data['invalid'])) {
-        $_SESSION['errors'] = $data['invalid'];
-        $_SESSION['action'] = 'votacaoupdate';
+    if (isset($validatedData['invalid'])) {
+        $_SESSION['errors'] = $validatedData['invalid'];
+        $_SESSION['form_data'] = $req;
         $params = '?' . http_build_query($req);
         header('location: /Trabalho_SIR/pages/secure/user/votacao.php' . $params);
-
         return false;
     }
 
-    $success = responderVotacao($data);
+    $dataVotacao = [
+        'id_votacao' => $validatedData['id_votacao'],
+        'nome_votacao' => $validatedData['titulo'],
+        'objetivo_votacao' => $validatedData['objetivo'],
+        'descricao_votacao' => $validatedData['descricao'],
+    ];
 
-    if ($success) {
-        $_SESSION['success'] = 'Votacao successfully changed!';
-        $data['action'] = 'votacaoupdate';
-        $params = '?' . http_build_query($data);
-        header('location: /Trabalho_SIR/pages/secure/user/votacao.php' . $params);
-    }
-}
+    $successVotacao = updateVotacao($dataVotacao);
 
-function respVotacao($req)
-{
-    $data = validatedResposta($req);
-
-    if (isset($data['invalid'])) {
-        $_SESSION['errors'] = $data['invalid'];
-        $_SESSION['action'] = 'respvotacao';
-        $params = '?' . http_build_query($req);
-        header('location: /Trabalho_SIR/pages/secure/user/resp_votacao.php' . $params);
-
+    if (!$successVotacao) {
         return false;
     }
 
-    $success = responderVotacao($data);
-
-    if ($success) {
-        $_SESSION['success'] = 'Votacao successfully changed!';
-        $data['action'] = 'respvotacao';
-        $params = '?' . http_build_query($data);
-        header('location: /Trabalho_SIR/pages/secure/user/resp_votacao.php' . $params);
+    $successRemoverOpcoes = removeOpcoesById($validatedData['id_votacao']);
+    if (!$successRemoverOpcoes) {
+        return false;
     }
-}
 
-function resulVotacao($req)
-{
+    for ($i = 1; isset($validatedData["opcao{$i}_text"]); $i++) {
+        $dataOpcao = [
+            'id_votacao' => $validatedData['id_votacao'],
+            'texto_opcao' => $validatedData["opcao{$i}_text"],
+        ];
+        $successOpcao = createOpcao($dataOpcao);
+
+        if (!$successOpcao) {
+            return false;
+        }
+    }
+
+    $_SESSION['success'] = 'Votação atualizada com sucesso!';
+    header('location: /Trabalho_SIR/pages/secure/');
+    return true;
 }
 
 function delete_votacao($votacao)

@@ -76,13 +76,13 @@ $user = user();
                                             <h5 class="card-title"><?= $votacao['nome_votacao'] ?></h5>
                                             <p class="card-text mb-0"><?= $votacao['objetivo_votacao'] ?></p>
                                             <div class="col-12 mt-3 p-0 d-flex space-around al-c">
-                                                <a href="/Trabalho_SIR/controllers/user/votacao.php?<?= 'votacao=respvotacao&id_votacao=' . $votacao['id_votacao'] ?>">
+                                                <a href="/Trabalho_SIR/controllers/user/responder.php?<?= 'resposta=respresposta&id_votacao=' . $votacao['id_votacao'] ?>">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
                                                         <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z" />
                                                         <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0" />
                                                     </svg>
                                                 </a>
-                                                <a href="/Trabalho_SIR/controllers/user/votacao.php?<?= 'votacao=resulvotacao&id_votacao=' . $votacao['id_votacao'] ?>">
+                                                <a href="/Trabalho_SIR/controllers/user/responder.php?<?= 'resposta=respresposta&id_votacao=' . $votacao['id_votacao'] ?>">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
                                                         <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z" />
                                                     </svg>
@@ -133,13 +133,13 @@ $user = user();
                                     </td>
                                     <td>
                                         <div class="d-flex space-around">
-                                            <a href="/Trabalho_SIR/controllers/user/votacao.php?<?= 'votacao=respvotacao&id_votacao=' . $votacao['id_votacao'] ?>">
+                                            <a href="/Trabalho_SIR/controllers/user/responder.php?<?= 'resposta=respresposta&id_votacao=' . $votacao['id_votacao'] ?>">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
                                                     <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z" />
                                                     <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0" />
                                                 </svg>
                                             </a>
-                                            <a href="/Trabalho_SIR/controllers/user/votacao.php?<?= 'votacao=resulvotacao&id_votacao=' . $votacao['id_votacao'] ?>">
+                                            <a href="/Trabalho_SIR/controllers/user/responder.php?<?= 'resposta=respresposta&id_votacao=' . $votacao['id_votacao'] ?>">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
                                                     <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z" />
                                                 </svg>

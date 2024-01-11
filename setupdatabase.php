@@ -2,15 +2,18 @@
 # EASY DATABASE SETUP
 require __DIR__ . '/infra/db/connection.php';
 
-# DROP TABLES (if needed)
-$pdo->exec('DROP TABLE IF EXISTS users;');
-echo 'Tables users deleted!' . PHP_EOL;
-
+# EXCLUIR TABELAS (se necessário)
 $pdo->exec('DROP TABLE IF EXISTS opcoes;');
-echo 'Tables opcoes deleted!' . PHP_EOL;
+echo 'Tabela opcoes excluída!' . PHP_EOL;
 
 $pdo->exec('DROP TABLE IF EXISTS votacoes;');
-echo 'Tables votacoes deleted!' . PHP_EOL;
+echo 'Tabela votacoes excluída!' . PHP_EOL;
+
+$pdo->exec('DROP TABLE IF EXISTS respostas;');
+echo 'Tabela respostas excluída!' . PHP_EOL;
+
+$pdo->exec('DROP TABLE IF EXISTS users;');
+echo 'Tabela users excluída!' . PHP_EOL;
 
 # CREATE USERS TABLE
 $pdo->exec(
@@ -91,7 +94,7 @@ try {
             id_votacao INTEGER PRIMARY KEY AUTO_INCREMENT,
             nome_votacao varchar(255),
             objetivo_votacao varchar(50),
-            descricao_votacao varchar(255)
+            descricao_votacao varchar(1000)
         );'
     );
 

@@ -1,24 +1,15 @@
 <?php
-
 function validatedResposta($req)
 {
     $errors = [];
 
     foreach ($req as $key => $value) {
-        $req[$key] = trim($req[$key]);
+        $req[$key] = trim($value);
     }
 
     $opcoes = $req['opcoes'];
-    $opcaoSelecionada = false;
-    foreach ($opcoes as $opcao) {
-        $opcao = trim($opcao);
-        if (!empty($opcao)) {
-            $opcaoSelecionada = true;
-            break;
-        }
-    }
 
-    if (!$opcaoSelecionada) {
+    if (!anyOptionSelected($opcoes)) {
         $errors['opcoes'] = 'Por favor, selecione pelo menos uma opção.';
     }
 
@@ -27,5 +18,15 @@ function validatedResposta($req)
     }
 
     return $req;
+}
+
+function anyOptionSelected($opcoes)
+{
+    foreach ($opcoes as $opcao) {
+        if (!empty($opcao)) {
+            return true;
+        }
+    }
+    return false;
 }
 ?>
