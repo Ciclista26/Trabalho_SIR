@@ -37,11 +37,12 @@ function respResposta($req)
     }
 
     $id_user = $_SESSION['id'];
+    $texto_resposta = isset($req['texto_resposta']) ? trim($req['texto_resposta']) : '';
 
     $dataResposta = [
         'id_votacao' => $req['id_votacao'],
         'id_user' => $id_user,
-        'texto_resposta' => $req['texto_resposta'],
+        'texto_resposta' => $texto_resposta,
     ];
 
     $resposta = responderVotacao($dataResposta);
@@ -52,4 +53,4 @@ function respResposta($req)
 
     $_SESSION['success'] = 'Resposta created successfully!';
     header('location: /Trabalho_SIR/pages/secure/');
-} 
+}

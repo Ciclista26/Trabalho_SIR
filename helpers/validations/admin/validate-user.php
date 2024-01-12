@@ -26,11 +26,6 @@ function validatedUser($req)
         $errors['email'] = 'O campo Email não pode estar vazio e deve ter o formato de e-mail, por exemplo: nome@example.com.';
     }
 
-    // if (getByEmail($req['email'])) {
-    //     $errors['email'] = 'Email já registado no nosso sistema.';
-    //     return ['invalido' => $errors];
-    // }
-
     $req['administrator'] = !empty($req['administrator']) == 'on' ? true : false;
 
     if (isset($errors)) {

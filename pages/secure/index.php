@@ -11,12 +11,10 @@ $user = user();
 ?>
 
 <body>
-
     <div class="wrapper-user">
         <?php
         include_once __DIR__ . '../../../templates/sidebar.php';
         ?>
-
         <div class="content-wrapper w_active h_cal .al-c">
             <?php
             include_once __DIR__ . '../../../templates/bar_user.php';
@@ -40,31 +38,15 @@ $user = user();
                                 <div class="col-12 col-sm-6 d-none d-sm-block">
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                <a class="btn w-100 btn-secondary" href="/Trabalho_SIR/pages/secure/user/votacao.php" role="button">Criar Votacao</a>
+                                    <a class="btn w-100 btn-secondary" href="/Trabalho_SIR/pages/secure/user/votacao.php" role="button">Criar Votacao</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section>
-                    <?php
-                    if (isset($_SESSION['success'])) {
-                        echo '<div id="successAlert" class="alert alert-success alert-dismissible fade show position-fixed top-0 end-0" role="alert">';
-                        echo $_SESSION['success'] . '<br>';
-                        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
-                        unset($_SESSION['success']);
-                    }
-
-                    if (isset($_SESSION['errors'])) {
-                        echo '<div id="errorAlert" class="alert alert-danger alert-dismissible fade show position-fixed top-0 end-0" role="alert">';
-                        foreach ($_SESSION['errors'] as $error) {
-                            echo $error . '<br>';
-                        }
-                        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
-                        unset($_SESSION['errors']);
-                    }
-                    ?>
-                </section>
+                <?php
+                include_once __DIR__ . '../../../templates/error.php';
+                ?>
                 <div class="card-tables mx-0 row d-lg-none">
                     <?php
                     foreach ($votacoes as $votacao) {
@@ -83,7 +65,7 @@ $user = user();
                                                         <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0" />
                                                     </svg>
                                                 </a>
-                                                <a href="/Trabalho_SIR/controllers/user/responder.php?<?= 'resposta=respresposta&id_votacao=' . $votacao['id_votacao'] ?>">
+                                                <a href="/Trabalho_SIR/controllers/user/responder.php?<?= 'resposta=resultresposta&id_votacao=' . $votacao['id_votacao'] ?>">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
                                                         <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z" />
                                                     </svg>
@@ -111,7 +93,6 @@ $user = user();
                     }
                     ?>
                 </div>
-
                 <div class="table-info d-none d-lg-block">
                     <table class="table">
                         <thead>
@@ -140,7 +121,7 @@ $user = user();
                                                     <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0" />
                                                 </svg>
                                             </a>
-                                            <a href="/Trabalho_SIR/controllers/user/responder.php?<?= 'resposta=respresposta&id_votacao=' . $votacao['id_votacao'] ?>">
+                                            <a href="/Trabalho_SIR/controllers/user/responder.php?<?= 'resposta=resultresposta&id_votacao=' . $votacao['id_votacao'] ?>">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
                                                     <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z" />
                                                 </svg>

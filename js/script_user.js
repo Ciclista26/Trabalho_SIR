@@ -1,27 +1,26 @@
-
+// Pagina de responder votacao
 function votar() {
   var divVotacao = document.querySelector(".resp_votacao");
   var divAparecer = document.querySelector(".resp_aparecer");
-
   divVotacao.classList.add("d-none");
   divAparecer.classList.remove("d-none");
 }
 
+// Timer para o alerta de sucesso ou erro fechar sozinho
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
     var successAlert = document.getElementById("successAlert");
     var errorAlert = document.getElementById("errorAlert");
-
     if (successAlert) {
       successAlert.style.display = "none";
     }
-
     if (errorAlert) {
       errorAlert.style.display = "none";
     }
   }, 1500);
 });
 
+// mostra ou esconde o sidebar
 function toggleSidebar() {
   var sidebar = document.getElementById("sidebar");
   var content_wrapper = document.querySelector(".content-wrapper");
@@ -48,6 +47,7 @@ function toggleSidebar() {
   }
 }
 
+// Mostra ou esconde a senha do usuário
 function togglePasswordVisibility() {
   const passwordInput = document.getElementById("password");
   const toggleIcon = document.getElementById("toggleIcon");
@@ -62,31 +62,28 @@ function togglePasswordVisibility() {
       '<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/><path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>';
   }
 }
-
 document
   .getElementById("toggleIcon")
   .addEventListener("click", togglePasswordVisibility);
 
+// Adiciona uma nova opção de resposta
 function adicionarInput() {
   var container = document.getElementById("opcoes-lista");
-
   var novaDivInterna = container
     .querySelector(".opcao-div:last-of-type")
     .cloneNode(true);
 
   var newDivName = "opcao" + (container.children.length + 1) + "_text";
-
   var inputDentroNovaDiv = novaDivInterna.querySelector('input[name^="opcao"]');
   inputDentroNovaDiv.name = newDivName;
   inputDentroNovaDiv.id = newDivName;
   inputDentroNovaDiv.required = true;
   inputDentroNovaDiv.placeholder = "Opção " + (container.children.length + 1);
-
   container.appendChild(novaDivInterna);
-
   $(`#${inputDentroNovaDiv.id}`).val("");
 }
 
+// Remove a última opção de resposta
 function removerUltimaInput() {
   var container = document.getElementById("opcoes-lista");
   var divsInternas = container.getElementsByClassName("opcao-div");

@@ -23,7 +23,6 @@ $user = user();
 ?>
 
 <body>
-
     <div class="wrapper-user">
         <?php
         include_once __DIR__ . '../../../../templates/sidebar.php';
@@ -39,37 +38,19 @@ $user = user();
                         <a class="btn col-12 col-xl-2 col-md-3 col-sm-4 me-sm-3 mb-3 mb-sm-0 btn-secondary" href="/Trabalho_SIR/pages/secure/">Voltar</a>
                     </div>
                 </section>
-                <section>
-                    <?php
-                    if (isset($_SESSION['success'])) {
-                        echo '<div id="successAlert" class="alert alert-success alert-dismissible fade show position-fixed top-0 end-0" role="alert">';
-                        echo $_SESSION['success'] . '<br>';
-                        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
-                        unset($_SESSION['success']);
-                    }
-
-                    if (isset($_SESSION['errors'])) {
-                        echo '<div id="errorAlert" class="alert alert-danger alert-dismissible fade show position-fixed top-0 end-0" role="alert">';
-                        foreach ($_SESSION['errors'] as $error) {
-                            echo $error . '<br>';
-                        }
-                        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
-                        unset($_SESSION['errors']);
-                    }
-                    ?>
-                </section>
+                <?php
+                include_once __DIR__ . '../../../../templates/error.php';
+                ?>
                 <section>
                     <div class="resp_votacao tx-c p-3">
                         <h1 class="mb-5 card-title"><?= $votacao['nome_votacao'] ?></h1>
                         <div class="mb-5 mx-md-5 mx-0">
                             <p><?= $votacao['descricao_votacao'] ?></p>
                         </div>
-
                         <script>
                             function votar() {
                                 var divVotacao = document.querySelector(".resp_votacao");
                                 var divAparecer = document.querySelector(".resp_aparecer");
-
                                 divVotacao.classList.add("d-none");
                                 divAparecer.classList.remove("d-none");
                             }
@@ -114,6 +95,3 @@ $user = user();
     <?php
     include_once __DIR__ . '../../../../templates/footer.php';
     ?>
-</body>
-
-</html>

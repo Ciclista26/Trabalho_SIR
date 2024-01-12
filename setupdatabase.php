@@ -6,11 +6,11 @@ require __DIR__ . '/infra/db/connection.php';
 $pdo->exec('DROP TABLE IF EXISTS opcoes;');
 echo 'Tabela opcoes excluída!' . PHP_EOL;
 
-$pdo->exec('DROP TABLE IF EXISTS votacoes;');
-echo 'Tabela votacoes excluída!' . PHP_EOL;
-
 $pdo->exec('DROP TABLE IF EXISTS respostas;');
 echo 'Tabela respostas excluída!' . PHP_EOL;
+
+$pdo->exec('DROP TABLE IF EXISTS votacoes;');
+echo 'Tabela votacoes excluída!' . PHP_EOL;
 
 $pdo->exec('DROP TABLE IF EXISTS users;');
 echo 'Tabela users excluída!' . PHP_EOL;
@@ -34,14 +34,14 @@ echo 'Table "users" created!' . PHP_EOL;
 
 # DEFAULT USER TO ADD
 $user = [
-    'name' => 'Rui',
-    'lastname' => 'Alves',
+    'name' => 'Admin',
+    'lastname' => 'Admin',
     'phoneNumber' => '987654321',
     'ccNumber' => '123456789',
-    'email' => 'teste@ipvc.pt',
+    'email' => 'Admin@votacerto.pt',
     'foto' => null,
     'administrator' => true,
-    'password' => 'Teste2023.123'
+    'password' => 'Admin.2023'
 ];
 
 # HASH PWD

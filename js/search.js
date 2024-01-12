@@ -1,3 +1,4 @@
+//Pesquisa de conteúdo
 document.addEventListener("DOMContentLoaded", function () {
     var searchInput = document.getElementById("searchInput");
 

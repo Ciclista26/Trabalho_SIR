@@ -13,24 +13,9 @@ require_once __DIR__ . '../../../templates/header.php';
         </div>
       </div>
       <div class="col-12 col-md-6 h100">
-        <section>
-          <?php
-          if (isset($_SESSION['success'])) {
-            echo '<div class="alert alert-success alert-dismissible fade show position-fixed top-0 end-0" role="alert">';
-            echo $_SESSION['success'] . '<br>';
-            echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
-            unset($_SESSION['success']);
-          }
-          if (isset($_SESSION['errors'])) {
-            echo '<div class="alert alert-danger alert-dismissible fade show position-fixed top-0 end-0" role="alert">';
-            foreach ($_SESSION['errors'] as $error) {
-              echo $error . '<br>';
-            }
-            echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
-            unset($_SESSION['errors']);
-          }
-          ?>
-        </section>
+        <?php
+        include_once __DIR__ . '/../../templates/error.php';
+        ?>
         <div class="d-flex forms_sing">
           <div class="p-5 h-100">
             <form action="/Trabalho_SIR/controllers/auth/signup.php" method="post">

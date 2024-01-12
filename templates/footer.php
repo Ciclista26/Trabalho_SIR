@@ -5,6 +5,8 @@
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="/Trabalho_SIR/js/script_user.js"></script>
   <script src="/Trabalho_SIR/js/search.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/Trabalho_SIR/js/chart.js"></script>
 </body>
 
 </html>

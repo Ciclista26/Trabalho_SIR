@@ -1,5 +1,4 @@
 window.addEventListener("DOMContentLoaded", (event) => {
-  // Navbar shrink function
   var navbarShrink = function () {
     const navbarCollapsible = document.body.querySelector("#mainNav");
     if (!navbarCollapsible) {
@@ -11,14 +10,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
       navbarCollapsible.classList.add("navbar-shrink");
     }
   };
-
-  // Shrink the navbar
   navbarShrink();
-
-  // Shrink the navbar when page is scrolled
   document.addEventListener("scroll", navbarShrink);
-
-  // Activate Bootstrap scrollspy on the main nav element
   const mainNav = document.body.querySelector("#mainNav");
   if (mainNav) {
     new bootstrap.ScrollSpy(document.body, {
@@ -26,8 +19,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
       rootMargin: "0px 0px -40%",
     });
   }
-
-  // Collapse responsive navbar when toggler is visible
   const navbarToggler = document.body.querySelector(".navbar-toggler");
   const responsiveNavItems = [].slice.call(
     document.querySelectorAll("#navbarResponsive .nav-link")
@@ -39,10 +30,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
       }
     });
   });
-
   const tabs = [];
   const btntabs = [];
-
   for (let i = 1; i <= 5; i++) {
     const tab = document.getElementById(`tabs-${i}`);
     const btnTab = document.getElementById(`btntab-${i}`);

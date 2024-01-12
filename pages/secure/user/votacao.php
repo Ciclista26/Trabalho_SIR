@@ -5,12 +5,10 @@ include_once __DIR__ . '../../../../templates/header.php';
 require_once __DIR__ . '/../../../infra/repositories/votacaoRepository.php';
 
 $title = 'Criar votação';
-/* $opcoes = getByIdOpcoes($_REQUEST['id_votacao']); */
 $user = user();
 ?>
 
 <body>
-
     <div class="wrapper-user">
         <?php
         include_once __DIR__ . '../../../../templates/sidebar.php';
@@ -26,25 +24,9 @@ $user = user();
                         <a class="btn col-12 col-xl-2 col-md-3 col-sm-4 me-sm-3 mb-3 mb-sm-0 btn-secondary" href="/Trabalho_SIR/pages/secure/">Voltar</a>
                     </div>
                 </section>
-                <section>
-                    <?php
-                    if (isset($_SESSION['success'])) {
-                        echo '<div id="successAlert" class="alert alert-success alert-dismissible fade show position-fixed top-0 end-0" role="alert">';
-                        echo $_SESSION['success'] . '<br>';
-                        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
-                        unset($_SESSION['success']);
-                    }
-
-                    if (isset($_SESSION['errors'])) {
-                        echo '<div id="errorAlert" class="alert alert-danger alert-dismissible fade show position-fixed top-0 end-0" role="alert">';
-                        foreach ($_SESSION['errors'] as $error) {
-                            echo $error . '<br>';
-                        }
-                        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
-                        unset($_SESSION['errors']);
-                    }
-                    ?>
-                </section>
+                <?php
+                include_once __DIR__ . '../../../../templates/error.php';
+                ?>
                 <section class="pb-4">
                     <form enctype="multipart/form-data" action="/Trabalho_SIR/controllers/user/votacao.php" method="post" class="px-3">
                         <div class="row">
@@ -86,22 +68,6 @@ $user = user();
                                     }
                                     ?>
                                 </div>
-
-
-                                <!-- <div class="row" id="opcoes-lista">
-                                    <?php
-                                    foreach ($opcoes as $opcao) {
-                                    ?>
-                                        <div class="col-12 col-md-6 opcao-div">
-                                            <input type="text" name="opcao1_text" value="<?= isset($opcao['texto_opcao']) ? $opcao['texto_opcao'] : null ?>" placeholder="Opção" class="form-control col-6 mb-3" required>
-                                        </div>
-                                    <?php
-                                    }
-                                    ?>
-                                    <div class="col-12 col-md-6 opcao-div">
-                                        <input type="text" name="opcao1_text" value="<?= isset($opcao['texto_opcao']) ? $opcao['texto_opcao'] : null ?>" placeholder="Opção 1" class="form-control col-6 mb-3" required>
-                                    </div>
-                                </div> -->
                                 <div class="row">
                                     <div class="col-12 col-md-6">
                                         <button class="w-100 btn btn-warning-yellow mb-3" type="button" onclick="adicionarInput()">Adicionar opção</button>

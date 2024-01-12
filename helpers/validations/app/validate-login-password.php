@@ -27,14 +27,10 @@ function isPasswordValid($req)
         
         $user = getByEmail($req['email']);
 
-        if (!$user) {
+        if (!$user && (!password_verify($req['password'], $user['password']))) {
             $errors['email'] = 'E-mail ou senha incorretos.';
         }
-
-        if (!password_verify($req['password'], $user['password'])) {
-            $errors['password'] = 'E-mail ou senha incorretos.';
-        }
-
+        
         if (isset($errors)) {
             return ['invalid' => $errors];
         }
