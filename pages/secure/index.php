@@ -57,6 +57,7 @@ $user = user();
                                     <div class="col-12 p-0 mb-md-0">
                                         <div class="card-body-table">
                                             <h5 class="card-title"><?= $votacao['nome_votacao'] ?></h5>
+                                            <h6 class="card-title"><?= $votacao['data_fim'] ?></h6>
                                             <p class="card-text mb-0"><?= $votacao['objetivo_votacao'] ?></p>
                                             <div class="col-12 mt-3 p-0 d-flex space-around al-c">
                                                 <a href="/Trabalho_SIR/controllers/user/responder.php?<?= 'resposta=respresposta&id_votacao=' . $votacao['id_votacao'] ?>">
@@ -89,6 +90,23 @@ $user = user();
                                 </div>
                             </div>
                         </div>
+                        <div class="modal fade" id="delete<?= $votacao['id_votacao'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar votação</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Tem certeza de que deseja excluir este votação?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a class="btn col-12 col-xl-3 col-md-4 col-sm-5 me-sm-3 mb-3 mb-sm-0 btn-warning-yellow" href="/Trabalho_SIR/controllers/user/votacao.php?<?= 'votacao=votacaodelete&id_votacao=' . $votacao['id_votacao'] ?>">Confirmar</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     <?php
                     }
                     ?>
@@ -98,7 +116,8 @@ $user = user();
                         <thead>
                             <tr>
                                 <th class="col-3">Nome</th>
-                                <th class="col-7">Objetivo</th>
+                                <th class="col-4">Objetivo</th>
+                                <th class="col-3">Data Fim</th>
                                 <th class="tx-c col-2">Funções</th>
                             </tr>
                         </thead>
@@ -112,6 +131,9 @@ $user = user();
                                     </td>
                                     <td>
                                         <?= $votacao['objetivo_votacao'] ?>
+                                    </td>
+                                    <td>
+                                        <?= $votacao['data_fim'] ?>
                                     </td>
                                     <td>
                                         <div class="d-flex space-around">
@@ -132,7 +154,7 @@ $user = user();
                                                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
                                                 </svg>
                                             </a>
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#delete<?= $votacao['id_votacao'] ?>">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#deletelg<?= $votacao['id_votacao'] ?>">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
                                                     <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
                                                     <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
@@ -141,7 +163,7 @@ $user = user();
                                         </div>
                                     </td>
                                 </tr>
-                                <div class="modal fade" id="delete<?= $votacao['id_votacao'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="deletelg<?= $votacao['id_votacao'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">

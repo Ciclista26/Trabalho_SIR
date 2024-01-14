@@ -24,7 +24,7 @@ $pdo->exec(
         phoneNumber varchar(50), 
         ccNumber varchar(50),
         email varchar(50) NOT NULL, 
-        foto varchar(50) NULL, 
+        foto varchar(50) NULL,
         administrator bit, 
         password varchar(200)
     );'
@@ -92,6 +92,8 @@ try {
         'CREATE TABLE votacoes (
             id_votacao INTEGER PRIMARY KEY AUTO_INCREMENT,
             id_user INT,
+            data_inicio DATETIME DEFAULT CURRENT_TIMESTAMP,
+            data_fim DATETIME,
             nome_votacao varchar(255),
             objetivo_votacao varchar(50),
             descricao_votacao varchar(1000),

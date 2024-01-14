@@ -2,7 +2,15 @@
 require_once __DIR__ . '../../../../infra/middlewares/middleware-user.php';
 include_once __DIR__ . '../../../../templates/header.php';
 @require_once __DIR__ . '/../../../helpers/session.php';
-
+require_once __DIR__ . '/../../../infra/repositories/votacaoRepository.php';
+$idVotacao = isset($_GET['id_votacao']) ? $_GET['id_votacao'] : null;
+$result = getByIdresult($_REQUEST['id_votacao']);
+$totalVotos = getTotalVotos($idVotacao);
+$votosBranco = getVotosBranco($idVotacao);
+$maisVotada = getOpcaoMaisVotada($idVotacao);
+$menosVotada = getOpcaoMenosVotada($idVotacao);
+$totalVotosPorOpcao = getTotalVotosPorOpcao($idVotacao);
+$votacao = getByIdVotacao($idVotacao);
 $title = 'Resultados votação';
 $user = user();
 ?>
@@ -27,59 +35,53 @@ $user = user();
                 ?>
                 <section>
                     <div class="resp_votacao tx-c">
-                        <h1 class="mb-5 card-title px-3">Núcleo engenharia Informática</h1>
+                        <h1 class="mb-5 card-title px-3"><?= $votacao['nome_votacao'] ?></h1>
                         <div class="mx-0 row">
                             <div class="card-body-table p-3 col-12 col-lg-6">
                                 <div class="row h-100">
                                     <div class="col-12 col-sm-6 col-lg-12 col-xl-6 mb-3">
-                                        <div class="card h-100 p-3">
-                                            <h3 class="mb-5 card-title px-3">Total de votos</h3>
+                                        <div class="card h-100 p-3 jc-center">
+                                            <h3 class="mb-4 card-title">Total de votos</h3>
                                             <div class="col-12 p-0 mb-md-0">
-                                                <div class="card-body-table">
 
-                                                    <div class="col-12 mt-3 p-0 d-flex space-around al-c">
-                                                        26
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-lg-12 col-xl-6 mb-3 ">
-                                        <div class="card h-100">
-                                            <div class="row m-3">
-                                                <div class="col-12 p-0 mb-md-0">
-                                                    <div class="card-body-table">
-                                                        <div class="col-12 mt-3 p-0 d-flex space-around al-c">
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <h5>
+                                                    <?php echo $totalVotos; ?>
+                                                </h5>
 
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-12 col-xl-6 mb-3 ">
-                                        <div class="card h-100">
-                                            <div class="row m-3">
-                                                <div class="col-12 p-0 mb-md-0">
-                                                    <div class="card-body-table">
-                                                        <div class="col-12 mt-3 p-0 d-flex space-around al-c">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
+                                        <div class="card h-100 p-3 jc-center">
+                                            <h3 class="mb-4 card-title">Mais votado</h3>
+                                            <div class="col-12 p-0 mb-md-0">
+                                                <h5>
+                                                    <?php
+                                                    echo isset($maisVotada['texto_resposta']) ? $maisVotada['texto_resposta'] . ' (' . $maisVotada['total_votos_opcao'] . ' votos)' : 'Não há dados disponíveis';
+                                                    ?>
+                                                </h5>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-12 col-xl-6 mb-3 ">
-                                        <div class="card h-100">
-                                            <div class="row m-3">
-                                                <div class="col-12 p-0 mb-md-0">
-                                                    <div class="card-body-table">
-                                                        <div class="col-12 mt-3 p-0 d-flex space-around al-c">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
+                                        <div class="card h-100 p-3 jc-center">
+                                            <h3 class="mb-4 card-title">Menos votado</h3>
+                                            <div class="col-12 p-0 mb-md-0">
+                                                <h5>
+                                                    <?php
+                                                    echo isset($maisVotada['texto_resposta']) ? $menosVotada['texto_resposta'] . ' (' . $menosVotada['total_votos_opcao'] . ' votos)' : 'Não há dados disponíveis';
+                                                    ?>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-12 col-xl-6 mb-3 ">
+                                        <div class="card h-100 p-3 jc-center">
+                                            <h3 class="mb-4 card-title">Votos em branco</h3>
+                                            <div class="col-12 p-0 mb-md-0">
+                                                <h5>
+                                                    <?php echo $votosBranco; ?>
+                                                </h5>
                                             </div>
                                         </div>
                                     </div>
@@ -92,7 +94,7 @@ $user = user();
                                         <div class="col-12 p-0">
                                             <div class="card-body-table row">
                                                 <div class="chart-pie col-12 col-lg-8 ">
-                                                    <canvas id="myPieChart" height="400px"></canvas>
+                                                    <canvas id="myPieChart" height="300px"></canvas>
                                                 </div>
                                                 <div class="col-12 col-lg-4 al-self mt-3 mt-sm-0">
                                                     <div class="small row">
@@ -135,3 +137,42 @@ $user = user();
     <?php
     include_once __DIR__ . '../../../../templates/footer.php';
     ?>
+    <!-- <script>
+        var ctx = document.getElementById("myPieChart");
+        const genChart = (data) => {
+            return new Chart(ctx, {
+                type: "doughnut",
+                data: {
+                    labels: ["Direct", "Referral", "Social"],
+                    datasets: [{
+                        data: [...data],
+                        backgroundColor: ["#4e73df", "#1cc88a", "#36b9cc"],
+                        hoverBackgroundColor: ["#2e59d9", "#17a673", "#2c9faf"],
+                        hoverBorderColor: "rgba(234, 236, 244, 1)",
+                    }, ],
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    tooltips: {
+                        backgroundColor: "rgb(255,255,255)",
+                        bodyFontColor: "#858796",
+                        borderColor: "#dddfeb",
+                        borderWidth: 1,
+                        xPadding: 0,
+                        yPadding: 0,
+                        displayColors: false,
+                        caretPadding: 10,
+                    },
+                    legend: {
+                        display: false,
+                    },
+                    cutoutPercentage: 80,
+                },
+            });
+        };
+    </script>
+    <?php
+    $bla = [12, 12, 12]; // ARRAY para string para meteres em baixo
+    // tens que criar um get para ir buscar estes valores
+    // trocar o bla por algo melhor e meter ali em baixo
+    echo "<script>genChart($bla)</script>" ?> -->

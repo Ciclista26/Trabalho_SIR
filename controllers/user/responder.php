@@ -2,7 +2,6 @@
 
 require_once __DIR__ . '/../../infra/repositories/votacaoRepository.php';
 require_once __DIR__ . '/../../helpers/session.php';
-require_once __DIR__ . '/../../helpers/validations/votacao/validate-resposta.php';
 
 if (isset($_POST['resposta'])) {
     if ($_POST['resposta'] == 'createresposta') {

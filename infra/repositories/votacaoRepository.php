@@ -35,12 +35,14 @@ function createVotacao($votacao)
     $sqlCreate = "INSERT INTO 
     votacoes (
         id_user,
-        nome_votacao, 
+        nome_votacao,
+        data_fim,
         objetivo_votacao,
         descricao_votacao) 
     VALUES (
         :id_user, 
         :nome_votacao, 
+        :data_fim,
         :objetivo_votacao, 
         :descricao_votacao
     )";
@@ -49,6 +51,7 @@ function createVotacao($votacao)
 
     $success = $PDOStatement->execute([
         ':id_user' => $votacao['id_user'],
+        ':data_fim' => $votacao['data_fim'],
         ':nome_votacao' => $votacao['nome_votacao'],
         ':objetivo_votacao' => $votacao['objetivo_votacao'],
         ':descricao_votacao' => $votacao['descricao_votacao']
@@ -89,6 +92,7 @@ function updateVotacao($votacao)
     votacoes SET
             id_user = :id_user,
             nome_votacao = :nome_votacao,
+            data_fim = :data_fim,
             objetivo_votacao = :objetivo_votacao,
             descricao_votacao = :descricao_votacao
         WHERE id_votacao = :id_votacao
@@ -97,6 +101,7 @@ function updateVotacao($votacao)
     return $PDOStatement->execute([
         ':id_votacao' => $votacao['id_votacao'],
         ':id_user' => $votacao['id_user'],
+        ':data_fim' => $votacao['data_fim'],
         ':nome_votacao' => $votacao['nome_votacao'],
         ':objetivo_votacao' => $votacao['objetivo_votacao'],
         ':descricao_votacao' => $votacao['descricao_votacao']
@@ -112,15 +117,26 @@ function removeOpcoesById($id_votacao)
 
 function deleteVotacao($id_votacao)
 {
-    $queryOpcoes = 'DELETE FROM opcoes WHERE id_votacao = ?;';
-    $statementOpcoes = $GLOBALS['pdo']->prepare($queryOpcoes);
-    $statementOpcoes->bindValue(1, $id_votacao, PDO::PARAM_INT);
-    $successOpcoes = $statementOpcoes->execute();
-    $queryVotacoes = 'DELETE FROM votacoes WHERE id_votacao = ?;';
-    $statementVotacoes = $GLOBALS['pdo']->prepare($queryVotacoes);
-    $statementVotacoes->bindValue(1, $id_votacao, PDO::PARAM_INT);
-    $successVotacoes = $statementVotacoes->execute();
-    return $successVotacoes && $successOpcoes;
+    try {
+        $queryRespostas = 'DELETE FROM respostas WHERE id_votacao = ?;';
+        $statementRespostas = $GLOBALS['pdo']->prepare($queryRespostas);
+        $statementRespostas->bindValue(1, $id_votacao, PDO::PARAM_INT);
+        $successRespostas = $statementRespostas->execute();
+
+        $queryOpcoes = 'DELETE FROM opcoes WHERE id_votacao = ?;';
+        $statementOpcoes = $GLOBALS['pdo']->prepare($queryOpcoes);
+        $statementOpcoes->bindValue(1, $id_votacao, PDO::PARAM_INT);
+        $successOpcoes = $statementOpcoes->execute();
+
+        $queryVotacoes = 'DELETE FROM votacoes WHERE id_votacao = ?;';
+        $statementVotacoes = $GLOBALS['pdo']->prepare($queryVotacoes);
+        $statementVotacoes->bindValue(1, $id_votacao, PDO::PARAM_INT);
+        $successVotacoes = $statementVotacoes->execute();
+
+        return $successRespostas && $successOpcoes && $successVotacoes;
+    } catch (PDOException $e) {
+        return false;
+    }
 }
 
 
@@ -149,7 +165,7 @@ function responderVotacao($resposta)
     return $success;
 }
 
-function getByIdRespostas($id_votacao)
+function getByIdresult($id_votacao)
 {
     $PDOStatement = $GLOBALS['pdo']->prepare('SELECT * FROM respostas WHERE id_votacao = ?;');
     $PDOStatement->bindValue(1, $id_votacao, PDO::PARAM_INT);
@@ -165,4 +181,53 @@ function usuarioJaRespondeu($id_user, $id_votacao)
     $PDOStatement->execute();
     return $PDOStatement->fetchColumn() > 0;
 }
+
+function getByIdRespostas($id_votacao)
+{
+    $PDOStatement = $GLOBALS['pdo']->prepare('SELECT * FROM respostas WHERE id_votacao = ?;');
+    $PDOStatement->bindValue(1, $id_votacao, PDO::PARAM_INT);
+    $PDOStatement->execute();
+    return $PDOStatement->fetch();
+}
+
+function getTotalVotos($idVotacao) {
+    $query = "SELECT COUNT(*) AS total_votos FROM respostas WHERE id_votacao = :idVotacao";
+    $stmt = $GLOBALS['pdo']->prepare($query);
+    $stmt->bindParam(':idVotacao', $idVotacao);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC)['total_votos'];
+}
+
+function getVotosBranco($idVotacao) {
+    $query = "SELECT COUNT(*) AS votos_branco FROM respostas WHERE id_votacao = :idVotacao AND (texto_resposta IS NULL OR texto_resposta = '')";
+    $stmt = $GLOBALS['pdo']->prepare($query);
+    $stmt->bindParam(':idVotacao', $idVotacao);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC)['votos_branco'];
+}
+
+function getOpcaoMaisVotada($idVotacao) {
+    $query = "SELECT texto_resposta, COUNT(*) AS total_votos_opcao FROM respostas WHERE id_votacao = :idVotacao GROUP BY texto_resposta ORDER BY total_votos_opcao DESC LIMIT 1";
+    $stmt = $GLOBALS['pdo']->prepare($query);
+    $stmt->bindParam(':idVotacao', $idVotacao);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+function getOpcaoMenosVotada($idVotacao) {
+    $query = "SELECT texto_resposta, COUNT(*) AS total_votos_opcao FROM respostas WHERE id_votacao = :idVotacao GROUP BY texto_resposta ORDER BY total_votos_opcao ASC LIMIT 1";
+    $stmt = $GLOBALS['pdo']->prepare($query);
+    $stmt->bindParam(':idVotacao', $idVotacao);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+function getTotalVotosPorOpcao($idVotacao) {
+    $query = "SELECT texto_resposta, COUNT(*) AS total_votos_opcao FROM respostas WHERE id_votacao = :idVotacao GROUP BY texto_resposta";
+    $stmt = $GLOBALS['pdo']->prepare($query);
+    $stmt->bindParam(':idVotacao', $idVotacao);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 

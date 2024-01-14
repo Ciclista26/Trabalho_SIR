@@ -2,7 +2,6 @@
 
 require_once __DIR__ . '/../../infra/repositories/votacaoRepository.php';
 require_once __DIR__ . '/../../helpers/validations/votacao/validate-votacao.php';
-require_once __DIR__ . '/../../helpers/validations/votacao/validate-resposta.php';
 require_once __DIR__ . '/../../helpers/session.php';
 
 
@@ -53,6 +52,7 @@ function votacaoCreate($req)
     $dataVotacao = [
         'nome_votacao' => $validatedData['titulo'],
         'id_user' => $id_user,
+        'data_fim' => $validatedData['data_fim'],
         'objetivo_votacao' => $validatedData['objetivo'],
         'descricao_votacao' => $validatedData['descricao'],
     ];
@@ -96,6 +96,7 @@ function votacaoUpdate($req)
     $dataVotacao = [
         'id_votacao' => $validatedData['id_votacao'],
         'id_user' => $id_user,
+        'data_fim' => $validatedData['data_fim'],
         'nome_votacao' => $validatedData['titulo'],
         'objetivo_votacao' => $validatedData['objetivo'],
         'descricao_votacao' => $validatedData['descricao'],

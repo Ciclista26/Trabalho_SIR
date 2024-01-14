@@ -12,6 +12,12 @@ function validatedVotacao($req)
         $errors['titulo'] = 'O campo titulo não pode estar vazio e deve ter entre 0 e 50 caracteres.';
     }
 
+    if (empty($req['data_fim'])) {
+        $errors['data_fim'] = 'O campo Fim da Votação não pode estar vazio.';
+    } elseif (strtotime($req['data_fim']) <= time()) {
+        $errors['data_fim'] = 'A data de Fim da Votação deve ser posterior à data atual.';
+    }
+
     if (empty($req['objetivo']) || strlen($req['objetivo']) < 0 || strlen($req['objetivo']) > 50) {
         $errors['objetivo'] = 'O campo objetivo não pode estar vazio e deve ter entre 0 e 50 caracteres.';
     }

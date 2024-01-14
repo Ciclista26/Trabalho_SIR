@@ -30,10 +30,20 @@ $user = user();
                 <section class="pb-4">
                     <form enctype="multipart/form-data" action="/Trabalho_SIR/controllers/user/votacao.php" method="post" class="px-3">
                         <div class="row">
-                            <div class="input col-12 col-sm-6 mb-3">
-                                <span class="small">Titulo votação:</span>
-                                <input type="text" class="form-control" name="titulo" maxlength="100" size="100" value="<?= isset($_REQUEST['nome_votacao']) ? $_REQUEST['nome_votacao'] : null ?>" required>
+                            <div class="col-12 col-sm-6">
+                                <div class="row">
+                                    <div class="input col-12 col-md-6 mb-3">
+                                        <span class="small">Titulo votação:</span>
+                                        <input type="text" class="form-control" name="titulo" maxlength="100" size="100" value="<?= isset($_REQUEST['nome_votacao']) ? $_REQUEST['nome_votacao'] : null ?>" required>
+                                    </div>
+                                    <div class="input col-12 col-md-6 mb-3">
+                                        <span class="small">Fim da Votação:</span>
+                                        <input type="datetime-local" id="meeting-time" name="data_fim" class="form-control" maxlength="100" size="100" value="<?= isset($_REQUEST['data_fim']) ? $_REQUEST['data_fim'] : null ?>" required>
+                                    </div>
+                                </div>
                             </div>
+
+
                             <div class="input col-12 col-sm-6 mb-3">
                                 <span class="small">Objetivo votação:</span>
                                 <input type="text" class="form-control" name="objetivo" maxlength="100" size="100" value="<?= isset($_REQUEST['objetivo_votacao']) ? $_REQUEST['objetivo_votacao'] : null ?>" required>
@@ -50,7 +60,6 @@ $user = user();
                                     if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'votacaoupdate') {
                                         $opcoes = getByIdOpcoes($_REQUEST['id_votacao']);
                                         $counter = 1;
-
                                         foreach ($opcoes as $opcao) {
                                     ?>
                                             <div class="col-12 col-md-6 opcao-div">
