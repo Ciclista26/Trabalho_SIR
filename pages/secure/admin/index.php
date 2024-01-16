@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../../templates/header.php';
 
 $users = getAll();
 $user = user();
-$userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
+$userPhotoPath =  "../assets/images/uploads/" . $user['foto'];
 $title = 'Utilizadores';
 ?>
 
@@ -35,7 +35,7 @@ $title = 'Utilizadores';
                         <div class="col-12 col-sm-7 col-md-5">
                             <div class="row">
                                 <div class="col-12 col-sm-6 pb-3 pb-sm-0">
-                                    <a class="btn btn-secondary w-100" href="/Trabalho_SIR/pages/secure/">Voltar</a>
+                                    <a class="btn btn-secondary w-100" href="../pages/secure/">Voltar</a>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <a class="btn btn-warning-yellow w-100" href="./user.php">Criar utilizador</a>
@@ -63,7 +63,7 @@ $title = 'Utilizadores';
                                                 <p class="card-text mb-0">Email: <?= $user['email'] ?></p>
                                                 <p class="card-text mb-0">Administrator: <?= $user['administrator'] == '1' ? 'Sim' : 'Não' ?></p>
                                                 <div class="col-12 mt-3 p-0 d-flex space-around al-c">
-                                                    <a href="/Trabalho_SIR/controllers/admin/user.php?<?= 'user=update&id=' . $user['id'] ?>">
+                                                    <a href="../controllers/admin/user.php?<?= 'user=update&id=' . $user['id'] ?>">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                                             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                                                             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
@@ -124,7 +124,7 @@ $title = 'Utilizadores';
                                         </td>
                                         <td>
                                             <div class="d-flex space-around">
-                                                <a href="/Trabalho_SIR/controllers/admin/user.php?<?= 'user=update&id=' . $user['id'] ?>">
+                                                <a href="../controllers/admin/user.php?<?= 'user=update&id=' . $user['id'] ?>">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                                                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
@@ -150,7 +150,7 @@ $title = 'Utilizadores';
                                                     Tem certeza de que deseja excluir este utilizador?
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <a class="btn col-12 col-xl-3 col-md-4 col-sm-5 me-sm-3 mb-3 mb-sm-0 btn-warning-yellow" href="/Trabalho_SIR/controllers/admin/user.php?<?= 'user=delete&id=' . $user['id'] ?>">Confirmar</a>
+                                                    <a class="btn col-12 col-xl-3 col-md-4 col-sm-5 me-sm-3 mb-3 mb-sm-0 btn-warning-yellow" href="../controllers/admin/user.php?<?= 'user=delete&id=' . $user['id'] ?>">Confirmar</a>
 
                                                 </div>
                                             </div>

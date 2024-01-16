@@ -4,7 +4,7 @@ $title = 'Perfil';
 include_once __DIR__ . '../../../../templates/header.php';
 @require_once __DIR__ . '/../../../helpers/session.php';
 $user = user();
-$userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
+$userPhotoPath =  "../assets/images/uploads/" . $user['foto'];
 ?>
 
 <body>
@@ -19,7 +19,7 @@ $userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
             <div class="div_table mx-xs-3 mx-sm-4 bg-white static-top shadow">
                 <section class="m-0 p-3">
                     <div class="d-sm-flex justify-content">
-                        <a class="btn col-12 col-xl-2 col-md-3 col-sm-4 me-sm-3 mb-3 mb-sm-0 btn-secondary" href="/Trabalho_SIR/">Voltar</a>
+                        <a class="btn col-12 col-xl-2 col-md-3 col-sm-4 me-sm-3 mb-3 mb-sm-0 btn-secondary" href="../">Voltar</a>
                         <a class="btn col-12 col-xl-2 col-md-3 col-sm-4 mx-0 mx-sm-3  mb-3 mb-sm-0 btn-warning-yellow" href="./password.php">Mudar Password</a>
                     </div>
                 </section>
@@ -27,7 +27,7 @@ $userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
                 include_once __DIR__ . '../../../../templates/error.php';
                 ?>
                 <section>
-                    <form enctype="multipart/form-data" action="/Trabalho_SIR/controllers/admin/user.php" method="post" class="px-3">
+                    <form enctype="multipart/form-data" action="../controllers/admin/user.php" method="post" class="px-3">
                         <div class="row">
                             <div class="input col-12 col-sm-6 mb-3">
                                 <span class="small">Nome:</span>

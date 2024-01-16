@@ -9,7 +9,7 @@
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <title>VotoCerto</title>
   <!-- Favicon-->
-  <link rel="icon" type="image/x-icon" href="/Trabalho_SIR/assets/check-square.svg" />
+  <link rel="icon" type="image/x-icon" href="../assets/check-square.svg" />
   <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
@@ -17,9 +17,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <!-- Bootstrap Icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/Trabalho_SIR/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/Trabalho_SIR/css/style_sing.css">
-    <link rel="stylesheet" type="text/css" href="/Trabalho_SIR/css/style_user.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/style_sing.css">
+    <link rel="stylesheet" type="text/css" href="../css/style_user.css">
 </head>
 
 <body>

@@ -8,7 +8,7 @@ include_once __DIR__ . '/../../templates/header.php';
     <div class="d-md-flex h-100 ">
       <div class="img_sing row m-0 col-12 col-md-6 p-0 align-items-center justify-content-center text-center">
         <div class="col-5">
-          <img src="/Trabalho_SIR/assets/image/logo_w.png" alt="logo" width="300px" height="auto">
+          <img src="../assets/image/logo_w.png" alt="logo" width="300px" height="auto">
         </div>
       </div>
       <div class="col-12 col-md-6 h100">
@@ -17,7 +17,7 @@ include_once __DIR__ . '/../../templates/header.php';
         ?>
         <div class="d-flex forms_sing">
           <div class="p-5 h-100">
-            <form action="/Trabalho_SIR/controllers/auth/signin.php" method="post">
+            <form action="../controllers/auth/signin.php" method="post">
               <h1 class="pt-md-7 card-title h3 mb-3 fw-normal justify-content-center text-center">Login</h1>
               <div class="form-floating mb-2">
                 <input type="email" class="form-control" id="Email" placeholder="Email" name="email" maxlength="255" value="<?= isset($_REQUEST['email']) ? $_REQUEST['email'] : null ?>">
@@ -36,12 +36,12 @@ include_once __DIR__ . '/../../templates/header.php';
                 <label for="remember-me">Lembrar-me</label>
               </div>
               <div class="w-100 tx-c mb-3">
-                <a class="small noacount" href="/Trabalho_SIR/pages/public/signup.php">Não tenho conta!</a>
+                <a class="small noacount" href="../pages/public/signup.php">Não tenho conta!</a>
               </div>
               <button class="w-100 btn btn-lg btn-warning-yellow mb-2" type="submit" name="user" value="login">Login</button>
 
             </form>
-            <a href="/Trabalho_SIR/index.php"><button class="w-100 btn btn-lg btn-secondary">Voltar</button></a>
+            <a href="../index.php"><button class="w-100 btn btn-lg btn-secondary">Voltar</button></a>
           </div>
 
           <?php

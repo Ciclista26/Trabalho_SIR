@@ -10,7 +10,7 @@ if (!isset($_SESSION['id'])) {
   } else {
     $_SESSION['redirect_url'] = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
-    $home_url = 'http://' . $_SERVER['HTTP_HOST'] . '/Trabalho_SIR/pages/public/signin.php';
+    $home_url = 'http://' . $_SERVER['HTTP_HOST'] . '../pages/public/signin.php';
     header('Location: ' . $home_url);
     exit();
   }

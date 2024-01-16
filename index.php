@@ -25,9 +25,9 @@ include_once __DIR__ . '/templates/header.php';
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                    <li class="nav-item pt-3 pb-3 pt-lg-0 pb-lg-0 p_lr"><a class="nav-link" href="/Trabalho_SIR/pages/public/signin.php">Login</a>
+                    <li class="nav-item pt-3 pb-3 pt-lg-0 pb-lg-0 p_lr"><a class="nav-link" href=".../pages/public/signin.php">Login</a>
                     </li>
-                    <li class="nav-item p_lr"><a type="button" href="/Trabalho_SIR/pages/public/signup.php" class="btn btn-outline-warning">Sign Up</a></li>
+                    <li class="nav-item p_lr"><a type="button" href=".../pages/public/signup.php" class="btn btn-outline-warning">Sign Up</a></li>
                 </ul>
             </div>
         </div>
@@ -310,7 +310,7 @@ include_once __DIR__ . '/templates/header.php';
 
     <!-- Footer-->
     <footer id="footer" class="bg-footer py-3">
-        <div class="container col-10 offset-1 col-lg-8 offset-lg-2 py-6">
+        <div class="container col-10 offset-1 py-6">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="widget d-sm-flex d-lg-block">

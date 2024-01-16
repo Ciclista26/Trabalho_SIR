@@ -1,5 +1,0 @@
-SQLSTATE[HY000] [2002] Nenhuma ligação pôde ser feita porque o computador de destino
-as recusou ativamenteSQLSTATE[HY000] [2002] Nenhuma ligação pôde ser feita porque o computador de destino
-as recusou ativamenteSQLSTATE[HY000] [2002] Nenhuma ligação pôde ser feita porque o computador de destino
-as recusou ativamenteSQLSTATE[HY000] [2002] Nenhuma ligação pôde ser feita porque o computador de destino
-as recusou ativamente

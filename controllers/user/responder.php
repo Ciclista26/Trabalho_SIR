@@ -14,14 +14,14 @@ if (isset($_GET['resposta'])) {
         $votacao = getByIdVotacao($_GET['id_votacao']);
         $votacao['action'] = 'respresposta';
         $params = '?' . http_build_query($votacao);
-        header('location: /Trabalho_SIR/pages/secure/user/resp_votacao.php' . $params);
+        header('location: ../pages/secure/user/resp_votacao.php' . $params);
     }
     
     if ($_GET['resposta'] == 'resultresposta') {
         $votacao = getByIdVotacao($_GET['id_votacao']);
         $votacao['action'] = 'resultresposta';
         $params = '?' . http_build_query($votacao);
-        header('location: /Trabalho_SIR/pages/secure/user/resultados.php' . $params);
+        header('location: ../pages/secure/user/resultados.php' . $params);
     }
 }
 
@@ -31,7 +31,7 @@ function respResposta($req)
         $_SESSION['errors'] = $req['invalid'];
         $_SESSION['form_data'] = $req;
         $params = '?' . http_build_query($req);
-        header('location: /Trabalho_SIR/pages/secure/user/responder.php' . $params);
+        header('location: ../pages/secure/user/responder.php' . $params);
         return false;
     }
 
@@ -51,5 +51,5 @@ function respResposta($req)
     }
 
     $_SESSION['success'] = 'Resposta created successfully!';
-    header('location: /Trabalho_SIR/pages/secure/');
+    header('location: ../pages/secure/');
 }
