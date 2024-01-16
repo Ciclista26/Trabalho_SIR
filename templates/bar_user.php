@@ -11,7 +11,7 @@
             </div>
             <div class="r-0">
                 <span class="d-inline small px-2"><?= $user['name'] ?? null ?> <?= $user['lastname'] ?? null ?></span>
-                <img class="img-profile rounded-circle" src="<?= $user['profile_image'] ?? '/Trabalho_SIR/assets/image/default.jpg' ?>">
+                <img class="img-profile rounded-circle" src="<?= !empty($user['foto']) ? $userPhotoPath : '/Trabalho_SIR/assets/image/default.jpg' ?>" />
             </div>
         </div>
     </nav>

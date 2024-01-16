@@ -4,6 +4,7 @@ $title = 'Perfil';
 include_once __DIR__ . '../../../../templates/header.php';
 @require_once __DIR__ . '/../../../helpers/session.php';
 $user = user();
+$userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
 ?>
 
 <body>
@@ -53,8 +54,8 @@ $user = user();
                                 <input type="email" class="form-control" name="email" maxlength="255" value="<?= isset($_REQUEST['email']) ? $_REQUEST['email'] : $user['email'] ?>" readonly>
                             </div>
                             <div class="input col-12 col-sm-6 mb-3">
-                                <label class="small" for="inputGroupFile01">Fotografia:</label>
-                                <input accept="image/*" type="file" class="form-control" id="inputGroupFile01" name="foto" />
+                                <label class="small" for="foto">Fotografia:</label>
+                                <input accept="image/*" type="file" class="form-control" id="foto" name="foto" />
                             </div>
                         </div>
                         <div class="d-grid col-12 col-xl-2 col-md-3 col-sm-4 mx-auto">

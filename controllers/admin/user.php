@@ -91,28 +91,35 @@ function update($req)
 }
 
 function updateProfile($req)
-{
-    $data = validatedUser($req);
+        {
+            $data = validatedUser($req);
+        
+            if (isset($data['invalid'])) {
+                $_SESSION['errors'] = $data['invalid'];
+                $params = '?' . http_build_query($req);
+                header('location: /Trabalho_SIR/pages/secure/user/profile.php' . $params);
+            } else {
+                $user = user();
+                $data['id'] = $user['id'];
+                $data['administrator'] = $user['administrator'];
+                $data['foto'] = $user['foto'];
 
-    if (isset($data['invalid'])) {
-        $_SESSION['errors'] = $data['invalid'];
-        $params = '?' . http_build_query($req);
-        header('location: /Trabalho_SIR/pages/secure/user/profile.php' . $params);
-        } else {
-        $user = user(); 
-        $data['id'] = $user['id'];
-        $data['administrator'] = $user['administrator'];
-
-        $success = updateUser($data);
-
-        if ($success) {
-            $_SESSION['success'] = 'User successfully changed!';
-            $_SESSION['action'] = 'update';
-            $params = '?' . http_build_query($data);
-            header('location: /Trabalho_SIR/pages/secure/user/profile.php' . $params);
+                echo $data['foto'];
+                if (!empty($_FILES['foto']['name'])) {
+                    deleteFile($data['foto']);
+                    $data = saveFile($data, $req);
+                }
+        
+                $success = updateUser($data);
+        
+                if ($success) {
+                    $_SESSION['success'] = 'User successfully changed!';
+                    $_SESSION['action'] = 'update';
+                    $params = '?' . http_build_query($data);
+                    header('location: /Trabalho_SIR/pages/secure/user/profile.php' . $params);
+                }
+            }
         }
-    }
-}
 
 function changePassword($req)
 {
@@ -130,7 +137,34 @@ function changePassword($req)
         }
     }
 }
-
+function saveFile($data, $oldImage = null)
+{
+    $fileName = $_FILES['foto']['name'];
+    $tempFile = $_FILES['foto']['tmp_name'];
+    $extension = pathinfo($fileName, PATHINFO_EXTENSION);
+    $extension = strtolower($extension);
+    $newName = uniqid('foto_') . '.' . $extension;
+    $path = __DIR__ . '/../../assets/images/uploads/';
+    $file = $path . $newName;
+    if (move_uploaded_file($tempFile, $file)) {
+        $data['foto'] = $newName;
+        if (isset($data['user']) && ($data['user'] == 'update') || ($data['user'] == 'profile')) {
+            unlink($path . $oldImage['foto']);
+        }
+    }
+    return $data;
+}
+function deleteFile($fileName)
+{
+    $path = __DIR__ . '/../../assets/images/uploads/';
+    $fileToDelete = $path . $fileName;
+    if (is_file($fileToDelete)) {
+        unlink($fileToDelete);
+        return true;
+    } else {
+        return false;
+    }
+}
 function delete_user($user)
 {
     $data = deleteUser($user['id']);

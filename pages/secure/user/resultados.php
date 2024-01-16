@@ -13,6 +13,7 @@ $totalVotosPorOpcao = getTotalVotosPorOpcao($idVotacao);
 $votacao = getByIdVotacao($idVotacao);
 $title = 'Resultados votação';
 $user = user();
+$userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
 ?>
 
 <body>
@@ -44,9 +45,9 @@ $user = user();
                                             <h3 class="mb-4 card-title">Total de votos</h3>
                                             <div class="col-12 p-0 mb-md-0">
 
-                                                <h5>
-                                                    <?php echo $totalVotos; ?>
-                                                </h5>
+                                                <h4>
+                                                    <?php echo $totalVotos;?> Votos
+                                                </h4>
 
                                             </div>
                                         </div>
@@ -55,11 +56,11 @@ $user = user();
                                         <div class="card h-100 p-3 jc-center">
                                             <h3 class="mb-4 card-title">Mais votado</h3>
                                             <div class="col-12 p-0 mb-md-0">
-                                                <h5>
+                                                <h4>
                                                     <?php
                                                     echo isset($maisVotada['texto_resposta']) ? $maisVotada['texto_resposta'] . ' (' . $maisVotada['total_votos_opcao'] . ' votos)' : 'Não há dados disponíveis';
                                                     ?>
-                                                </h5>
+                                                </h4>
                                             </div>
                                         </div>
                                     </div>
@@ -67,11 +68,11 @@ $user = user();
                                         <div class="card h-100 p-3 jc-center">
                                             <h3 class="mb-4 card-title">Menos votado</h3>
                                             <div class="col-12 p-0 mb-md-0">
-                                                <h5>
+                                                <h4>
                                                     <?php
                                                     echo isset($maisVotada['texto_resposta']) ? $menosVotada['texto_resposta'] . ' (' . $menosVotada['total_votos_opcao'] . ' votos)' : 'Não há dados disponíveis';
                                                     ?>
-                                                </h5>
+                                                </h4>
                                             </div>
                                         </div>
                                     </div>
@@ -79,9 +80,9 @@ $user = user();
                                         <div class="card h-100 p-3 jc-center">
                                             <h3 class="mb-4 card-title">Votos em branco</h3>
                                             <div class="col-12 p-0 mb-md-0">
-                                                <h5>
-                                                    <?php echo $votosBranco; ?>
-                                                </h5>
+                                                <h4>
+                                                    <?php echo $votosBranco; ?> Votos
+                                                </h4>
                                             </div>
                                         </div>
                                     </div>
@@ -172,7 +173,5 @@ $user = user();
         };
     </script>
     <?php
-    $bla = [12, 12, 12]; // ARRAY para string para meteres em baixo
-    // tens que criar um get para ir buscar estes valores
-    // trocar o bla por algo melhor e meter ali em baixo
-    echo "<script>genChart($bla)</script>" ?> -->
+    $bla = [12, 12, 12]; 
+    echo "<script>genChart([12,12,12])</script>" ?> -->

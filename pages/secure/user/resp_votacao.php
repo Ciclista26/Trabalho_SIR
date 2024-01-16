@@ -21,6 +21,7 @@ if (usuarioJaRespondeu($id_user, $idVotacao) && $dataAtual <= $dataFim) {
 $opcoes = getByIdOpcoes($_REQUEST['id_votacao']);
 $title = 'Responder votação';
 $user = user();
+$userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
 ?>
 
 <body>

@@ -5,6 +5,7 @@ require_once __DIR__ . '/../../../templates/header.php';
 
 $users = getAll();
 $user = user();
+$userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
 $title = 'Utilizadores';
 ?>
 

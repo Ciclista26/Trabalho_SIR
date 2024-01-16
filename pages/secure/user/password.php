@@ -5,6 +5,7 @@ include_once __DIR__ . '../../../../templates/header.php';
 
 $title = 'Mudar Password';
 $user = user();
+$userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
 ?>
 
 <body>

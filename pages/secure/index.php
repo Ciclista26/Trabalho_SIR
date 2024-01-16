@@ -8,6 +8,7 @@ include_once __DIR__ . '../../../templates/header.php';
 $id_user = $_SESSION['id'];
 $votacoes = getAllVotacoesByUserId($id_user);
 $user = user();
+$userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
 ?>
 
 <body>

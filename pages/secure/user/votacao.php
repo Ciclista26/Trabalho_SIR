@@ -6,6 +6,7 @@ require_once __DIR__ . '/../../../infra/repositories/votacaoRepository.php';
 
 $title = 'Criar votação';
 $user = user();
+$userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
 ?>
 
 <body>
