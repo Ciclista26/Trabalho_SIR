@@ -108,13 +108,20 @@ $userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
 
                                     var options = {
                                         pieHole: 0.4,
-                                        margin:0,
+                                        margin: 0,
                                         legend: {
-                                            position: 'bottom'
+                                            position: 'bottom',
+                                            alignment: 'center',
+                                            maxLines: null
+                                        },
+                                        chartArea: {
+                                            top: 10,
+                                            width: '100%',
+                                            height: '80%'
                                         }
                                     };
-
                                     var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+
                                     function resizeChart() {
                                         chart.draw(data, options);
                                     }
@@ -122,6 +129,7 @@ $userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
                                     resizeChart();
                                 }
                             </script>
+
                             <div class="card-body-table p-3 col-12 col-lg-6">
                                 <div class="card mb-3">
                                     <div class="row m-3">
@@ -131,7 +139,6 @@ $userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </section>
