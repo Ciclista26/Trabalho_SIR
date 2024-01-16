@@ -93,7 +93,7 @@ function removerUltimaInput() {
   }
 }
 
-//grafico
+/* //grafico
 var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: "doughnut",
@@ -125,4 +125,4 @@ var myPieChart = new Chart(ctx, {
     },
     cutoutPercentage: 80,
   },
-});
+}); */

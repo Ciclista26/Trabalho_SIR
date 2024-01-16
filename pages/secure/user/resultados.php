@@ -46,7 +46,7 @@ $userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
                                             <div class="col-12 p-0 mb-md-0">
 
                                                 <h4>
-                                                    <?php echo $totalVotos;?> Votos
+                                                    <?php echo $totalVotos; ?> Votos
                                                 </h4>
 
                                             </div>
@@ -89,43 +89,49 @@ $userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
 
                                 </div>
                             </div>
+                            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                            <script type="text/javascript">
+                                google.charts.load("current", {
+                                    packages: ["corechart"]
+                                });
+                                google.charts.setOnLoadCallback(drawChart);
+
+                                function drawChart() {
+                                    var data = google.visualization.arrayToDataTable([
+                                        ['Resposta', 'Nº Votações'],
+                                        <?php
+                                        foreach ($totalVotosPorOpcao as $total) {
+                                            $texto_resposta = empty(trim($total['texto_resposta'])) ? 'Votos em Branco' : $total['texto_resposta'];
+                                        ?>['<?= $texto_resposta ?>', <?= $total['total_votos_opcao'] ?>],
+                                        <?php } ?>
+                                    ]);
+
+                                    var options = {
+                                        pieHole: 0.4,
+                                        margin:0,
+                                        legend: {
+                                            position: 'bottom'
+                                        }
+                                    };
+
+                                    var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                                    function resizeChart() {
+                                        chart.draw(data, options);
+                                    }
+                                    window.addEventListener('resize', resizeChart);
+                                    resizeChart();
+                                }
+                            </script>
                             <div class="card-body-table p-3 col-12 col-lg-6">
                                 <div class="card mb-3">
                                     <div class="row m-3">
-                                        <div class="col-12 p-0">
-                                            <div class="card-body-table row">
-                                                <div class="chart-pie col-12 col-lg-8 ">
-                                                    <canvas id="myPieChart" height="300px"></canvas>
-                                                </div>
-                                                <div class="col-12 col-lg-4 al-self mt-3 mt-sm-0">
-                                                    <div class="small row">
-                                                        <div class="d-flex col-12 col-sm-4 col-lg-12 mb-1 al-c jc-center">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                                                                <circle cx="8" cy="8" r="8" />
-                                                            </svg>
-                                                            <span class="ml-2">Direct</span>
-                                                        </div>
-                                                        <div class="d-flex col-12 col-sm-4 col-lg-12 mb-1 al-c jc-center">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                                                                <circle cx="8" cy="8" r="8" />
-                                                            </svg>
-                                                            <span class="ml-2">Direct</span>
-                                                        </div>
-                                                        <div class="d-flex col-12 col-sm-4 col-lg-12 mb-1 al-c jc-center">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                                                                <circle cx="8" cy="8" r="8" />
-                                                            </svg>
-                                                            <span class="ml-2">Direct</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
+                                        <div class="col-12 p-0 justify-content-center">
+                                            <div id="donutchart" style="width: 100%; height: 400px;"></div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </section>
@@ -138,40 +144,3 @@ $userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
     <?php
     include_once __DIR__ . '../../../../templates/footer.php';
     ?>
-    <!-- <script>
-        var ctx = document.getElementById("myPieChart");
-        const genChart = (data) => {
-            return new Chart(ctx, {
-                type: "doughnut",
-                data: {
-                    labels: ["Direct", "Referral", "Social"],
-                    datasets: [{
-                        data: [...data],
-                        backgroundColor: ["#4e73df", "#1cc88a", "#36b9cc"],
-                        hoverBackgroundColor: ["#2e59d9", "#17a673", "#2c9faf"],
-                        hoverBorderColor: "rgba(234, 236, 244, 1)",
-                    }, ],
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    tooltips: {
-                        backgroundColor: "rgb(255,255,255)",
-                        bodyFontColor: "#858796",
-                        borderColor: "#dddfeb",
-                        borderWidth: 1,
-                        xPadding: 0,
-                        yPadding: 0,
-                        displayColors: false,
-                        caretPadding: 10,
-                    },
-                    legend: {
-                        display: false,
-                    },
-                    cutoutPercentage: 80,
-                },
-            });
-        };
-    </script>
-    <?php
-    $bla = [12, 12, 12]; 
-    echo "<script>genChart([12,12,12])</script>" ?> -->

@@ -100,11 +100,11 @@ function updateProfile($req)
                 header('location: /Trabalho_SIR/pages/secure/user/profile.php' . $params);
             } else {
                 $user = user();
+                if ($user['administrator'] == 1) {
+                    $data['administrator'] = $user['administrator'];
+                }
                 $data['id'] = $user['id'];
-                $data['administrator'] = $user['administrator'];
                 $data['foto'] = $user['foto'];
-
-                echo $data['foto'];
                 if (!empty($_FILES['foto']['name'])) {
                     deleteFile($data['foto']);
                     $data = saveFile($data, $req);
@@ -167,6 +167,9 @@ function deleteFile($fileName)
 }
 function delete_user($user)
 {
+    echo $user['foto'];
+    deleteFile($user['foto']);
     $data = deleteUser($user['id']);
+    echo $data;
     return $data;
 }
