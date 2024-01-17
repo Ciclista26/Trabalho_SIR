@@ -1,0 +1,1 @@
+SQLSTATE[HY000] [1045] Access denied for user 'id21529582_votacerto'@'localhost' (using password: YES)
