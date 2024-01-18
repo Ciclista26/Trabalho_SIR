@@ -5,7 +5,7 @@ include_once __DIR__ . '../../../../templates/header.php';
 
 $title = 'Mudar Password';
 $user = user();
-$userPhotoPath =  "../assets/images/uploads/" . $user['foto'];
+$userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
 ?>
 
 <body>
@@ -20,14 +20,14 @@ $userPhotoPath =  "../assets/images/uploads/" . $user['foto'];
             <div class="div_table mx-xs-3 mx-sm-4 bg-white static-top shadow">
                 <section class="m-0 p-3">
                     <div class="d-sm-flex justify-content">
-                        <a class="btn col-12 col-xl-2 col-md-3 col-sm-4 me-sm-3 mb-3 mb-sm-0 btn-secondary" href="../pages/secure/user/profile.php">Voltar</a>
+                        <a class="btn col-12 col-xl-2 col-md-3 col-sm-4 me-sm-3 mb-3 mb-sm-0 btn-secondary" href="/Trabalho_SIR/pages/secure/user/profile.php">Voltar</a>
                     </div>
                 </section>
                 <?php
                 include_once __DIR__ . '../../../../templates/error.php';
                 ?>
                 <section>
-                    <form action="../controllers/admin/user.php" method="post" class="px-3">
+                    <form action="/Trabalho_SIR/controllers/admin/user.php" method="post" class="px-3">
                         <div class="input mb-3">
                             <span class="small">Password Atual:</span>
                             <input type="password" class="form-control" name="old_password">

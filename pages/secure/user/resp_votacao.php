@@ -14,14 +14,14 @@ $dataAtual = new DateTime();
 
 if (usuarioJaRespondeu($id_user, $idVotacao) && $dataAtual <= $dataFim) {
     $_SESSION['errors'] = ['Você já respondeu a esta votação.'];
-    header('location: ../pages/secure/');
+    header('location: /Trabalho_SIR/pages/secure/');
     exit();
 }
 
 $opcoes = getByIdOpcoes($_REQUEST['id_votacao']);
 $title = 'Responder votação';
 $user = user();
-$userPhotoPath =  "../assets/images/uploads/" . $user['foto'];
+$userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
 ?>
 
 <body>
@@ -37,7 +37,7 @@ $userPhotoPath =  "../assets/images/uploads/" . $user['foto'];
             <div class="div_table mx-xs-3 mx-sm-4 bg-white static-top shadow">
                 <section class="m-0 p-3">
                     <div class="d-sm-flex justify-content">
-                        <a class="btn col-12 col-xl-2 col-md-3 col-sm-4 me-sm-3 mb-3 mb-sm-0 btn-secondary" href="../pages/secure/">Voltar</a>
+                        <a class="btn col-12 col-xl-2 col-md-3 col-sm-4 me-sm-3 mb-3 mb-sm-0 btn-secondary" href="/Trabalho_SIR/pages/secure/">Voltar</a>
                     </div>
                 </section>
                 <?php
@@ -57,7 +57,7 @@ $userPhotoPath =  "../assets/images/uploads/" . $user['foto'];
                                 <button class="w-100 btn btn-warning-yellow" type="submit" name="votar" value="password" onclick="votar()">Votar</button>
                             </div>
                         </div>
-                        <form name="responderForm" class="resp_aparecer tx-c d-none" enctype="multipart/form-data" action="../controllers/user/responder.php" method="post">
+                        <form name="responderForm" class="resp_aparecer tx-c d-none" enctype="multipart/form-data" action="/Trabalho_SIR/controllers/user/responder.php" method="post">
                             <h1 class="mb-5 card-title p-3"><?= $votacao['nome_votacao'] ?></h1>
                             <div class="row col-12 col-xl-8 offset-xl-2 m-auto">
                                 <?php
@@ -114,7 +114,7 @@ $userPhotoPath =  "../assets/images/uploads/" . $user['foto'];
                         </div>
                         <div class="d-grid col-12 col-xl-2 col-md-3 col-sm-4 px-3 mx-auto">
                             <input type="hidden" name="id_votacao" value="<?= isset($_REQUEST['id_votacao']) ? $_REQUEST['id_votacao'] : null ?>">
-                            <a href="../controllers/user/responder.php?<?= 'resposta=resultresposta&id_votacao=' . $votacao['id_votacao'] ?>">
+                            <a href="/Trabalho_SIR/controllers/user/responder.php?<?= 'resposta=resultresposta&id_votacao=' . $votacao['id_votacao'] ?>">
                                 <button class="w-100 btn btn-warning-yellow">Resultado</button>
                             </a>
                         </div>

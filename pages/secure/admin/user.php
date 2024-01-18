@@ -3,7 +3,7 @@ require_once __DIR__ . '/../../../infra/middlewares/middleware-administrator.php
 require_once __DIR__ . '/../../../templates/header.php';
 
 $user = user();
-$userPhotoPath =  "../assets/images/uploads/" . $user['foto'];
+$userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
 $title = 'Utilizadores';
 ?>
 
@@ -26,7 +26,7 @@ $title = 'Utilizadores';
                 include_once __DIR__ . '../../../../templates/error.php';
                 ?>
                 <section class="pb-4">
-                    <form enctype="multipart/form-data" action="../controllers/admin/user.php" method="post" class="px-3">
+                    <form enctype="multipart/form-data" action="/Trabalho_SIR/controllers/admin/user.php" method="post" class="px-3">
                         <div class="row">
                             <div class="input col-12 col-sm-6 mb-3">
                                 <span class="small">Nome:</span>

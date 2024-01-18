@@ -20,7 +20,7 @@ if (isset($_GET['votacao'])) {
         $votacao = getByIdVotacao($_GET['id_votacao']);
         $votacao['action'] = 'votacaoupdate';
         $params = '?' . http_build_query($votacao);
-        header('location: ../pages/secure/user/votacao.php' . $params);
+        header('location: /Trabalho_SIR/pages/secure/user/votacao.php' . $params);
     }
 
     if ($_GET['votacao'] == 'votacaodelete') {
@@ -30,7 +30,7 @@ if (isset($_GET['votacao'])) {
 
         if ($success) {
             $_SESSION['success'] = 'Votacao deleted successfully!';
-            header('location: ../pages/secure/');
+            header('location: /Trabalho_SIR/pages/secure/');
         }
     }
 }
@@ -43,7 +43,7 @@ function votacaoCreate($req)
         $_SESSION['errors'] = $validatedData['invalid'];
         $_SESSION['form_data'] = $req;
         $params = '?' . http_build_query($req);
-        header('location: ../pages/secure/user/votacao.php' . $params);
+        header('location: /Trabalho_SIR/pages/secure/user/votacao.php' . $params);
         return false;
     }
 
@@ -76,7 +76,7 @@ function votacaoCreate($req)
     }
 
     $_SESSION['success'] = 'Votacao created successfully!';
-    header('location: ../pages/secure/');
+    header('location: /Trabalho_SIR/pages/secure/');
 }
 
 function votacaoUpdate($req)
@@ -87,7 +87,7 @@ function votacaoUpdate($req)
         $_SESSION['errors'] = $validatedData['invalid'];
         $_SESSION['form_data'] = $req;
         $params = '?' . http_build_query($req);
-        header('location: ../pages/secure/user/votacao.php' . $params);
+        header('location: /Trabalho_SIR/pages/secure/user/votacao.php' . $params);
         return false;
     }
 
@@ -126,7 +126,7 @@ function votacaoUpdate($req)
     }
 
     $_SESSION['success'] = 'Votação atualizada com sucesso!';
-    header('location: ../pages/secure/');
+    header('location: /Trabalho_SIR/pages/secure/');
     return true;
 }
 

@@ -8,7 +8,7 @@ include_once __DIR__ . '../../../templates/header.php';
 $id_user = $_SESSION['id'];
 $votacoes = getAllVotacoesByUserId($id_user);
 $user = user();
-$userPhotoPath =  "../assets/images/uploads/" . $user['foto'];
+$userPhotoPath =  "/Trabalho_SIR/assets/images/uploads/" . $user['foto'];
 ?>
 
 <body>
@@ -39,7 +39,7 @@ $userPhotoPath =  "../assets/images/uploads/" . $user['foto'];
                                 <div class="col-12 col-sm-6 d-none d-sm-block">
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <a class="btn w-100 btn-secondary" href="../pages/secure/user/votacao.php" role="button">Criar Votacao</a>
+                                    <a class="btn w-100 btn-secondary" href="/Trabalho_SIR/pages/secure/user/votacao.php" role="button">Criar Votacao</a>
                                 </div>
                             </div>
                         </div>
@@ -61,18 +61,18 @@ $userPhotoPath =  "../assets/images/uploads/" . $user['foto'];
                                             <h6 class="card-title"><?= $votacao['data_fim'] ?></h6>
                                             <p class="card-text mb-0"><?= $votacao['objetivo_votacao'] ?></p>
                                             <div class="col-12 mt-3 p-0 d-flex space-around al-c">
-                                                <a href="../controllers/user/responder.php?<?= 'resposta=respresposta&id_votacao=' . $votacao['id_votacao'] ?>">
+                                                <a href="/Trabalho_SIR/controllers/user/responder.php?<?= 'resposta=respresposta&id_votacao=' . $votacao['id_votacao'] ?>">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
                                                         <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z" />
                                                         <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0" />
                                                     </svg>
                                                 </a>
-                                                <a href="../controllers/user/responder.php?<?= 'resposta=resultresposta&id_votacao=' . $votacao['id_votacao'] ?>">
+                                                <a href="/Trabalho_SIR/controllers/user/responder.php?<?= 'resposta=resultresposta&id_votacao=' . $votacao['id_votacao'] ?>">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
                                                         <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z" />
                                                     </svg>
                                                 </a>
-                                                <a href="../controllers/user/votacao.php?<?= 'votacao=votacaoupdate&id_votacao=' . $votacao['id_votacao'] ?>">
+                                                <a href="/Trabalho_SIR/controllers/user/votacao.php?<?= 'votacao=votacaoupdate&id_votacao=' . $votacao['id_votacao'] ?>">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                                                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
@@ -102,7 +102,7 @@ $userPhotoPath =  "../assets/images/uploads/" . $user['foto'];
                                         Tem certeza de que deseja excluir este votação?
                                     </div>
                                     <div class="modal-footer">
-                                        <a class="btn col-12 col-xl-3 col-md-4 col-sm-5 me-sm-3 mb-3 mb-sm-0 btn-warning-yellow" href="../controllers/user/votacao.php?<?= 'votacao=votacaodelete&id_votacao=' . $votacao['id_votacao'] ?>">Confirmar</a>
+                                        <a class="btn col-12 col-xl-3 col-md-4 col-sm-5 me-sm-3 mb-3 mb-sm-0 btn-warning-yellow" href="/Trabalho_SIR/controllers/user/votacao.php?<?= 'votacao=votacaodelete&id_votacao=' . $votacao['id_votacao'] ?>">Confirmar</a>
 
                                     </div>
                                 </div>
@@ -138,18 +138,18 @@ $userPhotoPath =  "../assets/images/uploads/" . $user['foto'];
                                     </td>
                                     <td>
                                         <div class="d-flex space-around">
-                                            <a href="../controllers/user/responder.php?<?= 'resposta=respresposta&id_votacao=' . $votacao['id_votacao'] ?>">
+                                            <a href="/Trabalho_SIR/controllers/user/responder.php?<?= 'resposta=respresposta&id_votacao=' . $votacao['id_votacao'] ?>">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
                                                     <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z" />
                                                     <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0" />
                                                 </svg>
                                             </a>
-                                            <a href="../controllers/user/responder.php?<?= 'resposta=resultresposta&id_votacao=' . $votacao['id_votacao'] ?>">
+                                            <a href="/Trabalho_SIR/controllers/user/responder.php?<?= 'resposta=resultresposta&id_votacao=' . $votacao['id_votacao'] ?>">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
                                                     <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z" />
                                                 </svg>
                                             </a>
-                                            <a href="../controllers/user/votacao.php?<?= 'votacao=votacaoupdate&id_votacao=' . $votacao['id_votacao'] ?>">
+                                            <a href="/Trabalho_SIR/controllers/user/votacao.php?<?= 'votacao=votacaoupdate&id_votacao=' . $votacao['id_votacao'] ?>">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                                                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
@@ -175,7 +175,7 @@ $userPhotoPath =  "../assets/images/uploads/" . $user['foto'];
                                                 Tem certeza de que deseja excluir este votação?
                                             </div>
                                             <div class="modal-footer">
-                                                <a class="btn col-12 col-xl-3 col-md-4 col-sm-5 me-sm-3 mb-3 mb-sm-0 btn-warning-yellow" href="../controllers/user/votacao.php?<?= 'votacao=votacaodelete&id_votacao=' . $votacao['id_votacao'] ?>">Confirmar</a>
+                                                <a class="btn col-12 col-xl-3 col-md-4 col-sm-5 me-sm-3 mb-3 mb-sm-0 btn-warning-yellow" href="/Trabalho_SIR/controllers/user/votacao.php?<?= 'votacao=votacaodelete&id_votacao=' . $votacao['id_votacao'] ?>">Confirmar</a>
 
                                             </div>
                                         </div>
