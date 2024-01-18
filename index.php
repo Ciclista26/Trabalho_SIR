@@ -62,7 +62,7 @@ include_once __DIR__ . '/templates/header.php';
 
     <!-- Infos-->
     <section class="infos mg">
-        <div class="container-lg col-12 col-lg-10 offset-lg-1 h-100">
+        <div class="container-lg col-12 col-lg-10 offset-lg-1 col-xxl-8 offset-xxl-2 h-100">
             <div class="row h-100 align-items-center justify-content-center text-center">
                 <!-- Tabs navs -->
                 <ul class="nav nav-tabs" id="infos" role="tablist">
@@ -143,7 +143,7 @@ include_once __DIR__ . '/templates/header.php';
 
     <!-- Sondagens-->
     <section class="sondagens mg">
-        <div class="container col-12 col-md-10 offset-md-1 h-100">
+        <div class="container col-12 col-md-10 offset-md-1 col-xxl-8 offset-xxl-2 h-100">
             <div class="row mb-5 align-items-center justify-content-center text-center">
                 <div class="col-lg-5">
                     <h2 class="card-title">Votações para sondagens</h2>
@@ -225,7 +225,7 @@ include_once __DIR__ . '/templates/header.php';
 
     <!-- Sobre -->
     <section class="sobre mg">
-        <div class="container col-12 col-lg-10 offset-lg-1  h-100">
+        <div class="container col-12 col-lg-10 offset-lg-1 col-xxl-8 offset-xxl-2  h-100">
             <div class="row h-100 ">
                 <div class="col-12 col-lg-6 p-0">
                     <img src="./assets/image/teamworker.jpg" alt="teamworker">
@@ -264,7 +264,7 @@ include_once __DIR__ . '/templates/header.php';
                 </div>
             </div>
             <div class="row">
-                <div class="col-10 mb-4 mb-md-0 col-md-5 col-lg-4 ">
+                <div class="col-10 mb-4 mb-md-0 col-md-5 col-lg-4 col-xl-3">
                     <div class="card">
                         <img src="./assets/image/team/team1.jpeg" class="card-img-top" alt="team1">
                         <div class="card-body pt-0">
@@ -284,7 +284,7 @@ include_once __DIR__ . '/templates/header.php';
                     </div>
                 </div>
                 <div class="col-md-2"></div>
-                <div class="col-10 col-md-5 col-lg-4">
+                <div class="col-10 col-md-5 col-lg-4 col-xl-3">
                     <div class="card">
                         <img src="./assets/image/team/team2.jpg" class="card-img-top" alt="team2">
                         <div class="card-body pt-0">
